@@ -1,0 +1,129 @@
+import { generatePostMeta } from '../utils/post'
+
+export const meta = generatePostMeta({
+  title: 'スタックとキュー',
+  date: '2022-09-21T00:00:00',
+  draft: false,
+  tags: ['TypeScript', 'アルゴリズム', 'データ構造'],
+})
+
+基本的なデータ構造であるスタックとキューについて学んでいきます。
+
+
+## スタック
+
+スタックは最初に入れたデータが最後に取り出されるデータ構造です。日本語では「積み重ね」という意味を持ちます。
+
+具体的には、本を積み重ねた状態をイメージするとわかりやすいです。最後に載せた本を最初に取り出すことができ、最初に置いた本は一番下にあるため最後に取り出すことになります。
+このような「先に入れたものが後で出てくる」という特徴から、**FILO(First In Last Out)** とも呼ばれています。
+
+スタックにデータを追加することを「プッシュ」、データを取り出すことを「ポップ」と呼びます。
+
+```ts
+/**
+ * A class representing a stack (LIFO: Last In, First Out).
+ */
+class Stack {
+  /** @type {number[]} The internal list used to store stack elements. */
+  list: number[];
+
+  /**
+   * Creates an instance of a Stack.
+   */
+  constructor() {
+    this.list = [];
+  }
+
+  /**
+   * Pushes an item onto the stack.
+   * @param {number} item - The item to add to the stack.
+   */
+  push(item: number) {
+    this.list.push(item);
+    console.log('stack.list =>', this.list);
+  }
+
+  /**
+   * Removes and returns the last item added to the stack.
+   * If the stack is empty, returns `null`.
+   * @returns {number | null} The last item in the stack or `null` if empty.
+   */
+  pop() {
+    if (this.list.length > 0) {
+      const popped = this.list.pop();
+      console.log('stack.list =>', this.list);
+      return popped;
+    }
+    return null;
+  }
+}
+const stack = new Stack();
+console.log(stack.list); // []
+// pushで追加する
+stack.push(0); // stack.list => [0]
+stack.push(1); // stack.list => [0, 1]
+// popで取りだす
+const poped = stack.pop(); // stack.list => [0]
+console.log(poped); // 1
+```
+
+## キュー
+
+キューは最初に入れたデータが最初に取り出せるデータ構造です。スタックとは逆の仕組みになっています。
+
+レジに並ぶ行列を想像すると理解しやすいです。最初に並んだ人が最初に会計を済ませ、最後に並んだ人が最後に会計を済ませます。
+このような「先に入れたものが先に出てくる」という特徴から、**FIFO(First In First Out)** とも呼ばれています。
+
+キューにデータを入れることを「エンキュー」、データを取り出すことを「デキュー」と呼びます。
+
+```ts
+
+/**
+ * A class representing a queue (FIFO: First In, First Out).
+ */
+class Queue {
+  /** @type {number[]} The internal list used to store queue elements. */
+  public list: number[];
+
+  /**
+   * Creates an instance of a Queue.
+   */
+  constructor() {
+    this.list = [];
+  }
+
+  /**
+   * Adds an item to the end of the queue.
+   * @param {number} item - The item to add to the queue.
+   */
+  enqueue(item: number) {
+    this.list.push(item);
+    console.log('queue.list =>', this.list);
+  }
+
+  /**
+   * Removes and returns the first item added to the queue.
+   * If the queue is empty, returns `null`.
+   * @returns {number | null} The first item in the queue or `null` if empty.
+   */
+  dequeue() {
+    if (this.list.length > 0) {
+      const dequeued = this.list.shift();
+      console.log('queue.list =>', this.list);
+      return dequeued;
+    }
+    return null;
+  }
+}
+
+const queue = new Queue();
+console.log(queue.list); // []
+// enqueueで追加する
+queue.enqueue(0); // queue.list => [0]
+queue.enqueue(1); // queue.list => [0,1]
+// dequeueで取り出す
+const dequeued = queue.dequeue(); // queue.list => [1]
+console.log(dequeued); // 0
+```
+
+以上で`TypeScript`を使ったスタックとキューの実装が完了しました。

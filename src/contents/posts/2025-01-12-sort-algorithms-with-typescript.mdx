@@ -1,0 +1,260 @@
+import { generatePostMeta } from '../utils/post'
+
+export const meta = generatePostMeta({
+  title: 'ソートアルゴリズム with TypeScript',
+  date: '2025-01-12T16:30:00',
+  tags: ['TypeScript', 'アルゴリズム', 'ソート'],
+  draft:  false,
+})
+
+基本的なソートアルゴリズムの実装 with TypeScript。
+
+## バブルソート
+
+計算量(オーダー): $$O(n^2)$$
+
+参考: [バブルソート - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%96%E3%83%AB%E3%82%BD%E3%83%BC%E3%83%88)
+
+```ts
+/**
+ * 数値配列をバブルソートで昇順に並び替える
+ * @param {number[]} arr - ソート対象の配列
+ * @returns {number[]} ソート済みの新しい配列（元の配列は変更しない）
+ */
+const bubbleSort = (arr: number[]): number[] => {
+  const arrLength = arr.length;
+  const result = [...arr];
+
+  for (let i = 0; i < arrLength - 1; i++) {
+    // 未ソート部分を順番に見ていく
+    for (let j = 0; j < arrLength - 1 - i; j++) {
+      const prev = result[j];
+      const next = result[j + 1];
+      if (prev > next) {
+        // 前の要素が大きければ交換
+        result[j] = next;
+        result[j + 1] = prev;
+      }
+    }
+  }
+
+  return result;
+};
+```
+
+## 選択ソート
+
+計算量(オーダー): $$O(n^2)$$
+
+参考: [選択ソート - Wikipedia](https://ja.wikipedia.org/wiki/%E9%81%B8%E6%8A%9E%E3%82%BD%E3%83%BC%E3%83%88)
+
+```ts
+/**
+ * 数値配列を選択ソートで昇順に並び替える
+ * @param {number[]} arr - ソート対象の配列
+ * @returns {number[]} ソート済みの新しい配列（元の配列は変更しない）
+ */
+const selectionSort = (arr: number[]): number[] => {
+    const arrLength = arr.length;
+    const result = [...arr];
+
+    for (let i = 0; i < arrLength - 1; i++) {
+        let minIdx = i;
+
+        // 未ソート部分から最小値を見つける
+        for (let j = i + 1; j < arrLength; j++) {
+            if (result[j] < result[minIdx]) {
+                minIdx = j;
+            }
+        }
+
+        // 最小値を未ソート部分の先頭と交換
+        if (minIdx !== i) {
+            [result[i], result[minIdx]] = [result[minIdx], result[i]];
+        }
+    }
+
+    return result;
+};
+```
+
+## 挿入ソート
+
+計算量(オーダー): $$O(n^2)$$
+
+参考: [挿入ソート - Wikipedia](https://ja.wikipedia.org/wiki/%E6%8C%BF%E5%85%A5%E3%82%BD%E3%83%BC%E3%83%88)
+
+```ts
+/**
+ * 数値配列を挿入ソートで昇順に並び替える
+ * @param {number[]} arr - ソート対象の配列
+ * @returns {number[]} ソート済みの新しい配列（元の配列は変更しない）
+ */
+const insertionSort = (arr: number[]): number[] => {
+  const arrLength = arr.length;
+  const result = [...arr];
+  for (let i = 1; i < arrLength; i++) {
+    const temp = result[i];
+    let j = i - 1;
+    // ソート済み部分の適切な位置に挿入する
+    while (j >= 0 && result[j] > temp) {
+      result[j + 1] = result[j];
+      j = j - 1;
+    }
+    result[j + 1] = temp;
+  }
+
+  return result;
+};
+```
+
+## ヒープソート
+
+計算量(オーダー): $$O(n \log n)$$
+
+参考: [ヒープソート - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%BC%E3%83%97%E3%82%BD%E3%83%BC%E3%83%88)
+
+```ts
+/**
+ * 数値配列をヒープソートで昇順に並び替える
+ * @param {number[]} arr - ソート対象の配列
+ * @returns {number[]} ソート済みの新しい配列（元の配列は変更しない）
+ */
+const heapSort = (arr: number[]): number[] => {
+  const result = [...arr];
+
+  // 配列をヒープ構造に変換
+  const heapify = (n: number, i: number) => {
+    let largest = i;
+    const left = 2 * i + 1;
+    const right = 2 * i + 2;
+
+    if (left < n && result[left] > result[largest]) {
+      largest = left;
+    }
+
+    if (right < n && result[right] > result[largest]) {
+      largest = right;
+    }
+
+    if (largest !== i) {
+      const temp = result[i];
+      result[i] = result[largest];
+      result[largest] = temp;
+      heapify(n, largest);
+    }
+  };
+
+  // 初期ヒープの構築
+  for (let i = Math.floor(result.length / 2) - 1; i >= 0; i--) {
+    heapify(result.length, i);
+  }
+
+  // ヒープから要素を1つずつ取り出してソート
+  for (let i = result.length - 1; i > 0; i--) {
+    [result[0], result[i]] = [result[i], result[0]];
+    heapify(i, 0);
+  }
+
+  return result;
+};
+```
+
+## マージソート
+
+計算量(オーダー): $$O(n \log n)$$
+
+参考: [マージソート - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%BC%E3%82%B8%E3%82%BD%E3%83%BC%E3%83%88)
+
+```ts
+/**
+ * 数値配列をマージソートで昇順に並び替える
+ * @param {number[]} arr - ソート対象の配列
+ * @returns {number[]} ソート済みの新しい配列（元の配列は変更しない）
+ */
+const mergeSort = (arr: number[]): number[] => {
+  const arrLength = arr.length;
+  if (arrLength <= 1) {
+    return arr; // 配列が1つ以下の要素しか持たない場合、そのまま返す
+  }
+
+  const middle = Math.floor(arrLength / 2); // 配列を2つの部分に分割するための中間点を計算
+  const left = arr.slice(0, middle); // 左半分の配列
+  const right = arr.slice(middle); // 右半分の配列
+
+  const merge = (left: number[], right: number[]): number[] => {
+    let result: number[] = [];
+    let leftIndex = 0;
+    let rightIndex = 0;
+
+    // 左右の配列を比較しながらマージ
+    while (leftIndex < left.length && rightIndex < right.length) {
+      if (left[leftIndex] < right[rightIndex]) {
+        result.push(left[leftIndex]);
+        leftIndex++;
+      } else {
+        result.push(right[rightIndex]);
+        rightIndex++;
+      }
+    }
+
+    // 残りの要素を結果に追加
+    return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+  };
+
+  return merge(mergeSort(left), mergeSort(right)); // 再帰的にソートしてマージ
+};
+```
+
+## クイックソート
+
+計算量(オーダー): $$O(n \log n)$$
+
+参考: [クイックソート - Wikipedia](https://ja.wikipedia.org/wiki/%E3%82%AF%E3%82%A4%E3%83%83%E3%82%AF%E3%82%BD%E3%83%BC%E3%83%88)
+
+```ts
+/**
+ * 数値配列をクイックソートで昇順に並び替える
+ * @param {number[]} arr - ソート対象の配列
+ * @returns {number[]} ソート済みの新しい配列（元の配列は変更しない）
+ */
+const quickSort = (arr: number[]): number[] => {
+  const result = [...arr];
+
+  const partition = (low: number, high: number): number => {
+    // ピボットとして配列の最後の要素を選択
+    const pivot = result[high];
+    let i = low - 1;
+
+    // ピボットより小さい要素を左側に集める
+    for (let j = low; j < high; j++) {
+      if (result[j] <= pivot) {
+        i++;
+        const temp = result[i];
+        result[i] = result[j];
+        result[j] = temp;
+      }
+    }
+
+    // ピボットを適切な位置に配置
+    const temp = result[i + 1];
+    result[i + 1] = result[high];
+    result[high] = temp;
+    return i + 1;
+  };
+
+  const sort = (low: number, high: number): void => {
+    if (low < high) {
+      // パーティションのインデックスを取得
+      const pi = partition(low, high);
+
+      // パーティションの左右をそれぞれ再帰的にソート
+      sort(low, pi - 1);
+      sort(pi + 1, high);
+    }
+  };
+
+  sort(0, result.length - 1);
+  return result;
+};
+```

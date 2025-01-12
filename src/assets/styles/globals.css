@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neumorphism-shadow-color-01: #1b1b1b;
+  --neumorphism-shadow-color-02: #313131;
+  color-scheme: dark;
+}
+
+@keyframes test-animation {
+  100% {
+    top: 300px;
+  }
+}
+@layer base {
+  *:target {
+    @apply animate-wiggle;
+  }
+  a {
+    @apply break-all;
+  }
+  .markdown-body {
+    @apply bg-transparent !important;
+  }
+  .markdown-body *:is(h1, h2, h3, h4, h5, h6) a {
+    @apply text-inherit no-underline !important;
+  }
+  .markdown-body a {
+    @apply text-sky-400 underline hover:no-underline !important;
+  }
+  .markdown-body ul {
+    @apply list-disc !important;
+  }
+  .markdown-body ol {
+    @apply list-decimal !important;
+  }
+  .markdown-body table {
+    @apply w-full !important;
+  }
+  .markdown-body table th {
+    @apply whitespace-nowrap !important;
+  }
+}
+@layer component {
+  .neumorphism-shadow {
+    box-shadow: 5px 5px 10px var(--neumorphism-shadow-color-01), -5px -5px 10px
+      var(--neumorphism-shadow-color-02);
+  }
+  .neumorphism-border {
+    box-shadow: inset 1px 1px 2px var(--neumorphism-shadow-color-01), inset -1px
+      -1px 2px var(--neumorphism-shadow-color-02);
+  }
+  @media (any-hover: hover) {
+    .neumorphism-shadow:hover {
+      box-shadow: inset 5px 5px 10px var(--neumorphism-shadow-color-01), inset
+        -5px -5px 10px var(--neumorphism-shadow-color-02);
+    }
+  }
+}

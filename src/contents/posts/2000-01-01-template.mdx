@@ -1,0 +1,68 @@
+import { generatePostMeta } from '../utils/post'
+
+export const meta = generatePostMeta({
+  title: 'テンプレート',
+  date: '2000-01-01T00:00:00',
+  draft: true,
+})
+
+TEST用テンプレートファイル。
+
+参考: [基本的な書き方とフォーマットの構文](https://docs.github.com/ja/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+
+---
+
+lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+これは**ボールド**です。これは*イタリック*です。これは`コード`です。これは~~取り消し線~~です。
+
+---
+
+# 見出しレベル1
+
+見出しレベル1の文章です。
+
+## 見出しレベル2
+
+### 見出しレベル3
+
+#### 見出しレベル4
+
+##### 見出しレベル5
+
+###### 見出しレベル6
+
+---
+
+- リスト1
+- リスト2
+- リスト3
+
+1. 番号付きリスト1
+2. 番号付きリスト2
+3. 番号付きリスト3
+
+---
+
+```ts
+// コードブロック
+const message = 'Hello, World! lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+console.log(message);
+```
+
+---
+
+> 引用文です。
+
+---
+
+[リンク](#top)
+
+---
+
+| テーブル見出し1 | テーブル見出し2 | テーブル見出し3 |
+| -------- | -------- | -------- |
+| テーブル1-1 | テーブル2-1 | テーブル3-1 |
+| テーブル1-2 | テーブル2-2 | テーブル3-2 |
+
+---

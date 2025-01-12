@@ -1,0 +1,101 @@
+import { generatePostMeta } from '../utils/post'
+
+export const meta = generatePostMeta({
+  title: '1次方程式と直線',
+  date: '2022-06-23T00:00:00',
+  draft: false,
+  tags: ['数学']
+})
+
+平面上の直線について、数式とTypeScriptによる実装を考えてみます。
+
+## 直線の方程式
+
+xy座標平面において、直線は一般的に以下の2つの形式で表現できます:
+
+1. 傾きmと切片nを用いた形式: `y = mx + n`
+2. x軸に平行な直線の形式: `x = p`
+
+ただし、1の形式では x軸に平行な直線（傾きが定義できない直線）を表現できないという制限があります。
+
+これらの式は、すべての項を左辺に移項することで、一般形`ay + bx + c = 0`という形に統一できます。ここで重要な点は:
+
+- `a`と`b`の少なくとも一方は0以外の数である必要があります
+- `a ≠ 0`のとき: `y = -(b/a)x - c/a`という形になります
+- `a = 0`のとき: `x = -c/b`という形（x軸に平行な直線）になります
+
+## TypeScriptでの実装
+
+上記の数式をCanvas上に描画してみましょう。まず、HTMLにCanvasを配置します:
+
+```html
+<canvas id="canvas" width="800" height="800"></canvas>
+```
+
+`TypeScript` で直線を描画する関数を実装します:
+
+```ts
+/**
+ * Canvas要素の取得と初期設定
+ */
+const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+const context = canvas.getContext("2d") as CanvasRenderingContext2D;
+
+// Canvasのサイズを設定
+canvas.width = 800;
+canvas.height = 800;
+// 原点を中心に移動（デフォルトでは左上が原点）
+context.translate(canvas.width / 2, canvas.height / 2);
+
+/**
+ * 直線を描画する関数
+ * @param a - 一般形における yの係数
+ * @param b - 一般形における xの係数
+ * @param c - 一般形における定数項
+ */
+const drawLine = (a: number, b: number, c: number): void => {
+  // 係数が両方0の場合は直線を定義できない
+  if (a === 0 && b === 0) {
+    throw new Error("aかbのどちらかは0以外になります");
+  }
+
+  // x軸に平行な直線の場合（a = 0の場合）
+  if (a === 0) {
+    const y = {
+      from: -canvas.height / 2,
+      to: canvas.height / 2,
+    };
+    context.beginPath();
+    context.moveTo(-c / b, y.from);
+    context.lineTo(-c / b, y.to);
+    context.stroke();
+    return;
+  }
+
+  // それ以外の直線の場合
+  const x = {
+    from: -canvas.width / 2,
+    to: canvas.width / 2,
+  };
+  // y座標を計算する関数
+  const f = (x: number) => {
+    // Canvasではy軸が下向きが正なので、符号を反転
+    const y = (-b / a) * x - c / a;
+    return -y;
+  };
+
+  // 直線を描画
+  context.beginPath();
+  context.moveTo(x.from, f(x.from));
+  context.lineTo(x.to, f(x.to));
+  context.stroke();
+};
+
+// 使用例:
+// 傾きが-1、切片が0の直線（y = -x）
+drawLine(1, 1, 0);
+// y = 200 の直線（x軸に平行）
+drawLine(1, 0, 200);
+```
+
+この実装により、一般形`ay + bx + c = 0`で表される直線を Canvas 上に描画することができました。
