@@ -4,7 +4,7 @@ import { SOCIAL_LINKS } from "@/constants";
 export const Footer = () => {
   return (
     <footer className="grid gap-4 border-neutral-200/20 border-t p-4 pt-6 text-start">
-      <ul className="flex gap-2 text-sm">
+      <ul className="flex flex-wrap gap-2 text-sm">
         {SOCIAL_LINKS.map((link) => {
           return (
             <li key={link.href}>
