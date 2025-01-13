@@ -28,12 +28,11 @@ const bubbleSort = (arr: number[]): number[] => {
   for (let i = 0; i < arrLength - 1; i++) {
     // 未ソート部分を順番に見ていく
     for (let j = 0; j < arrLength - 1 - i; j++) {
-      const prev = result[j];
-      const next = result[j + 1];
-      if (prev > next) {
+      if (result[j] > result[j + 1]) {
         // 前の要素が大きければ交換
-        result[j] = next;
-        result[j + 1] = prev;
+        const temp = result[j];
+        result[j] = result[j + 1];
+        result[j + 1] = temp;
       }
     }
   }
@@ -96,11 +95,13 @@ const insertionSort = (arr: number[]): number[] => {
   for (let i = 1; i < arrLength; i++) {
     const temp = result[i];
     let j = i - 1;
-    // ソート済み部分の適切な位置に挿入する
+
+    // ソート済み部分の要素を右にずらしながら、挿入位置を探す
     while (j >= 0 && result[j] > temp) {
       result[j + 1] = result[j];
       j = j - 1;
     }
+    // ソート済み部分の適切な位置に挿入する
     result[j + 1] = temp;
   }
 
@@ -152,7 +153,9 @@ const heapSort = (arr: number[]): number[] => {
 
   // ヒープから要素を1つずつ取り出してソート
   for (let i = result.length - 1; i > 0; i--) {
-    [result[0], result[i]] = [result[i], result[0]];
+    const temp = result[0];
+    result[0] = result[i];
+    result[i] = temp;
     heapify(i, 0);
   }
 

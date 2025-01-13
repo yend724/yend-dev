@@ -1,0 +1,255 @@
+import { generatePostMeta } from '../utils/post'
+
+export const meta = generatePostMeta({
+  title: 'ソートアルゴリズム with Rust',
+  date: '2025-01-14T01:05:00',
+  tags: ['Rust', 'アルゴリズム', 'ソート'],
+  draft:  false,
+})
+
+基本的なソートアルゴリズムの実装 with Rust。
+
+## バブルソート
+
+計算量(オーダー): $$O(n^2)$$
+
+参考: [バブルソート - Wikipedia](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=25b96187911a3eb47caeed946496895a)
+
+```rust
+fn bubble_sort<T: Ord + Clone>(arr: &[T]) -> Vec<T> {
+    let mut result = arr.to_vec();
+    let n = result.len();
+
+    for i in 0..n {
+        // 未ソート部分を順番に見ていく
+        for j in 0..n - i - 1 {
+            if result[j] > result[j + 1] {
+                // 前の要素が大きければ交換
+                result.swap(j, j + 1);
+            }
+        }
+    }
+
+    result
+}
+```
+
+[Rust Playground で試す](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=5aa10bb3c9589664f5ac07ed9cfffb07)
+
+## 選択ソート
+
+計算量(オーダー): $$O(n^2)$$
+
+参考: [選択ソート - Wikipedia](https://ja.wikipedia.org/wiki/%E9%81%B8%E6%8A%9E%E3%82%BD%E3%83%BC%E3%83%88)
+
+```rust
+fn selection_sort<T: Ord + Clone>(arr: &[T]) -> Vec<T> {
+    let mut result = arr.to_vec();
+    let n = result.len();
+
+    // 要素が0個または1個の場合は、そのまま返す
+    if n <= 1 {
+        return result;
+    }
+
+    for i in 0..n - 1 {
+        let mut min_index = i;
+
+        // 未ソート部分から最小値を見つける
+        for j in i + 1..n {
+            if result[j] < result[min_index] {
+                min_index = j;
+            }
+        }
+
+        // 最小値を未ソート部分の先頭と交換
+        if min_index != i {
+            result.swap(i, min_index);
+        }
+    }
+
+    result
+}
+```
+
+[Rust Playground で試す](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=712f93ba2b2c44c7adbbeb4855d8a2b1)
+
+
+## 挿入ソート
+
+計算量(オーダー): $$O(n^2)$$
+
+参考: [挿入ソート - Wikipedia](https://ja.wikipedia.org/wiki/%E6%8C%BF%E5%85%A5%E3%82%BD%E3%83%BC%E3%83%88)
+
+```rust
+fn insertion_sort<T: Ord + Clone>(arr: &[T]) -> Vec<T> {
+    let mut result = arr.to_vec();
+    let n = result.len();
+
+    for i in 1..n {
+        let current = result[i].clone();
+        let mut j = i;
+
+        // ソート済み部分の要素を右にずらしながら、挿入位置を探す
+        while j > 0 && result[j - 1] > current {
+            result[j] = result[j - 1].clone();
+            j -= 1;
+        }
+
+        // 適切な位置に要素を挿入
+        result[j] = current;
+    }
+
+    result
+}
+```
+
+[Rust Playground で試す](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=156e4ff0016727b9144a6f73eb9e2d1b)
+
+## ヒープソート
+
+計算量(オーダー): $$O(n \log n)$$
+
+参考: [ヒープソート - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%BC%E3%83%97%E3%82%BD%E3%83%BC%E3%83%88)
+
+```rust
+fn heap_sort<T: Ord>(arr: &[T]) -> Vec<T> {
+    let mut result = arr.to_vec();
+
+    // 配列をヒープ構造に変換する関数
+    fn heapify<T: Ord>(result: &mut [T], n: usize, i: usize) {
+        let mut largest = i;
+        let left = 2 * i + 1;
+        let right = 2 * i + 2;
+
+        if left < n && result[left] > result[largest] {
+            largest = left;
+        }
+
+        if right < n && result[right] > result[largest] {
+            largest = right;
+        }
+
+        if largest != i {
+            result.swap(i, largest);
+            heapify(result, n, largest);
+        }
+    }
+
+    // 初期ヒープの構築
+    let len = result.len();
+    for i in (0..len / 2).rev() {
+        heapify(&mut result, len, i);
+    }
+
+    // ヒープから要素を1つずつ取り出してソート
+    for i in (1..len).rev() {
+        result.swap(0, i);
+        heapify(&mut result, i, 0);
+    }
+
+    result
+}
+```
+
+[Rust Playground で試す](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=c5b4288c448a7c5d6ac8e3eccd4a6aa5)
+
+## マージソート
+
+計算量(オーダー): $$O(n \log n)$$
+
+参考: [マージソート - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%BC%E3%82%B8%E3%82%BD%E3%83%BC%E3%83%88)
+
+```rust
+fn merge_sort<T: Ord + Clone>(arr: &[T]) -> Vec<T> {
+    let arr_length = arr.len();
+    if arr_length <= 1 {
+        return arr.to_vec();
+    }
+
+    let middle = arr_length / 2;
+    let left = &arr[0..middle];
+    let right = &arr[middle..];
+
+    // 左右の配列をマージする関数
+    fn merge<T: Ord + Clone>(left: &[T], right: &[T]) -> Vec<T> {
+        let mut result = Vec::new();
+        let mut left_index = 0;
+        let mut right_index = 0;
+
+        // 左右の配列を比較しながらマージ
+        while left_index < left.len() && right_index < right.len() {
+            if left[left_index] < right[right_index] {
+                result.push(left[left_index].clone());
+                left_index += 1;
+            } else {
+                result.push(right[right_index].clone());
+                right_index += 1;
+            }
+        }
+
+        // 残りの要素を結果に追加
+        result.extend_from_slice(&left[left_index..]);
+        result.extend_from_slice(&right[right_index..]);
+
+        result
+    }
+
+    // 再帰的にソートしてマージ
+    merge(&merge_sort(left), &merge_sort(right))
+}
+```
+
+[Rust Playground で試す](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=80a29e5b838cafe1ed266960f64142e1)
+
+## クイックソート
+
+計算量(オーダー): $$O(n \log n)$$
+
+参考: [クイックソート - Wikipedia](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=45489a123bb5e4fc5d06763bf9d24dff)
+
+```rust
+fn quick_sort<T: Ord + Clone>(arr: &[T]) -> Vec<T> {
+    let mut result = arr.to_vec();
+
+    fn partition<T: Ord + Clone>(result: &mut [T], low: usize, high: usize) -> usize {
+        // ピボットとして配列の最後の要素を選択
+        let pivot = result[high].clone();
+        let mut i = low;
+
+        // ピボットより小さい要素を左側に集める
+        for j in low..high {
+            if result[j] <= pivot {
+                result.swap(i, j);
+                i += 1;
+            }
+        }
+
+        // ピボットを適切な位置に配置
+        result.swap(i, high);
+        i
+    }
+
+    fn sort<T: Ord + Clone>(result: &mut [T], low: usize, high: usize) {
+        if low < high {
+            // パーティションのインデックスを取得
+            let pi = partition(result, low, high);
+
+            // パーティションの左右をそれぞれ再帰的にソート
+            if pi > 0 {
+                sort(result, low, pi - 1);
+            }
+            sort(result, pi + 1, high);
+        }
+    }
+
+    if !result.is_empty() {
+        let len = result.len(); // 長さを事前に取得
+        sort(&mut result, 0, len - 1);
+    }
+
+    result
+}
+```
+
+[Rust Playground で試す](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=cf4e38a5919ba26f7b56c1badd6860c9)
