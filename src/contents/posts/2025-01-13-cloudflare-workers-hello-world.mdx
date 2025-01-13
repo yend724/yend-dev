@@ -1,13 +1,13 @@
 import { generatePostMeta } from '../utils/post'
 
 export const meta = generatePostMeta({
-  title: 'Cloudflare WorkersでHello Worldまで',
-  date: '2025-01-13T00:00:00',
+  title: 'Cloudflare WorkersでHello Worldまで試す',
+  date: '2025-01-13T17:20:00',
   tags: ['Cloudflare', 'Cloudflare Workers', 'TypeScript'],
-  draft: true,
+  draft: false,
 })
 
-Cloudflare WorkersでHello Worldまで試したのでメモです。
+Cloudflare WorkersでHello Worldまで試したのでメモ。
 
 ## 前提
 
@@ -22,14 +22,14 @@ Cloudflare WorkersでHello Worldまで試したのでメモです。
 $ npm create cloudflare@latest
 ```
 
-いくつか質問されるので、適宜答えていきます。今回はざっくり次のような設定で進めました。
+セットアップ時にいくつかの質問があります。今回は以下のような設定を選択しました。
 
 - 作成するディレクトリは`hello-world`
 - テンプレートは`Hello World example`を選択
 - 言語は`TypeScript`を選択
 - デプロイは同時には行わないので`No`を選択
 
-全体の設定は以下のようになります。
+全体の設定は下記のようになります。
 
 ```sh
 ╭ Create an application with Cloudflare Step 1 of 3
@@ -110,9 +110,9 @@ $ npx wrangler dev
 [wrangler:inf] Ready on http://localhost:8787
 ```
 
-[Wrangler](https://developers.cloudflare.com/workers/wrangler/) は開発者向けのCLIツールで、Cloudflare Workersのプロジェクトを管理するために使用されます（Wranglerを初めて使用する場合、ログインが必要です）。
+[Wrangler](https://developers.cloudflare.com/workers/wrangler/) はWorkers用の公式CLIツールです。Workersのプロジェクトを管理することができます。Wranglerを初めて使用する場合、ログインが必要です。
 
-ローカルサーバーが起動したら、`curl`で`http://localhost:8787`にリクエストを投げてみます。次のように`Hello World!`が返ってくればOKです。
+ローカルサーバーが起動したら、`curl`で`http://localhost:8787`にリクエストを投げてみます。次のように`Hello World!`が返ってくれば問題ありません。
 
 ```sh
 $ curl  http://localhost:8787
@@ -135,7 +135,7 @@ export default {
 >
 > 出典: https://developers.cloudflare.com/workers/get-started/guide/#3-write-code
 
-WorkerがHTTPリクエストを受け取ると、`fetch`関数が呼び出されます。
+Workerは、HTTPリクエストを受け取るたびに`fetch`関数を呼び出します。
 
 > The Workers runtime expects fetch handlers to return a Response object or a Promise which resolves with a Response object.
 >
@@ -147,7 +147,7 @@ WorkerがHTTPリクエストを受け取ると、`fetch`関数が呼び出され
 
 ### コードの編集
 
-次に`"Hello World!"`を`"Hello Worker!"`に変更してみます。
+次に`"Hello World!"`を`"Hello Worker!"`に変更します。
 
 ```ts
 export default {
@@ -164,7 +164,7 @@ $ curl http://localhost:8787
 Hello Worker!%
 ```
 
-また次のようにコードを編集してみます。
+さらに、リクエスト元の国を判定して表示するように、コードを次のように変更してみます。
 
 ```ts
 export default {
@@ -179,10 +179,10 @@ export default {
 >
 > 参照: https://developers.cloudflare.com/workers/runtime-apis/request/#incomingrequestcfproperties
 
-`request.cf.country`はリクエストから2文字の国コードを取得します。これを利用することでリクエスト元によって返す文字列を変更しています。
+`request.cf.country`は、リクエスト送信元の国を2文字のコードで取得します（例: 日本なら`JP`、アメリカなら`US`など）。上記のコードではアクセスしてきた国に応じて異なる文字列を返しています。
 
 ```sh
-$ curl https://hello-world.[YOUR_SUBDOMAIN].workers.dev
+$ curl http://localhost:8787
 Hello JP!%
 ```
 
@@ -190,7 +190,7 @@ Hello JP!%
 
 ## デプロイ
 
-デプロイを行うために次のコマンドを実行します。
+Workerのデプロイを行うために次のコマンドを実行します。
 
 ```sh
 $ npx wrangler deploy
