@@ -47,6 +47,9 @@
   .markdown-body table th {
     @apply whitespace-nowrap !important;
   }
+  .markdown-body pre {
+    @apply px-4 py-6 !important;
+  }
 }
 @layer component {
   .neumorphism-shadow {

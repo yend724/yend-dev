@@ -1,5 +1,6 @@
 import type { BundledLanguage } from "shiki";
 import { codeToHtml } from "shiki";
+import { CopyButton } from "./copy-button";
 
 type Props = {
   children: string;
@@ -13,7 +14,12 @@ export const CodeBlock: React.FC<Props> = async (props) => {
 
   return (
     <div className="relative">
-      <span className="absolute top-2 right-2 opacity-80">{props.lang}</span>
+      <div className="absolute top-0 right-0 flex items-center justify-center gap-2 text-sm opacity-70">
+        {props.lang && <span className="text-center">{props.lang}</span>}
+        <div className="text-end">
+          <CopyButton text={props.children.toString()} />
+        </div>
+      </div>
       {/*  biome-ignore lint: */}
       <div dangerouslySetInnerHTML={{ __html: code }} />
     </div>
