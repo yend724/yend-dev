@@ -17,15 +17,15 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
 
   return (
     <div className="w-full space-y-12 pb-12">
-      <Link href="/#書いたやつ" className="flex items-center gap-x-2">
-        <ArrowLeft size={14} />
-        記事一覧へ戻る
-      </Link>
+      <div className="flex">
+        <Link href="/#書いたやつ" className="flex items-center gap-x-2">
+          <ArrowLeft size={14} />
+          記事一覧へ戻る
+        </Link>
+      </div>
       <div className="grid gap-y-2">
         <time
-          dateTime={new Date(meta.date).toLocaleDateString("ja-JP", {
-            timeZone: "Asia/Tokyo",
-          })}
+          dateTime={new Date(meta.date).toISOString()}
           className="flex gap-x-1 text-sm opacity-80"
         >
           <span>
