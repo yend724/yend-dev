@@ -1,0 +1,221 @@
+import { generatePostMeta } from '../utils/post'
+
+export const meta = generatePostMeta({
+  title: 'Cloudflare WorkersでHello Worldまで',
+  date: '2025-01-13T00:00:00',
+  tags: ['Cloudflare', 'Cloudflare Workers', 'TypeScript'],
+  draft: true,
+})
+
+Cloudflare WorkersでHello Worldまで試したのでメモです。
+
+## 前提
+
+- Cloudflareアカウントは取得済み
+- Node.js: `v22.8.0`
+
+## Workers Project の作成
+
+次のコマンドを実行して、Cloudflare Workersのプロジェクトを作成します。
+
+```sh
+$ npm create cloudflare@latest
+```
+
+いくつか質問されるので、適宜答えていきます。今回はざっくり次のような設定で進めました。
+
+- 作成するディレクトリは`hello-world`
+- テンプレートは`Hello World example`を選択
+- 言語は`TypeScript`を選択
+- デプロイは同時には行わないので`No`を選択
+
+全体の設定は以下のようになります。
+
+```sh
+╭ Create an application with Cloudflare Step 1 of 3
+│
+├ In which directory do you want to create your application?
+│ dir ./hello-world
+│
+├ What would you like to start with?
+│ category Hello World example
+│
+├ Which template would you like to use?
+│ type Hello World Worker
+│
+├ Which language do you want to use?
+│ lang TypeScript
+│
+├ Copying template files
+│ files copied to project directory
+│
+├ Updating name in `package.json`
+│ updated `package.json`
+│
+├ Installing dependencies
+│ installed via `npm install`
+│
+╰ Application created
+
+╭ Configuring your application for Cloudflare Step 2 of 3
+│
+├ Installing @cloudflare/workers-types
+│ installed via npm
+│
+├ Adding latest types to `tsconfig.json`
+│ added @cloudflare/workers-types/2023-07-01
+│
+├ Retrieving current workerd compatibility date
+│ compatibility date 2025-01-09
+│
+├ Do you want to use git for version control?
+│ yes git
+│
+├ Initializing git repo
+│ initialized git
+│
+├ Committing new files
+│ git commit
+│
+╰ Application configured
+
+╭ Deploy with Cloudflare Step 3 of 3
+│
+├ Do you want to deploy your application?
+│ no deploy via `npm run deploy`
+│
+╰ Done
+```
+
+ローカルに`hello-world`ディレクトリが作成され、その中にプロジェクトが作成されていればOKです。
+
+## ローカルでの動作確認
+
+ローカルで動作確認を行うために、次のコマンドを実行します。
+
+```sh
+# プロジェクトディレクトリに移動
+$ cd hello-world
+# ローカルサーバーを起動
+$ npx wrangler dev
+
+> hello-world@0.0.0 dev
+> wrangler dev
+
+
+ ⛅️ wrangler 3.101.0
+--------------------
+
+⎔ Starting local server...
+[wrangler:inf] Ready on http://localhost:8787
+```
+
+[Wrangler](https://developers.cloudflare.com/workers/wrangler/) は開発者向けのCLIツールで、Cloudflare Workersのプロジェクトを管理するために使用されます（Wranglerを初めて使用する場合、ログインが必要です）。
+
+ローカルサーバーが起動したら、`curl`で`http://localhost:8787`にリクエストを投げてみます。次のように`Hello World!`が返ってくればOKです。
+
+```sh
+$ curl  http://localhost:8787
+Hello World!%
+```
+
+### コードの確認
+
+`src/index.ts`を確認してみます。
+
+```ts
+export default {
+	async fetch(request, env, ctx): Promise<Response> {
+		return new Response('Hello World!');
+	},
+} satisfies ExportedHandler<Env>;
+```
+
+> This fetch() handler will be called when your Worker receives an HTTP request.
+>
+> 出典: https://developers.cloudflare.com/workers/get-started/guide/#3-write-code
+
+WorkerがHTTPリクエストを受け取ると、`fetch`関数が呼び出されます。
+
+> The Workers runtime expects fetch handlers to return a Response object or a Promise which resolves with a Response object.
+>
+> 出典: https://developers.cloudflare.com/workers/get-started/guide/#3-write-code
+
+`fetch`関数は`Response`オブジェクトを返すか、`Response`オブジェクトを解決するPromiseを返す必要があるようです。
+
+今回の例では、`"Hello World!"`という文字列を持つ`Response`オブジェクトを返しているのがわかります。
+
+### コードの編集
+
+次に`"Hello World!"`を`"Hello Worker!"`に変更してみます。
+
+```ts
+export default {
+	async fetch(request, env, ctx): Promise<Response> {
+		return new Response('Hello Worker!');
+	},
+} satisfies ExportedHandler<Env>;
+```
+
+`"Hello Worker!"`が返ってくることを確認できます。
+
+```sh
+$ curl http://localhost:8787
+Hello Worker!%
+```
+
+また次のようにコードを編集してみます。
+
+```ts
+export default {
+	async fetch(request, env, ctx): Promise<Response> {
+		const country = request.cf?.country ?? 'unknown';
+		return new Response(`Hello ${country}!`);
+	},
+} satisfies ExportedHandler<Env>;
+```
+
+> Country of the incoming request. The two-letter country code in the request. This is the same value as that provided in the CF-IPCountry header, for example, "US".
+>
+> 参照: https://developers.cloudflare.com/workers/runtime-apis/request/#incomingrequestcfproperties
+
+`request.cf.country`はリクエストから2文字の国コードを取得します。これを利用することでリクエスト元によって返す文字列を変更しています。
+
+```sh
+$ curl https://hello-world.[YOUR_SUBDOMAIN].workers.dev
+Hello JP!%
+```
+
+日本からのリクエストの場合は`"Hello JP!"`が返ってきます。
+
+## デプロイ
+
+デプロイを行うために次のコマンドを実行します。
+
+```sh
+$ npx wrangler deploy
+
+ ⛅️ wrangler 3.101.0
+--------------------
+
+Total Upload: 0.24 KiB / gzip: 0.19 KiB
+Uploaded hello-world (2.97 sec)
+Deployed hello-world triggers (0.31 sec)
+  https://hello-world.[YOUR_SUBDOMAIN].workers.dev
+```
+
+`https://hello-world.[YOUR_SUBDOMAIN].workers.dev`にデプロイされました（`[YOUR_SUBDOMAIN]`は自分のサブドメインに置き換えてください）。
+
+実際にリクエストを投げてみると、`"Hello JP!"`が返ってくることを確認できます。
+
+```sh
+$ curl https://hello-world.[YOUR_SUBDOMAIN].workers.dev
+Hello JP!%
+```
+
+以上でCloudflare WorkersでHello Worldを試すことができました。
+
+## 参考
+
+- [Get started - CLI · Cloudflare Workers docs](https://developers.cloudflare.com/workers/get-started/guide/)
+- [Examples · Cloudflare Workers docs](https://developers.cloudflare.com/workers/examples/)
