@@ -65,9 +65,9 @@ export const getMyArticles = async () => {
   const articles = posts
     .map((post) => {
       return {
-        title: post.meta.title,
-        date: post.meta.date,
-        draft: post.meta.draft,
+        title: post.frontmatter.title,
+        date: post.frontmatter.date,
+        draft: post.frontmatter.draft,
         slug: post.slug,
       };
     })

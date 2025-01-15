@@ -1,8 +1,10 @@
 import createMDX from "@next/mdx";
 import type { NextConfig } from "next";
 import rehypeKatex from "rehype-katex";
+import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
 const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
@@ -16,7 +18,12 @@ const nextConfig: NextConfig = {
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: [remarkGfm, remarkMath],
+    remarkPlugins: [
+      remarkGfm,
+      remarkMath,
+      remarkFrontmatter,
+      remarkMdxFrontmatter,
+    ],
     rehypePlugins: [rehypeKatex],
   },
 });

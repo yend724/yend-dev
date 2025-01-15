@@ -13,11 +13,11 @@ const Home: React.FC = async () => {
   if (isProd()) {
     const posts = await getPosts();
     const filteredPosts = posts
-      .filter((post) => !post.meta.draft)
+      .filter((post) => !post.frontmatter.draft)
       .map((post) => ({
-        title: post.meta.title,
+        title: post.frontmatter.title,
         slug: post.slug,
-        date: post.meta.date,
+        date: post.frontmatter.date,
       }));
     const { rss } = generateRSS(filteredPosts);
     fs.writeFileSync("public/rss.xml", rss);

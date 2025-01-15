@@ -1,13 +1,37 @@
 import fs from "node:fs";
-import type { Meta } from "@/contents/types/post";
 import { getProjectRoot } from "@/utils/endpoints";
+import type { FC } from "react";
+import * as v from "valibot";
+
+// Define the schema
+const FrontmatterSchema = v.object({
+  title: v.string(),
+  date: v.string(),
+  draft: v.boolean(),
+  tags: v.undefinedable(v.array(v.string()), () => []),
+});
+const validatePost = (post: unknown) => {
+  if (typeof post !== "object" || post === null) {
+    throw new Error("Invalid post format");
+  }
+
+  const { frontmatter, default: Component } = post as {
+    frontmatter: unknown;
+    default: FC;
+  };
+
+  const validatedFrontmatter = v.parse(FrontmatterSchema, frontmatter);
+
+  return {
+    frontmatter: validatedFrontmatter,
+    default: Component,
+  };
+};
 
 export const getPost = async (slug: string) => {
-  const post = (await import(`@/contents/posts/${slug}`)) as {
-    meta: Meta;
-    default: React.FC;
-  };
-  return { ...post, slug: slug.replace(/\.mdx$/, "") };
+  const post = await import(`@/contents/posts/${slug}`);
+  const validatedPost = validatePost(post);
+  return { ...validatedPost, slug: slug.replace(/\.mdx$/, "") };
 };
 
 export const getPosts = async () => {
