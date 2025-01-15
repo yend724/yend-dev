@@ -50,6 +50,15 @@
   .markdown-body pre {
     @apply px-4 py-6 !important;
   }
+  .markdown-body table :is(tr, th, td) {
+    @apply bg-transparent border-0 px-4 py-2 text-start !important;
+  }
+  .markdown-body table tr:has(th) {
+    @apply border-y bg-neutral-900/50 border-neutral-200/20 !important;
+  }
+  .markdown-body table tr:nth-of-type(2n) {
+    @apply bg-neutral-900/50 !important;
+  }
 }
 @layer component {
   .neumorphism-shadow {
