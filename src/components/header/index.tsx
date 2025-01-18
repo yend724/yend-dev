@@ -8,7 +8,7 @@ export const Header: React.FC<Props> = ({
   title = (title) => <>{title}</>,
 }) => {
   return (
-    <header className="mx-auto flex w-full p-4">
+    <header className="mx-auto flex w-full max-w-5xl p-4">
       <Link href="/" className="flex items-center gap-2 font-bold">
         {title(SITE_META.title)}
       </Link>
