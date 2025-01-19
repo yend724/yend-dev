@@ -2,6 +2,7 @@ import fs from "node:fs";
 import { Link } from "@/components/link";
 import { Rss } from "@/components/rss";
 import { ShareButton } from "@/components/share-button";
+import { Toc } from "@/components/toc";
 import { XShareButton } from "@/components/x-share-button";
 import { OGP_IMAGE, SITE_META } from "@/constants";
 import { generateSharedMeta } from "@/features/opg/utils/generate-meta";
@@ -65,6 +66,9 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
           />
           <Rss />
         </div>
+      </div>
+      <div>
+        <Toc />
       </div>
       <div className="markdown-body">
         <Component />
