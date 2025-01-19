@@ -8,11 +8,6 @@
   color-scheme: dark;
 }
 
-@keyframes test-animation {
-  100% {
-    top: 300px;
-  }
-}
 @layer base {
   *:target {
     @apply animate-wiggle;
@@ -58,6 +53,38 @@
   }
   .markdown-body table tr:nth-of-type(2n) {
     @apply bg-neutral-900/50 !important;
+  }
+  [data-heading-level]::before {
+    @apply inline-block opacity-80;
+  }
+  [data-heading-level="1"]::before {
+    content: "#";
+  }
+  [data-heading-level="2"]::before {
+    content: "##";
+  }
+  [data-heading-level="3"]::before {
+    content: "###";
+  }
+  [data-heading-level="4"]::before {
+    content: "#####";
+  }
+  [data-heading-level="5"]::before {
+    content: "#####";
+  }
+  [data-heading-level="6"]::before {
+    content: "######";
+  }
+  .toc .toc-list-item {
+    counter-increment: count 1;
+  }
+  .toc .toc-list-item a {
+    @apply flex items-start gap-1 w-full py-1 px-2 rounded before:content-[counter(count)_"."];
+  }
+  @media (any-hover: hover) {
+    .toc .toc-list-item a:hover {
+      @apply bg-neutral-800;
+    }
   }
 }
 @layer component {
