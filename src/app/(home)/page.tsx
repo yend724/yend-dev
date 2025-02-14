@@ -1,10 +1,11 @@
 import fs from "node:fs";
 import { LinkTag } from "@/components/link-tag";
 import { PageTitle } from "@/components/page-title";
-import { SITE_META, SOCIAL_LINKS } from "@/constants";
 import { Articles } from "@/features/articles/components";
 import { MyWorks } from "@/features/my-works/components";
 import { ReadingLog } from "@/features/readding-log/components";
+import { SITE_META } from "@/shared/config/site";
+import { SOCIAL_LINKS } from "@/shared/config/social";
 import { isProd } from "@/utils/env";
 import { getPosts } from "@/utils/posts";
 import { generateRSS } from "./_utils/rss";

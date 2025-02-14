@@ -1,5 +1,5 @@
 import { Link } from "@/components/link";
-import { SITE_META } from "@/constants";
+import { SITE_META } from "@/shared/config/site";
 
 type Props = {
   title?: (text: string) => React.ReactNode;

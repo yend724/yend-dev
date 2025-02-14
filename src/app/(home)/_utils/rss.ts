@@ -1,4 +1,5 @@
-import { OGP_IMAGE, SITE_META } from "@/constants";
+import { OGP_IMAGE } from "@/shared/config/ogp";
+import { SITE_META } from "@/shared/config/site";
 
 import { Feed } from "feed";
 

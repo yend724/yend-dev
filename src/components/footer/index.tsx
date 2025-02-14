@@ -1,5 +1,5 @@
 import { Link } from "@/components/link";
-import { SOCIAL_LINKS } from "@/constants";
+import { SOCIAL_LINKS } from "@/shared/config/social";
 
 export const Footer = () => {
   return (
