@@ -4,8 +4,8 @@ import { PageTitle } from "@/components/page-title";
 import { Articles } from "@/features/articles/components";
 import { MyWorks } from "@/features/my-works/components";
 import { ReadingLog } from "@/features/readding-log/components";
-import { SITE_META } from "@/shared/config/site";
-import { SOCIAL_LINKS } from "@/shared/config/social";
+import { SITE_METADATA } from "@/shared/config/site";
+import { SOCIALS } from "@/shared/config/social";
 import { isProd } from "@/utils/env";
 import { getPosts } from "@/utils/posts";
 import { generateRSS } from "./_utils/rss";
@@ -28,11 +28,11 @@ const Home: React.FC = async () => {
     <div className="grid gap-16">
       <div className="grid gap-4">
         <PageTitle
-          title={SITE_META.creator}
+          title={SITE_METADATA.creator}
           description="プログラムを書く砂滑"
         />
         <div className="flex flex-wrap gap-4">
-          {SOCIAL_LINKS.map((link) => (
+          {SOCIALS.map((link) => (
             <LinkTag key={link.label} label={link.label} href={link.href} />
           ))}
         </div>

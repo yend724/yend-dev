@@ -7,7 +7,7 @@ import { XShareButton } from "@/components/x-share-button";
 import { generateSharedMeta } from "@/features/opg/utils/generate-meta";
 import { generateOgpImage } from "@/features/opg/utils/generate-ogp-image";
 import { OGP_IMAGE } from "@/shared/config/ogp";
-import { SITE_META } from "@/shared/config/site";
+import { SITE_METADATA } from "@/shared/config/site";
 import { isProd } from "@/utils/env";
 import { getPost, getPosts } from "@/utils/posts";
 import { ArrowLeft } from "lucide-react";
@@ -55,14 +55,14 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
         <div className="mt-4 flex flex-wrap items-center gap-4">
           <ShareButton
             shareData={{
-              title: `${frontmatter.title} | ${SITE_META.author}`,
-              url: `${SITE_META.url}/posts/${slug}/`,
+              title: `${frontmatter.title} | ${SITE_METADATA.author}`,
+              url: `${SITE_METADATA.url}/posts/${slug}/`,
             }}
           />
           <XShareButton
             shareData={{
-              text: `${frontmatter.title} | ${SITE_META.author}`,
-              url: `${SITE_META.url}/posts/${slug}/`,
+              text: `${frontmatter.title} | ${SITE_METADATA.author}`,
+              url: `${SITE_METADATA.url}/posts/${slug}/`,
             }}
           />
           <Rss />
@@ -117,12 +117,12 @@ export const generateMetadata = async ({
   return generateSharedMeta({
     title: frontmatter.title,
     openGraph: {
-      url: `${SITE_META.url}/posts/${slug}/`,
+      url: `${SITE_METADATA.url}/posts/${slug}/`,
       type: "article",
       publishedTime,
       images: [
         {
-          url: `${SITE_META.url}/${OGP_ASSETS_DIR}/${slug}.png`,
+          url: `${SITE_METADATA.url}/${OGP_ASSETS_DIR}/${slug}.png`,
           width: OGP_IMAGE.width,
           height: OGP_IMAGE.height,
         },

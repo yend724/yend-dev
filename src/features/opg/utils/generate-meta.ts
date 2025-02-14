@@ -1,5 +1,5 @@
 import { OGP_IMAGE, OGP_X } from "@/shared/config/ogp";
-import { SITE_META } from "@/shared/config/site";
+import { SITE_METADATA } from "@/shared/config/site";
 import type { Metadata } from "next";
 
 type SharedMeta = Partial<Pick<Metadata, "title" | "openGraph" | "twitter">>;
@@ -7,26 +7,26 @@ export const generateSharedMeta = (metadata: SharedMeta = {}): Metadata => {
   const { openGraph, twitter, ...rest } = metadata;
   return {
     title: {
-      template: `%s | ${SITE_META.title}`,
-      default: `${SITE_META.title}`,
+      template: `%s | ${SITE_METADATA.title}`,
+      default: `${SITE_METADATA.title}`,
     },
-    description: SITE_META.description,
-    creator: SITE_META.creator,
+    description: SITE_METADATA.description,
+    creator: SITE_METADATA.creator,
     authors: [
       {
-        name: SITE_META.author,
+        name: SITE_METADATA.author,
       },
     ],
     alternates: {
       types: {
-        "application/rss+xml": SITE_META.rss,
+        "application/rss+xml": SITE_METADATA.rss,
       },
     },
     ...rest,
     openGraph: {
-      locale: SITE_META.locale,
-      url: SITE_META.url,
-      siteName: SITE_META.title,
+      locale: SITE_METADATA.locale,
+      url: SITE_METADATA.url,
+      siteName: SITE_METADATA.title,
       images: [
         {
           url: OGP_IMAGE.url,

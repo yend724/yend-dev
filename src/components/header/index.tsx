@@ -1,5 +1,5 @@
 import { Link } from "@/components/link";
-import { SITE_META } from "@/shared/config/site";
+import { SITE_METADATA } from "@/shared/config/site";
 
 type Props = {
   title?: (text: string) => React.ReactNode;
@@ -10,7 +10,7 @@ export const Header: React.FC<Props> = ({
   return (
     <header className="mx-auto flex w-full max-w-5xl p-4">
       <Link href="/" className="flex items-center gap-2 font-bold">
-        {title(SITE_META.title)}
+        {title(SITE_METADATA.title)}
       </Link>
     </header>
   );

@@ -1,19 +1,19 @@
 import { OGP_IMAGE } from "@/shared/config/ogp";
-import { SITE_META } from "@/shared/config/site";
+import { SITE_METADATA } from "@/shared/config/site";
 
 import { Feed } from "feed";
 
 export const createFeed = () => {
   return new Feed({
-    title: SITE_META.title,
-    description: SITE_META.description,
-    id: SITE_META.url,
-    link: SITE_META.url,
+    title: SITE_METADATA.title,
+    description: SITE_METADATA.description,
+    id: SITE_METADATA.url,
+    link: SITE_METADATA.url,
     language: "ja",
-    copyright: `All rights reserved 2024, ${SITE_META.creator}.`,
+    copyright: `All rights reserved 2024, ${SITE_METADATA.creator}.`,
     image: OGP_IMAGE.url,
     author: {
-      name: SITE_META.author,
+      name: SITE_METADATA.author,
     },
   });
 };
@@ -28,12 +28,12 @@ export const addPostToFeed = (
 ) => {
   feed.addItem({
     title: post.title,
-    id: `${SITE_META.url}/posts/${post.slug}/`,
-    link: `${SITE_META.url}/posts/${post.slug}/`,
+    id: `${SITE_METADATA.url}/posts/${post.slug}/`,
+    link: `${SITE_METADATA.url}/posts/${post.slug}/`,
     date: new Date(post.date),
     author: [
       {
-        name: SITE_META.author,
+        name: SITE_METADATA.author,
       },
     ],
   });
