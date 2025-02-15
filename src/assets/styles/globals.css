@@ -19,10 +19,7 @@
     @apply bg-transparent !important;
   }
   .markdown-body *:is(h1, h2) {
-    @apply pt-[0.3em];
-  }
-  .markdown-body *:is(h1, h2, h3, h4, h5, h6) {
-    @apply mt-8 !important;
+    @apply py-[0.3em];
   }
   .markdown-body *:is(h1, h2, h3, h4, h5, h6) a {
     @apply text-inherit no-underline !important;
