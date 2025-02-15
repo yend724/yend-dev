@@ -11,9 +11,9 @@ const RootLayout = ({
   return (
     <div className="grid min-h-svh grid-rows-[auto_1fr_auto] gap-8">
       <Header />
-      {/* <main className="mx-auto w-full max-w-5xl overflow-hidden px-4">
+      <main className="mx-auto w-full max-w-5xl overflow-hidden px-4">
         {children}
-      </main> */}
+      </main>
       <Footer />
     </div>
   );

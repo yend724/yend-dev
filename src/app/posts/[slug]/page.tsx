@@ -13,8 +13,11 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { default: Component, frontmatter } = await getPost(
     `${slug}${MDX_EXTENSION}`,
   );
+
   return (
-    <PostsPage frontmatter={frontmatter} component={Component} slug={slug} />
+    <PostsPage frontmatter={frontmatter} slug={slug}>
+      <Component />
+    </PostsPage>
   );
 };
 

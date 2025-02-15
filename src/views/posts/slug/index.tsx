@@ -8,7 +8,7 @@ import { XShareButton } from "@/shared/ui/x-share-button";
 import { ArrowLeft } from "lucide-react";
 export const PostsPage = async ({
   frontmatter,
-  component,
+  children,
   slug,
 }: {
   frontmatter: {
@@ -17,10 +17,9 @@ export const PostsPage = async ({
     date: string;
     draft: boolean;
   };
-  component: React.FC;
   slug: string;
+  children: React.ReactNode;
 }) => {
-  const Component = component;
   return (
     <div className="w-full space-y-12 pb-12">
       <div className="flex">
@@ -66,9 +65,7 @@ export const PostsPage = async ({
       <div>
         <Toc />
       </div>
-      <div className="markdown-body">
-        <Component />
-      </div>
+      <div className="markdown-body">{children}</div>
     </div>
   );
 };

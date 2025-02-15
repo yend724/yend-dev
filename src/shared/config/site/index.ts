@@ -7,4 +7,4 @@ export const SITE_METADATA = {
   creator: "YEND",
   author: "YEND",
   rss: "https://yend.dev/rss.xml",
-} as const;
+};
