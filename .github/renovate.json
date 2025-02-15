@@ -1,8 +1,7 @@
 {
   "extends": ["config:recommended"],
-  "dependencyDashboard": true,
+  "dependencyDashboard": false,
   "timezone": "Asia/Tokyo",
   "ignoreTests": true,
-  "schedule": ["every weekend"],
   "assignees": ["@yend724"]
 }
