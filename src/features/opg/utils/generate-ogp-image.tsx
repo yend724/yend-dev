@@ -1,5 +1,5 @@
 import fs from "node:fs";
-import { getProjectRoot } from "@/utils/endpoints";
+import { getProjectRoot } from "@/shared/lib/endpoint";
 import React from "react";
 import satori from "satori";
 import sharp from "sharp";

@@ -1,5 +1,5 @@
 import fs from "node:fs";
-import { getProjectRoot } from "@/utils/endpoints";
+import { getProjectRoot } from "@/shared/lib/endpoint";
 import type { FC } from "react";
 import * as v from "valibot";
 
@@ -29,13 +29,13 @@ const validatePost = (post: unknown) => {
 };
 
 export const getPost = async (slug: string) => {
-  const post = await import(`@/contents/posts/${slug}`);
+  const post = await import(`@/resources/posts/${slug}`);
   const validatedPost = validatePost(post);
   return { ...validatedPost, slug: slug.replace(/\.mdx$/, "") };
 };
 
 export const getPosts = async () => {
-  const postsRootEndpoint = `${getProjectRoot()}/src/contents/posts`;
+  const postsRootEndpoint = `${getProjectRoot()}/src/resources/posts`;
   const fileNames = fs.readdirSync(postsRootEndpoint);
   const files = await Promise.all(
     fileNames.map(async (fileName) => getPost(fileName)),

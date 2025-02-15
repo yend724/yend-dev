@@ -1,4 +1,4 @@
-import { Link } from "@/components/link";
+import { Link } from "@/shared/ui/link";
 import { MY_WORKS } from "../constants";
 
 export const MyWorks = () => {

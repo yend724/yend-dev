@@ -1,4 +1,4 @@
-import { Link } from "@/components/link";
+import { Link } from "@/shared/ui/link";
 import Image from "next/image";
 import { PLATFORM_ICON_MAP } from "../../constants";
 import type { Article as ArticleInterface } from "../../types";

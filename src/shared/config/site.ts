@@ -1,4 +1,4 @@
-export const SITE_METADATADATA = {
+export const SITE_METADATA = {
   title: "YEND.DEV",
   description: "YENDの実験場",
   url: "https://yend.dev",

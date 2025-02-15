@@ -22,10 +22,10 @@ const RootLayout = ({
   );
 };
 
+export default RootLayout;
+
 export const metadata = generateSharedMeta({
   openGraph: {
     type: "website",
   },
 });
-
-export default RootLayout;

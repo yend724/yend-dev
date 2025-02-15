@@ -1,4 +1,4 @@
-import { isProd } from "@/utils/env";
+import { env } from "@/shared/config/env";
 import { getPosts } from "@/utils/posts";
 import Parser from "rss-parser";
 import type {
@@ -60,7 +60,7 @@ export const getQiitaArticles = async () => {
   return articles;
 };
 export const getMyArticles = async () => {
-  const isFiltering = isProd();
+  const isFiltering = env().isProd;
   const posts = await getPosts();
   const articles = posts
     .map((post) => {
