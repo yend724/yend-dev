@@ -1,16 +1,16 @@
 import fs from "node:fs";
+import { getPost, getPosts } from "@/entities/posts";
 import { generateSharedMeta } from "@/features/opg/utils/generate-meta";
 import { generateOgpImage } from "@/features/opg/utils/generate-ogp-image";
 import { env } from "@/shared/config/env";
 import { OGP_IMAGE } from "@/shared/config/ogp";
 import { SITE_METADATA } from "@/shared/config/site";
-import { getPost, getPosts } from "@/utils/posts";
 import { Main } from "@/views/posts/slug";
 
 const MDX_EXTENSION = ".mdx";
 const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const slug = (await params).slug;
-  const { default: Component, frontmatter } = await getPost(
+  const { component: Component, frontmatter } = await getPost(
     `${slug}${MDX_EXTENSION}`,
   );
 

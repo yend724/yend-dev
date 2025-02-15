@@ -1,8 +1,8 @@
 import { Main } from "@/views/home";
 
 import fs from "node:fs";
+import { getPosts } from "@/entities/posts";
 import { generateRSS } from "@/entities/rss";
-import { getPosts } from "@/utils/posts";
 
 const posts = await getPosts();
 const filteredPosts = posts

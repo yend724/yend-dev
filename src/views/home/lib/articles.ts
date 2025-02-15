@@ -1,3 +1,4 @@
+import { getPosts } from "@/entities/posts";
 import type {
   Article,
   QiitaRSSFeed,
@@ -5,7 +6,6 @@ import type {
   ZennRSSFeedItem,
 } from "@/entities/rss-feed";
 import { env } from "@/shared/config/env";
-import { getPosts } from "@/utils/posts";
 import Parser from "rss-parser";
 
 const parser = new Parser();
