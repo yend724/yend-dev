@@ -1,8 +1,7 @@
-import { Main } from "@/views/home";
-
 import fs from "node:fs";
 import { getPosts } from "@/entities/posts";
 import { generateRSS } from "@/entities/rss";
+import { Main } from "@/views/home";
 
 const posts = await getPosts();
 const filteredPosts = posts
@@ -12,6 +11,7 @@ const filteredPosts = posts
     slug: post.slug,
     date: post.frontmatter.date,
   }));
+
 const { rss } = generateRSS(filteredPosts);
 fs.writeFileSync("public/rss.xml", rss);
 

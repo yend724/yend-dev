@@ -1,23 +1,17 @@
-import { RssButton } from "@/entities/rss";
-import { SITE_METADATA } from "@/shared/config/site";
+import type { Frontmatter } from "@/entities/posts";
 import { FormattedDate } from "@/shared/ui/date-time";
 import { Link } from "@/shared/ui/link";
-import { ShareButton } from "@/shared/ui/share-button";
-import { Toc } from "@/shared/ui/toc";
-import { XShareButton } from "@/shared/ui/x-share-button";
 import { ArrowLeft } from "lucide-react";
+import { Share } from "../share";
+import { Tags } from "../tags";
+import { Toc } from "../toc";
 
 export const Main = async ({
   frontmatter,
   children,
   slug,
 }: {
-  frontmatter: {
-    tags: string[];
-    title: string;
-    date: string;
-    draft: boolean;
-  };
+  frontmatter: Frontmatter;
   slug: string;
   children: React.ReactNode;
 }) => {
@@ -34,34 +28,10 @@ export const Main = async ({
           <FormattedDate date={frontmatter.date} /> に公開
         </div>
         <h1 className="font-bold text-3xl">{frontmatter.title}</h1>
-        {frontmatter.tags.length > 0 && (
-          <ul className="flex flex-wrap gap-2">
-            {frontmatter.tags.sort().map((tag) => (
-              <li key={tag} className="rounded bg-sky-700 px-1 text-sm">
-                {tag}
-              </li>
-            ))}
-          </ul>
-        )}
-        <div className="mt-4 flex flex-wrap items-center gap-4">
-          <ShareButton
-            shareData={{
-              title: `${frontmatter.title} | ${SITE_METADATA.author}`,
-              url: `${SITE_METADATA.url}/posts/${slug}/`,
-            }}
-          />
-          <XShareButton
-            shareData={{
-              text: `${frontmatter.title} | ${SITE_METADATA.author}`,
-              url: `${SITE_METADATA.url}/posts/${slug}/`,
-            }}
-          />
-          <RssButton />
-        </div>
+        {frontmatter.tags.length && <Tags tags={frontmatter.tags} />}
+        <Share slug={slug} title={frontmatter.title} />
       </div>
-      <div>
-        <Toc />
-      </div>
+      <Toc />
       <div className="markdown-body">{children}</div>
     </div>
   );

@@ -7,3 +7,6 @@ export const OGP_IMAGE = {
 export const OGP_X = {
   card: "summary_large_image",
 } as const;
+
+export const OGP_ASSETS_DIR = "_assets/images/posts";
+export const OGP_DIR = `public/${OGP_ASSETS_DIR}`;

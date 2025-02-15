@@ -1,6 +1,6 @@
 import "@/assets/styles/globals.css";
 import FaviconIcon from "@/assets/images/favicon.ico";
-import { generateSharedMeta } from "@/features/opg/utils/generate-meta";
+import { generateSharedMeta } from "@/entities/ogp";
 
 const RootLayout = ({
   children,

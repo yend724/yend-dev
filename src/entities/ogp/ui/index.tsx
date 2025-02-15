@@ -1,5 +1,3 @@
-import { AUTHOR, AUTHOR_IMAGE_SRC } from "../constants";
-
 type Props = {
   title: string;
 };
@@ -30,7 +28,7 @@ export const OgpImage: React.FC<Props> = ({ title }) => {
       >
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <img
-            src={AUTHOR_IMAGE_SRC}
+            src={"https://avatars.githubusercontent.com/u/65233817"}
             alt=""
             width={80}
             height={80}
@@ -46,7 +44,7 @@ export const OgpImage: React.FC<Props> = ({ title }) => {
               lineHeight: 1,
             }}
           >
-            {AUTHOR}
+            YEND
           </div>
         </div>
         <div

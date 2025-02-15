@@ -1,7 +1,7 @@
+import { MY_WORKS } from "@/shared/config/works";
 import { Link } from "@/shared/ui/link";
-import { MY_WORKS } from "../constants";
 
-export const MyWorks = () => {
+export const Works = () => {
   return (
     <div className="grid gap-y-8">
       {MY_WORKS.map((work, index) => (
