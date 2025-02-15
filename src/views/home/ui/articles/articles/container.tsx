@@ -6,7 +6,7 @@ import {
   normalizeQiitaArticle,
   normalizeZennArticle,
   sortArticlesByIsoDate,
-} from "../../utils/articles";
+} from "../../../lib/articles";
 
 import { ArticlesPresentation } from "./presentation";
 

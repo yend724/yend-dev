@@ -1,8 +1,8 @@
 "use client";
+import type { Article as ArticleInterface } from "@/entities/rss-feed";
 import { useState } from "react";
-import { FILTER, FILTER_KEYS, FILTER_MAP } from "../../constants";
-import type { Article as ArticleInterface } from "../../types/";
 import { Article } from "../article";
+import { FILTER, FILTER_KEYS, FILTER_MAP } from "../constants";
 
 type Props = {
   articles: ArticleInterface[];

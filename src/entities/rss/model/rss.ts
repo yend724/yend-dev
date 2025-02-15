@@ -5,7 +5,7 @@ import { Feed } from "feed";
 
 export { Feed } from "feed";
 
-export const createFeed = () => {
+const createFeed = () => {
   return new Feed({
     title: SITE_METADATA.title,
     description: SITE_METADATA.description,
@@ -20,7 +20,7 @@ export const createFeed = () => {
   });
 };
 
-export const addPostToFeed = (
+const addPostToFeed = (
   feed: Feed,
   post: {
     title: string;

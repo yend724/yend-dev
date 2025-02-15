@@ -1,12 +1,12 @@
-import { env } from "@/shared/config/env";
-import { getPosts } from "@/utils/posts";
-import Parser from "rss-parser";
 import type {
   Article,
   QiitaRSSFeed,
   QiitaRSSFeedItem,
   ZennRSSFeedItem,
-} from "../types";
+} from "@/entities/rss-feed";
+import { env } from "@/shared/config/env";
+import { getPosts } from "@/utils/posts";
+import Parser from "rss-parser";
 
 const parser = new Parser();
 

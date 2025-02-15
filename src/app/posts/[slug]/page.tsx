@@ -5,7 +5,7 @@ import { env } from "@/shared/config/env";
 import { OGP_IMAGE } from "@/shared/config/ogp";
 import { SITE_METADATA } from "@/shared/config/site";
 import { getPost, getPosts } from "@/utils/posts";
-import { PostsPage } from "@/views/posts/slug";
+import { Main } from "@/views/posts/slug";
 
 const MDX_EXTENSION = ".mdx";
 const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
@@ -15,9 +15,9 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   );
 
   return (
-    <PostsPage frontmatter={frontmatter} slug={slug}>
+    <Main frontmatter={frontmatter} slug={slug}>
       <Component />
-    </PostsPage>
+    </Main>
   );
 };
 

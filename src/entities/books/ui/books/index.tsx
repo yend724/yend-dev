@@ -1,4 +1,4 @@
-import { getBooks } from "@/features/books/api/books";
+import { getBooks } from "../../api/books";
 
 import { Link } from "@/shared/ui/link";
 

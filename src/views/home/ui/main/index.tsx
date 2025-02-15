@@ -1,26 +1,12 @@
-import fs from "node:fs";
 import ProfileIconImage from "@/assets/images/profile-icon.png";
-import { Articles } from "@/features/articles/components";
-import { Books } from "@/features/books/ui";
+import { Books } from "@/entities/books";
 import { MyWorks } from "@/features/my-works/components";
 import { SITE_METADATA } from "@/shared/config/site";
 import { SOCIALS } from "@/shared/config/social";
 import { LinkTag } from "@/shared/ui/link-tag";
-import { getPosts } from "@/utils/posts";
 import Image from "next/image";
-import { generateRSS } from "../../lib/rss";
+import { Articles } from "../articles";
 import { Section } from "../section";
-
-const posts = await getPosts();
-const filteredPosts = posts
-  .filter((post) => !post.frontmatter.draft)
-  .map((post) => ({
-    title: post.frontmatter.title,
-    slug: post.slug,
-    date: post.frontmatter.date,
-  }));
-const { rss } = generateRSS(filteredPosts);
-fs.writeFileSync("public/rss.xml", rss);
 
 export const Main: React.FC = async () => {
   return (

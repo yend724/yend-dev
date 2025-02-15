@@ -1,7 +1,8 @@
+import type { Article as ArticleInterface } from "@/entities/rss-feed";
+import { FormattedDate } from "@/shared/ui/date-time";
 import { Link } from "@/shared/ui/link";
 import Image from "next/image";
-import { PLATFORM_ICON_MAP } from "../../constants";
-import type { Article as ArticleInterface } from "../../types";
+import { PLATFORM_ICON_MAP } from "../constants";
 
 type Props = {
   article: ArticleInterface;
@@ -10,20 +11,9 @@ export const Article: React.FC<Props> = ({ article }) => {
   return (
     <article key={article.id}>
       <Link href={article.link} className="group grid w-fit gap-2">
-        <time
-          className="flex items-center gap-1 text-sm opacity-80"
-          dateTime={article.isoDate}
-        >
-          <span>
-            {new Date(article.isoDate).toLocaleDateString("ja-JP", {
-              year: "numeric",
-              month: "2-digit",
-              day: "2-digit",
-              timeZone: "Asia/Tokyo",
-            })}
-          </span>
-          <span>に公開</span>
-        </time>
+        <div className="text-sm opacity-80">
+          <FormattedDate date={article.isoDate} /> に公開
+        </div>
         <h3 className="font-semibold text-lg group-hover:underline">
           {article.title}
         </h3>
