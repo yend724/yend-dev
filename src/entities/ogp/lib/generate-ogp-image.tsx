@@ -32,8 +32,6 @@ export const generateOgpImage = async (title: string): Promise<Buffer> => {
     ],
   });
 
-  // SVG から PNG 形式に変換する
   const png = await sharp(Buffer.from(svg)).png().toBuffer();
-
   return png;
 };

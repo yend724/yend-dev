@@ -1,4 +1,4 @@
-import type { Frontmatter } from "@/entities/posts";
+import type { Frontmatter } from "@/entities/post";
 import { FormattedDate } from "@/shared/ui/date-time";
 import { Link } from "@/shared/ui/link";
 import { ArrowLeft } from "lucide-react";

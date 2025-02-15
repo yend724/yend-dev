@@ -79,11 +79,11 @@
     counter-increment: count 1;
   }
   .toc .toc-list-item a {
-    @apply flex items-start gap-1 w-full py-1 px-2 rounded before:content-[counter(count)_"."];
+    @apply relative flex items-start w-full py-1 px-4 rounded before:content-[counter(count)_"."];
   }
   @media (any-hover: hover) {
     .toc .toc-list-item a:hover {
-      @apply bg-neutral-800;
+      @apply after:content-[">"] after:absolute after:left-0 after:top-1/2 after:-translate-y-1/2 after:font-semibold after:font-mono;
     }
   }
 }

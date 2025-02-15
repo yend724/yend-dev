@@ -1,5 +1,5 @@
 import fs from "node:fs";
-import { getPosts } from "@/entities/posts";
+import { getPosts } from "@/entities/post";
 import { generateRSS } from "@/entities/rss";
 import { Main } from "@/views/home";
 

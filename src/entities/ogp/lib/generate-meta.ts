@@ -1,5 +1,4 @@
-import { OGP_IMAGE, OGP_X } from "@/shared/config/ogp";
-import { SITE_METADATA } from "@/shared/config/site";
+import { OGP_IMAGE, OGP_X, SITE_METADATA } from "@/shared/config/site";
 import type { Metadata } from "next";
 
 type SharedMeta = Partial<Pick<Metadata, "title" | "openGraph" | "twitter">>;

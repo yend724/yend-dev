@@ -14,6 +14,9 @@ export type ZennRSSFeedItem = {
   guid: string;
   isoDate: string;
 };
+export type ZennRSSFeed = {
+  items: ZennRSSFeedItem[];
+};
 export type QiitaRSSFeedItem = {
   title: string;
   link: string;

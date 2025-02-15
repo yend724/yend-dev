@@ -1,9 +1,6 @@
-import { OGP_IMAGE } from "@/shared/config/ogp";
-import { SITE_METADATA } from "@/shared/config/site";
+import { OGP_IMAGE, SITE_METADATA } from "@/shared/config/site";
 
 import { Feed } from "feed";
-
-export { Feed } from "feed";
 
 const createFeed = () => {
   return new Feed({

@@ -25,7 +25,7 @@
       "suspicious": {
         "noArrayIndexKey": "off"
       },
-      "nursery": { "useSortedClasses": "warn" }
+      "nursery": { "useSortedClasses": "error" }
     }
   },
   "javascript": {

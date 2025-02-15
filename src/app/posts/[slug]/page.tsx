@@ -1,8 +1,8 @@
 import { generateOgpImage, generateSharedMeta } from "@/entities/ogp";
-import { getPost, getPosts } from "@/entities/posts";
+import { getPost, getPosts } from "@/entities/post";
 import { env } from "@/shared/config/env";
 import { EXTENSION } from "@/shared/config/extension";
-import { OGP_ASSETS_DIR, OGP_DIR, OGP_IMAGE } from "@/shared/config/ogp";
+import { OGP_ASSETS_DIR, OGP_DIR, OGP_IMAGE } from "@/shared/config/site";
 import { SITE_METADATA } from "@/shared/config/site";
 import { makeDirRecursive, writeFile } from "@/shared/lib/file-system";
 import { Main } from "@/views/posts/slug";
