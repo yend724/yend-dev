@@ -1,0 +1,196 @@
+---
+title: AssemblyScriptでWebAssemblyを気軽に試す
+date: 2025-02-19T19:45:00
+tags:
+    - AssemblyScript
+    - WebAssembly
+    - Wasm
+draft: false
+---
+
+最近、[AssemblyScript](https://www.assemblyscript.org/)というTypeScriptライクなWebAssembly用の言語を知ったのでメモ。
+
+## 環境構築
+
+まず、npmでAssemblyScriptをインストールします。
+
+```shell
+$ npm install --save-dev assemblyscript
+```
+
+次に、プロジェクトを初期化します。
+
+```shell
+$ npx asinit .
+```
+
+すると以下のようなファイルが生成されます。
+
+```shell
+$ tree -L 2
+.
+├── asconfig.json
+├── assembly
+│   ├── index.ts
+│   └── tsconfig.json
+├── build
+├── index.html
+├── node_modules
+│   └── ...略...
+├── package-lock.json
+├── package.json
+└── tests
+    └── index.js
+```
+
+`assembly/index.ts`には足し算を行う関数`add`が実装されています。
+
+```ts
+// The entry file of your WebAssembly module.
+
+export function add(a: i32, b: i32): i32 {
+  return a + b;
+}
+```
+
+`index.html`では`./build/release.js`をインポートして`add`関数を実行する処理が書かれています。さらに`release.js`ではwasmファイルの読み込み、およびインスタンス化を行っています。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="module">
+import { add } from "./build/release.js";
+document.body.innerText = add(1, 2);
+</script>
+</head>
+<body></body>
+</html>
+```
+
+今回は何も変更を加えずビルドし、ローカルサーバーを起動します。
+
+```shell
+$ npm run asbuild
+
+> asbuild
+> npm run asbuild:debug && npm run asbuild:release
+
+
+> asbuild:debug
+> asc assembly/index.ts --target debug
+
+
+> asbuild:release
+> asc assembly/index.ts --target release
+
+$ npm run start
+
+> start
+> npx serve .
+
+
+   ┌───────────────────────────────────────────┐
+   │                                           │
+   │   Serving!                                │
+   │                                           │
+   │   - Local:    http://localhost:3000       │
+   │   - Network:  http://192.168.11.11:3000   │
+   │                                           │
+   │   Copied local address to clipboard!      │
+   │                                           │
+   └───────────────────────────────────────────┘
+```
+
+ブラウザで `http://localhost:3000` にアクセスすると、足し算の結果`add(1, 2)`が表示されているのがわかります。
+
+驚くことにたったこれだけで、WebAssemblyを試すことができました。
+
+## フィボナッチ数列の実装
+
+せっかくなのでフィボナッチ数列を実装してみて、WebAssemblyとクライアントJavaScriptの速度を比較してみます。
+
+### 実装
+
+`assembly/index.ts`を、次のように変更します。
+
+```ts
+export function fib_wasm(n: i32): u64 {
+  if (n <= 1) return n;
+  return fib_wasm(n - 1) + fib_wasm(n - 2);
+}
+```
+
+また適当なJSファイルを作成し、同じように実装します。
+
+```js
+export function fib_js(n) {
+  if (n <= 1) return n;
+  return fib_js(n - 1) + fib_js(n - 2);
+}
+```
+
+`index.html`を次のように変更します。
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <script type="module">
+      import { fib_wasm } from './build/release.js';
+      import { fib_js } from './script.js';
+
+      const wasmStart = performance.now();
+      const wasmResult = fib_wasm(40);
+      const wasmEnd = performance.now();
+      const wasmTime = wasmEnd - wasmStart;
+      document.getElementById('wasm-result').textContent = wasmResult;
+      document.getElementById('wasm-time').textContent = `${wasmTime}ms`;
+
+      const jsStart = performance.now();
+      const jsResult = fib_js(40);
+      const jsEnd = performance.now();
+      const jsTime = jsEnd - jsStart;
+      document.getElementById('js-result').textContent = jsResult;
+      document.getElementById('js-time').textContent = `${jsTime}ms`;
+    </script>
+  </head>
+  <body>
+    <div>
+      <p>
+        WASM Result: <span id="wasm-result"></span> (実行時間:
+        <span id="wasm-time"></span>)
+      </p>
+    </div>
+    <div>
+      <p>
+        JS Result: <span id="js-result"></span> (実行時間:
+        <span id="js-time"></span>)
+      </p>
+    </div>
+  </body>
+</html>
+```
+
+ここまで書いたらビルドします。
+
+```shell
+$ npm run asbuild
+```
+
+### 結果
+
+ローカルサーバーを起動してブラウザでアクセスすると、それぞれの実行時間を確認できます。多少ばらつきはありますが、自分の環境ではおおよそ以下のような感じでした（5回計測した平均値）。
+
+```shell
+WASM Result: 102334155 (実行時間: 327.9800000000745ms)
+JS Result: 102334155 (実行時間: 714.1399999999442ms)
+```
+
+実行時間はブラウザやマシンの性能によって変わると思いますが、自分の環境においてWebAssemblyはJavaScriptのおよそ半分程度の時間でした。
+
+## おわりに
+
+実際のところ、再帰関数よりも普通にループで実装したほうが速いのですが、今回は差が出やすいようにあえて再帰関数を使用して比較してみました。処理内容や実装方法によって差が大きくなったり、小さくなったりするため、導入する際は実際に計測することが大事かもしれません。
+
+AssemblyScriptはTypeScriptライクで、普段フロントエンドをメインに実装することが多い自分でも気軽に試すことができました。興味ある方はぜひ試してみてください。

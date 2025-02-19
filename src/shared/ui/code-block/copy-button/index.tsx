@@ -25,7 +25,7 @@ export const CopyButton: React.FC<Props> = ({ text }) => {
   return (
     <button
       type="button"
-      className="grid place-items-center rounded-md p-2 hover:bg-neutral-700"
+      className="grid cursor-pointer place-items-center rounded-md p-2 hover:bg-neutral-700"
       onClick={() => {
         handleCopy(text);
       }}

@@ -14,7 +14,7 @@ export const CodeBlock: React.FC<Props> = async (props) => {
 
   return (
     <div className="relative">
-      <div className="absolute top-0 right-0 flex items-center justify-center gap-2 text-sm opacity-70">
+      <div className="absolute top-1 right-1 flex items-center justify-center gap-2 text-sm opacity-70">
         {props.lang && <span className="text-center">{props.lang}</span>}
         <div className="text-end">
           <CopyButton text={props.children.toString()} />
