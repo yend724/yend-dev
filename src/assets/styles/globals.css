@@ -1,11 +1,37 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --neumorphism-shadow-color-01: #1b1b1b;
-  --neumorphism-shadow-color-02: #313131;
-  color-scheme: dark;
+@theme {
+  --animate-wiggle: bg-fade 4s ease-out both;
+
+  @keyframes bg-fade {
+    0% {
+      background-color: var(--color-orange-900);
+    }
+    75% {
+      background-color: var(--color-orange-900);
+    }
+    100% {
+      transform: transparent;
+    }
+  }
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@layer utilities {
+  :root {
+    --neumorphism-shadow-color-01: #1b1b1b;
+    --neumorphism-shadow-color-02: #313131;
+    color-scheme: dark;
+  }
 }
 
 @layer base {
@@ -16,40 +42,40 @@
     @apply break-all;
   }
   .markdown-body {
-    @apply bg-transparent !important;
+    @apply bg-transparent!;
   }
   .markdown-body *:is(h1, h2) {
     @apply py-[0.3em];
   }
   .markdown-body *:is(h1, h2, h3, h4, h5, h6) a {
-    @apply text-inherit no-underline !important;
+    @apply text-inherit! no-underline!;
   }
   .markdown-body a {
-    @apply text-sky-400 underline hover:no-underline !important;
+    @apply text-sky-400! underline! hover:no-underline!;
   }
   .markdown-body ul {
-    @apply list-disc !important;
+    @apply list-disc!;
   }
   .markdown-body ol {
-    @apply list-decimal !important;
+    @apply list-decimal!;
   }
   .markdown-body table {
-    @apply w-full !important;
+    @apply w-full!;
   }
   .markdown-body table th {
-    @apply whitespace-nowrap !important;
+    @apply whitespace-nowrap!;
   }
   .markdown-body pre {
-    @apply px-4 py-6 !important;
+    @apply px-4! py-6!;
   }
   .markdown-body table :is(tr, th, td) {
-    @apply bg-transparent border-0 px-4 py-2 text-start !important;
+    @apply bg-transparent! border-0! px-4! py-2! text-start!;
   }
   .markdown-body table tr:has(th) {
-    @apply border-y bg-neutral-900/50 border-neutral-200/20 !important;
+    @apply border-y! bg-neutral-900/50! border-neutral-200/20!;
   }
   .markdown-body table tr:nth-of-type(2n) {
-    @apply bg-neutral-900/50 !important;
+    @apply bg-neutral-900/50!;
   }
   [data-heading-level]::before {
     @apply inline-block opacity-80;
@@ -76,11 +102,11 @@
     counter-increment: count 1;
   }
   .toc .toc-list-item a {
-    @apply relative flex items-start w-full py-1 px-4 rounded before:content-[counter(count)_"."];
+    @apply relative flex items-start gap-x-1 w-full py-1 px-4 rounded-sm before:content-[counter(count)_"."];
   }
   @media (any-hover: hover) {
     .toc .toc-list-item a:hover {
-      @apply after:content-[">"] after:absolute after:left-0 after:top-1/2 after:-translate-y-1/2 after:font-semibold after:font-mono;
+      @apply after:content-["▶︎"] after:absolute after:left-0 after:top-1/2 after:-translate-y-1/2 after:font-semibold after:font-mono;
     }
   }
 }

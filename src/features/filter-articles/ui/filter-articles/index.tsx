@@ -36,7 +36,7 @@ export const FilterArticles: React.FC<Props> = ({ articles }) => {
             height={16}
           />
           <input
-            className="w-full rounded-sm border border-neutral-200/20 py-1 pr-2 pl-7"
+            className="w-full rounded-xs border border-neutral-200/20 py-1 pr-2 pl-7"
             type="text"
             placeholder="タイトルを検索..."
             value={searchTerm}
