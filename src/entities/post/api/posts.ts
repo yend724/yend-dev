@@ -7,6 +7,7 @@ export const getPost = async (fileName: string) => {
   const post = await import(`@/resources/posts/${fileName}`);
   const component = validateComponent(post);
   const frontmatter = validateFrontmatter(post);
+  frontmatter.date = new Date(`${frontmatter.date}+09:00`).toISOString();
   const slug = fileName.replace(EXTENSION.mdx, "");
   return { component, frontmatter, slug };
 };
