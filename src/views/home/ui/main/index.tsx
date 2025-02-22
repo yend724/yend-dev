@@ -11,26 +11,26 @@ import { Section } from "../section";
 export const Main: React.FC = async () => {
   return (
     <div className="grid gap-16">
-      <div className="grid gap-4">
-        <div className="grid gap-4">
-          <div className="flex items-center gap-4">
-            <div className="size-12">
-              <div className="aspect-square size-full overflow-hidden rounded-full">
-                <Image
-                  src={ProfileIconImage}
-                  width={512}
-                  height={512}
-                  alt="YENDのプロフィールアイコン。スナメリのイラスト。"
-                  loading="eager"
-                  className="size-full"
-                />
-              </div>
+      <div className="grid gap-8">
+        <div className="grid gap-2">
+          <div className="flex items-center gap-2">
+            <div className="aspect-square size-16 overflow-hidden rounded-full">
+              <Image
+                src={ProfileIconImage}
+                width={512}
+                height={512}
+                alt="YENDのプロフィールアイコン。スナメリのイラスト。"
+                loading="eager"
+                className="size-full"
+              />
             </div>
-            <h1 className="text-wrap text-left font-semibold text-3xl text-white">
-              {SITE_METADATA.creator}
-            </h1>
+            <hgroup>
+              <h1 className="text-wrap text-left font-semibold text-2xl text-white">
+                {SITE_METADATA.creator}
+              </h1>
+              <p className="text-base">プログラムを書く砂滑</p>
+            </hgroup>
           </div>
-          <p className="text-base">プログラムを書く砂滑</p>
         </div>
         <div className="flex flex-wrap gap-4">
           {SOCIALS.map((link) => (
