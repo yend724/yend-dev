@@ -3,5 +3,11 @@
   "dependencyDashboard": false,
   "timezone": "Asia/Tokyo",
   "ignoreTests": true,
-  "assignees": ["@yend724"]
+  "assignees": ["@yend724"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["patch"],
+      "schedule": ["every weekend"]
+    }
+  ]
 }
