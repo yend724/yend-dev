@@ -5,6 +5,11 @@ type Work = {
 };
 export const MY_WORKS: Work[] = [
   {
+    title: "LeanMD",
+    description: "シンプルなMarkdown Parser",
+    url: "https://www.npmjs.com/package/leanmd",
+  },
+  {
     title: "CSV 2 Markdown Table",
     description: "CSVをMarkdownの表形式に変換するウェブアプリ",
     url: "https://csv-2-markdown-table.yend.dev",
