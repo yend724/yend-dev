@@ -7,7 +7,9 @@
   "assignees": ["@yend724"],
   "packageRules": [
     {
-      "matchUpdateTypes": ["patch"]
+      "matchUpdateTypes": ["patch"],
+      "groupName": "patch updates",
+      "automerge": true
     }
   ]
 }
