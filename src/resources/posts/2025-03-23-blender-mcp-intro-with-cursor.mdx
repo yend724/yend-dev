@@ -1,0 +1,87 @@
+---
+title: 【BlenderMCP】CursorでBlenderを操作する
+date: 2025-03-23T19:30:00
+tags:
+    - Blender
+    - Cursor
+draft: false
+---
+
+[BlenderMCP](https://github.com/ahujasid/blender-mcp)を用いて、CursorでBlenderを操作する導入まで。
+
+## 前提
+
+- macOS Sonoma 14.6.1
+- [Cursor](https://www.cursor.com/ja) 0.45.14
+- [Blender](https://www.blender.org/) 4.4.0
+- [uv](https://docs.astral.sh/uv/) 0.6.9
+
+## uvのインストール
+
+BlenderMCPはPythonで実装されています。Pythonのパッケージマネージャーとして `uv` を使用します。
+
+未インストールの場合は、以下のコマンドでインストールしてください。
+
+```shell
+$ brew install uv
+$ uv --version
+uv 0.6.9 (Homebrew 2025-03-20)
+```
+
+## Blenderの設定
+
+### Blender Add-onのインストール
+
+1. [BlenderMCPのGitHubリポジトリ](https://github.com/ahujasid/blender-mcp)から `addon.py` をダウンロードします。
+2. Blenderを起動します。
+3. メニューから `Edit > Preferences > Add-ons` を選択します。
+4. 「Install from Disk...」をクリックし、ダウンロードした `addon.py` を選択します。
+
+![Install from Diskの選択](/assets/posts/2025-03-23-blender-mcp-intro-with-cursor/blender-mcp-addon-install-01.png)
+
+`addon.py`をインストールすると、以下のように表示されます。
+
+![Add-onのインストール後](/assets/posts/2025-03-23-blender-mcp-intro-with-cursor/blender-mcp-addon-install-02.png)
+
+### Blender Add-onの起動
+
+インストールが完了したら、Blender Add-onを起動します。
+
+1. Blenderを開きます。
+2. サイドバーを表示します（右上の `<` ボタン、または `N` キー）。
+3. サイドバーの `BlenderMCP` タブを開き、「Start MCP Server」ボタンをクリックします。
+
+「Start MCP Server」が「Stop MCP Server」に変わっていれば、MCPサーバーが正常に起動しています。
+
+![Start MCP Serverの選択](/assets/posts/2025-03-23-blender-mcp-intro-with-cursor/blender-mcp-addon-start.png)
+
+## Cursorの設定
+
+最後にCursorの設定を行います。
+
+1. `Cursor > Preferences > Cursor Settings > Features > MCP Server` からCursorにMCPサーバーを設定します。
+2. 「Add new MCP Server」をクリックします。
+3. 設定内容は以下の通りです：
+    - **Name**：任意の名前（例：`BlenderMCP`）
+    - **Type**：`command`
+    - **Command**：`uvx blender-mcp`
+4. 左側のインジケーターが緑色になっていれば、設定は完了です。
+
+![MCP Serverの設定](/assets/posts/2025-03-23-blender-mcp-intro-with-cursor/blender-mcp-cursor-settings.png)
+
+## CursorでBlenderを操作する
+
+設定が完了すると、MCPを通じてCursorからBlenderを操作できるようになります。ただし、現時点ではCursorからMCPサーバーを呼び出すためには、[Agent](https://docs.cursor.com/chat/agent)機能を使用する必要があるので、注意が必要です。
+
+以下は、実際にCursorを使ってBlenderを操作している様子です。
+
+<EmbedTweet id="1903658114496553152" />
+
+## おわりに
+
+[MCP](https://modelcontextprotocol.io/introduction)すごい。
+
+## 参考
+
+- [BlenderMCP - Blender Model Context Protocol Integration](https://github.com/ahujasid/blender-mcp)
+- [Setup tutorial: Using a Blender MCP with Cursor AI (on Mac)](https://www.youtube.com/watch?v=wgWsJshecac)

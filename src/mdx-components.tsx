@@ -1,4 +1,5 @@
 import { CodeBlock } from "@/shared/ui/code-block";
+import { EmbedTweet } from "@/shared/ui/embed-tweet";
 import { Link } from "@/shared/ui/link";
 import { MarkdownHeading } from "@/shared/ui/markdown-heading";
 import type { MDXComponents } from "mdx/types";
@@ -35,5 +36,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     },
     code: (props) => <code {...props} />,
     a: (props) => <Link {...props} />,
+    // Tweetコンポーネントを登録
+    EmbedTweet: EmbedTweet,
   };
 }
