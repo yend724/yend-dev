@@ -1,5 +1,5 @@
 import "@/assets/styles/globals.css";
-import FaviconIcon from "@/assets/images/favicon.ico";
+import FaviconIcon from "@/assets/images/common/favicon.ico";
 import { generateSharedMeta } from "@/entities/ogp";
 
 const RootLayout = ({

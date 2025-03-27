@@ -1,4 +1,4 @@
-import ProfileIconImage from "@/assets/images/profile-icon.png";
+import ProfileIconImage from "@/assets/images/common/profile-icon.png";
 import { Books } from "@/entities/books";
 import { Works } from "@/entities/works";
 import { SITE_METADATA } from "@/shared/config/site";

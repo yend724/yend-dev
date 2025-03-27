@@ -3,7 +3,7 @@ import {
   ArticlePreview,
   type ArticlePreviewInterface,
 } from "@/entities/article";
-import { SearchIcon } from "lucide-react";
+// import { SearchIcon } from "lucide-react";
 import { useFilterArticles } from "./hooks/useFilterArticles";
 
 const FILTER_LABEL_MAP = {
@@ -18,10 +18,10 @@ type Props = {
 export const FilterArticles: React.FC<Props> = ({ articles }) => {
   const {
     filters,
-    searchTerm,
+    // searchTerm,
     filteredArticles,
     handleFilterChange,
-    handleSearchTermChange,
+    // handleSearchTermChange,
   } = useFilterArticles(articles);
 
   const filterKeys = Object.keys(filters) as (keyof typeof filters)[];
@@ -29,7 +29,7 @@ export const FilterArticles: React.FC<Props> = ({ articles }) => {
   return (
     <div className="space-y-8">
       <div className="grid gap-y-4">
-        <div className="relative">
+        {/* <div className="relative">
           <SearchIcon
             className="-translate-y-1/2 pointer-events-none absolute top-1/2 left-2"
             width={16}
@@ -42,7 +42,7 @@ export const FilterArticles: React.FC<Props> = ({ articles }) => {
             value={searchTerm}
             onChange={handleSearchTermChange}
           />
-        </div>
+        </div> */}
         <fieldset className="flex flex-wrap gap-4">
           {filterKeys.map((filter) => (
             <label

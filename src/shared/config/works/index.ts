@@ -1,3 +1,6 @@
+import GitHubActionsCronExpressionBuilder from "@/assets/images/works/cron-expression-builder-thumbnail.png";
+import CSV2MarkdownTable from "@/assets/images/works/csv-2-markdown-table-thumbnail.png";
+
 type Work = {
   title: string;
   description: string;
@@ -32,6 +35,7 @@ export const WEB_APPS: WebApp[] = [
     description: "CSVをMarkdownの表形式に変換するウェブアプリ",
     app: "https://csv-2-markdown-table.yend.dev",
     github: "https://github.com/yend724/csv-2-markdown-table",
+    thumbnail: CSV2MarkdownTable.src,
   },
   {
     title: "Shake Snap",
@@ -44,5 +48,6 @@ export const WEB_APPS: WebApp[] = [
     description: "GitHub ActionsのCron式を簡単に作成するツール",
     app: "https://cron-expression-builder.yend.dev",
     github: "https://github.com/yend724/cron-expression-builder",
+    thumbnail: GitHubActionsCronExpressionBuilder.src,
   },
 ];

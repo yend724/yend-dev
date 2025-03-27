@@ -1,4 +1,4 @@
-import XLogo from "@/assets/images/x-logo.svg";
+import XLogo from "@/assets/images/common/x-logo.svg";
 import { Link } from "@/shared/ui/link";
 import { generateXUrl } from "./utils";
 

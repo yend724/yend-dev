@@ -41,6 +41,18 @@ export const Works = () => {
             label: "GitHub",
           },
         ]}
+        renderThumbnail={({ thumbnail, title }) =>
+          thumbnail && (
+            <div className="relative aspect-video w-full overflow-hidden rounded-md">
+              <Image
+                src={thumbnail}
+                alt={`${title}のサムネイル`}
+                fill
+                className="object-cover opacity-85"
+              />
+            </div>
+          )
+        }
       />
     </div>
   );

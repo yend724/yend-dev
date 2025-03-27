@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "biome lint src",
-    "lint:fix": "biome check --fix src"
+    "lint:fix": "biome check --fix src --unsafe"
   },
   "dependencies": {
     "github-markdown-css": "^5.8.1",
