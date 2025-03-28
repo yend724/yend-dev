@@ -59,7 +59,7 @@ export const FilterArticles: React.FC<Props> = ({ articles }) => {
           ))}
         </fieldset>
       </div>
-      <div className="grid gap-y-8">
+      <div className="grid gap-y-4">
         {filteredArticles.map((article) => (
           <ArticlePreview key={article.id} article={article} />
         ))}

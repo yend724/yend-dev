@@ -1,6 +1,6 @@
 import ProfileIconImage from "@/assets/images/common/profile-icon.png";
 import { Books } from "@/entities/books";
-import { Works } from "@/entities/works";
+import { Projects } from "@/entities/project";
 import { SITE_METADATA } from "@/shared/config/site";
 import { SOCIALS } from "@/shared/config/social";
 import { LinkTag } from "@/shared/ui/link-tag";
@@ -42,7 +42,7 @@ export const Main: React.FC = async () => {
         <Articles />
       </Section>
       <Section title="作ったもの">
-        <Works />
+        <Projects />
       </Section>
       <Section title="読んだ書籍">
         <Books />

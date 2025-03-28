@@ -1,15 +1,15 @@
 import GitHubActionsCronExpressionBuilder from "@/assets/images/works/cron-expression-builder-thumbnail.png";
 import CSV2MarkdownTable from "@/assets/images/works/csv-2-markdown-table-thumbnail.png";
 
-type Work = {
+type Projects = {
   title: string;
   description: string;
 };
-type Library = Work & {
+type Library = Projects & {
   npm: string;
   github: string;
 };
-type WebApp = Work & {
+type WebApp = Projects & {
   app: string;
   github: string;
   thumbnail?: string;

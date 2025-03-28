@@ -1,16 +1,16 @@
-import { LIBRARIES, WEB_APPS } from "@/shared/config/works";
+import { LIBRARIES, WEB_APPS } from "@/shared/config/project";
 import { GitHubIcon, LinkIcon, PackageIcon } from "@/shared/ui/icons";
 import Image from "next/image";
-import { WorkSection } from "../work-section";
+import { Section } from "../section";
 
-export const Works = () => {
+export const Projects = () => {
   const githubIcon = (
     <Image src={GitHubIcon} alt="GitHub" width={16} height={16} />
   );
 
   return (
     <div className="grid gap-y-8">
-      <WorkSection
+      <Section
         title="🧩 ライブラリ"
         items={LIBRARIES}
         getLinks={({ npm, github }) => [
@@ -26,7 +26,7 @@ export const Works = () => {
           },
         ]}
       />
-      <WorkSection
+      <Section
         title="💻 Webアプリ"
         items={WEB_APPS}
         getLinks={({ app, github }) => [
