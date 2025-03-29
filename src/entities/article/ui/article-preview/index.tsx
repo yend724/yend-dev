@@ -31,8 +31,11 @@ type Props = {
 };
 export const ArticlePreview: React.FC<Props> = ({ article }) => {
   return (
-    <Link key={article.id} href={article.link} className="block">
-      <Card as="article">
+    <Link key={article.id} href={article.link} className="group block">
+      <Card
+        as="article"
+        className="transition-all duration-200 group-hover:border-sky-500"
+      >
         <div className="grid gap-2">
           <div className="flex items-center gap-x-1 text-sm opacity-80">
             <CalendarIcon className="size-3.5" />
@@ -51,7 +54,7 @@ export const ArticlePreview: React.FC<Props> = ({ article }) => {
               <span className="font-medium text-sm">
                 {PLATFORM_ICON_MAP[article.platform].label}
               </span>
-              <span>
+              <span className="transition-all duration-200 group-hover:animate-rotate-x group-hover:text-sky-500">
                 <ChevronRightIcon width={16} height={16} />
               </span>
             </div>

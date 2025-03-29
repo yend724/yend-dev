@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme {
+  --animate-rotate-x: rotate-x 2s ease-in-out infinite;
   --animate-wiggle: bg-fade 4s ease-out both;
 
   @keyframes bg-fade {
@@ -12,6 +13,15 @@
     }
     100% {
       transform: transparent;
+    }
+  }
+
+  @keyframes rotate-x {
+    0% {
+      transform: rotateX(0deg);
+    }
+    100% {
+      transform: rotateX(360deg);
     }
   }
 }
