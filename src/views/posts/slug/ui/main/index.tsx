@@ -1,5 +1,6 @@
 import type { Frontmatter } from "@/entities/post";
 import { FormattedDate } from "@/shared/ui/date-time";
+import { CalendarIcon } from "@/shared/ui/icons";
 import { Link } from "@/shared/ui/link";
 import { ArrowLeft } from "lucide-react";
 import { Share } from "../share";
@@ -24,8 +25,9 @@ export const Main = async ({
         </Link>
       </div>
       <div className="grid gap-y-2">
-        <div className="text-sm opacity-80">
-          <FormattedDate date={frontmatter.date} /> に公開
+        <div className="flex items-center gap-x-1 text-sm opacity-80">
+          <CalendarIcon className="size-3.5" />
+          <FormattedDate date={frontmatter.date} />
         </div>
         <h1 className="font-bold text-3xl">{frontmatter.title}</h1>
         {frontmatter.tags.length && <Tags tags={frontmatter.tags} />}
