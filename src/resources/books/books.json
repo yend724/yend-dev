@@ -1,5 +1,25 @@
 [
   {
+    "title": "Creating Web Animations: Bringing Your UIs to Life (English Edition)",
+    "link": "https://www.amazon.co.jp/dp/B06XRMMG64",
+    "completedAt": "2025/04"
+  },
+  {
+    "title": "Programming WebRTC: Build Real-Time Streaming Applications for the Web (English Edition)",
+    "link": "https://www.amazon.co.jp/dp/B0DGZBSRW7",
+    "completedAt": "2025/03"
+  },
+  {
+    "title": "個人開発で毎月1万円を稼ぐコツ",
+    "link": "https://www.amazon.co.jp/dp/B0BY8NT4B6",
+    "completedAt": "2025/02"
+  },
+  {
+    "title": "伝わる・揺さぶる！ 文章を書く (PHP新書)",
+    "link": "https://www.amazon.co.jp/dp/B0081BBF4K",
+    "completedAt": "2025/02"
+  },
+  {
     "title": "おうちで学べるデータベースのきほん 第2版",
     "link": "https://www.amazon.co.jp/dp/B0D7NZHDH5",
     "completedAt": "2025/02"
@@ -480,7 +500,7 @@
     "completedAt": "2023/04"
   },
   {
-    "title": "イラストで理解SQLはじめて入門",
+    "title": "イラストで理解 SQL はじめて入門",
     "link": "https://www.amazon.co.jp/dp/4297105438",
     "completedAt": "2023/04"
   },
@@ -550,7 +570,7 @@
     "completedAt": "2022/11"
   },
   {
-    "title": "GCPの教科書 Google・Cloud・Platform",
+    "title": "GCPの教科書",
     "link": "https://www.amazon.co.jp/dp/4865941959",
     "completedAt": "2022/11"
   },
@@ -690,7 +710,7 @@
     "completedAt": "2021/10"
   },
   {
-    "title": "AWS認定クラウドプラクティショナー AWS認定資格試験テキスト",
+    "title": "AWS認定試験対策 AWS クラウドプラクティショナー",
     "link": "https://www.amazon.co.jp/dp/4797397403",
     "completedAt": "2021/07"
   },

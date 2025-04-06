@@ -82,10 +82,10 @@
     @apply bg-transparent! border-0! px-4! py-2! text-start!;
   }
   .markdown-body table tr:has(th) {
-    @apply border-y! bg-neutral-900/50! border-neutral-200/20!;
+    @apply border-y! bg-neutral-900! border-neutral-200/20!;
   }
   .markdown-body table tr:nth-of-type(2n) {
-    @apply bg-neutral-900/50!;
+    @apply bg-neutral-900!;
   }
   [data-heading-level]::before {
     @apply inline-block opacity-80;
