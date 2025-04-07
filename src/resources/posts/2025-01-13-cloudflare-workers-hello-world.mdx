@@ -17,20 +17,20 @@ Cloudflare WorkersでHello Worldまで試したのでメモ。
 
 ## Workers Project の作成
 
-次のコマンドを実行して、Cloudflare Workersのプロジェクトを作成します。
+次のコマンドを実行して、Cloudflare Workersのプロジェクトを作成する。
 
 ```sh
 $ npm create cloudflare@latest
 ```
 
-セットアップ時にいくつか質問されます。今回は以下のような設定を選択しました。
+セットアップ時にいくつか質問される。今回は以下のような設定を選択した。
 
 - 作成するディレクトリは`hello-world`
 - テンプレートは`Hello World example`を選択
 - 言語は`TypeScript`を選択
 - デプロイは同時には行わないので`No`を選択
 
-全体の設定は下記のようになります。
+全体の設定は下記のようになる。
 
 ```sh
 ╭ Create an application with Cloudflare Step 1 of 3
@@ -88,11 +88,11 @@ $ npm create cloudflare@latest
 ╰ Done
 ```
 
-ローカルに`hello-world`ディレクトリが作成され、その中にプロジェクトが作成されていればOKです。
+ローカルに`hello-world`ディレクトリが作成され、その中にプロジェクトが作成されていればOKである。
 
 ## ローカルでの動作確認
 
-ローカルで動作確認を行うために、次のコマンドを実行します。
+ローカルで動作確認を行うために、次のコマンドを実行する。
 
 ```sh
 # プロジェクトディレクトリに移動
@@ -111,9 +111,9 @@ $ npx wrangler dev
 [wrangler:inf] Ready on http://localhost:8787
 ```
 
-[Wrangler](https://developers.cloudflare.com/workers/wrangler/) はWorkers用の公式CLIツールです。Workersのプロジェクトを管理することができます。Wranglerを初めて使用する場合、ログインが必要です。
+[Wrangler](https://developers.cloudflare.com/workers/wrangler/) はWorkers用の公式CLIツールである。Workersのプロジェクトを管理することができる。Wranglerを初めて使用する場合、ログインが必要である。
 
-ローカルサーバーが起動したら、`curl`で`http://localhost:8787`にリクエストを投げてみます。次のように`Hello World!`が返ってくれば問題ありません。
+ローカルサーバーが起動したら、`curl`で`http://localhost:8787`にリクエストを投げてみる。次のように`Hello World!`が返ってくれば問題ない。
 
 ```sh
 $ curl  http://localhost:8787
@@ -122,7 +122,7 @@ Hello World!%
 
 ### コードの確認
 
-`src/index.ts`を確認してみます。
+`src/index.ts`を確認してみる。
 
 ```ts
 export default {
@@ -136,19 +136,19 @@ export default {
 >
 > 出典: https://developers.cloudflare.com/workers/get-started/guide/#3-write-code
 
-Workerは、HTTPリクエストを受け取るたびに`fetch`関数を呼び出します。
+Workerは、HTTPリクエストを受け取るたびに`fetch`関数を呼び出す。
 
 > The Workers runtime expects fetch handlers to return a Response object or a Promise which resolves with a Response object.
 >
 > 出典: https://developers.cloudflare.com/workers/get-started/guide/#3-write-code
 
-`fetch`関数は`Response`オブジェクトを返すか、`Response`オブジェクトを解決するPromiseを返す必要があるようです。
+`fetch`関数は`Response`オブジェクトを返すか、`Response`オブジェクトを解決するPromiseを返す必要があるようだ。
 
-今回の例では、`"Hello World!"`という文字列を持つ`Response`オブジェクトを返しているのがわかります。
+今回の例では、`"Hello World!"`という文字列を持つ`Response`オブジェクトを返しているのがわかる。
 
 ### コードの編集
 
-次に`"Hello World!"`を`"Hello Worker!"`に変更します。
+次に`"Hello World!"`を`"Hello Worker!"`に変更する。
 
 ```ts
 export default {
@@ -158,14 +158,14 @@ export default {
 } satisfies ExportedHandler<Env>;
 ```
 
-`"Hello Worker!"`が返ってくることを確認できます。
+`"Hello Worker!"`が返ってくることを確認できる。
 
 ```sh
 $ curl http://localhost:8787
 Hello Worker!%
 ```
 
-さらに、リクエスト元の国を判定して表示するように、コードを次のように変更してみます。
+さらに、リクエスト元の国を判定して表示するように、コードを次のように変更してみる。
 
 ```ts
 export default {
@@ -180,18 +180,18 @@ export default {
 >
 > 参照: https://developers.cloudflare.com/workers/runtime-apis/request/#incomingrequestcfproperties
 
-`request.cf.country`は、リクエスト送信元の国を2文字のコードで取得します（例: 日本なら`JP`、アメリカなら`US`など）。上記のコードではアクセスしてきた国に応じて異なる文字列を返しています。
+`request.cf.country`は、リクエスト送信元の国を2文字のコードで取得する（例: 日本なら`JP`、アメリカなら`US`など）。上記のコードではアクセスしてきた国に応じて異なる文字列を返している。
 
 ```sh
 $ curl http://localhost:8787
 Hello JP!%
 ```
 
-日本からのリクエストの場合は`"Hello JP!"`が返ってきます。
+日本からのリクエストの場合は`"Hello JP!"`が返ってくる。
 
 ## デプロイ
 
-Workerのデプロイを行うために次のコマンドを実行します。
+Workerのデプロイを行うために次のコマンドを実行する。
 
 ```sh
 $ npx wrangler deploy
@@ -205,16 +205,16 @@ Deployed hello-world triggers (0.31 sec)
   https://hello-world.[YOUR_SUBDOMAIN].workers.dev
 ```
 
-`https://hello-world.[YOUR_SUBDOMAIN].workers.dev`にデプロイされました（`[YOUR_SUBDOMAIN]`は自分のサブドメインに置き換えてください）。
+`https://hello-world.[YOUR_SUBDOMAIN].workers.dev`にデプロイされた（`[YOUR_SUBDOMAIN]`は自分のサブドメインに置き換えること）。
 
-実際にリクエストを投げてみると、`"Hello JP!"`が返ってくることを確認できます。
+実際にリクエストを投げてみると、`"Hello JP!"`が返ってくることを確認できる。
 
 ```sh
 $ curl https://hello-world.[YOUR_SUBDOMAIN].workers.dev
 Hello JP!%
 ```
 
-以上でCloudflare WorkersでHello Worldを試すことができました。
+以上でCloudflare WorkersでHello Worldを試すことができた。
 
 ## 参考
 

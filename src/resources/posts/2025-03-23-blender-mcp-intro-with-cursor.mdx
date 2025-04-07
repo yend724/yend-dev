@@ -18,9 +18,9 @@ draft: false
 
 ## uvのインストール
 
-BlenderMCPはPythonで実装されています。Pythonのパッケージマネージャーとして `uv` を使用します。
+BlenderMCPはPythonで実装されている。Pythonのパッケージマネージャーとして `uv` を使用する。
 
-未インストールの場合は、以下のコマンドでインストールしてください。
+未インストールの場合は、以下のコマンドでインストールすること。
 
 ```shell
 $ brew install uv
@@ -32,48 +32,48 @@ uv 0.6.9 (Homebrew 2025-03-20)
 
 ### Blender Add-onのインストール
 
-1. [BlenderMCPのGitHubリポジトリ](https://github.com/ahujasid/blender-mcp)から `addon.py` をダウンロードします。
-2. Blenderを起動します。
-3. メニューから `Edit > Preferences > Add-ons` を選択します。
-4. 「Install from Disk...」をクリックし、ダウンロードした `addon.py` を選択します。
+1. [BlenderMCPのGitHubリポジトリ](https://github.com/ahujasid/blender-mcp)から `addon.py` をダウンロードする。
+2. Blenderを起動する。
+3. メニューから `Edit > Preferences > Add-ons` を選択する。
+4. 「Install from Disk...」をクリックし、ダウンロードした `addon.py` を選択する。
 
 ![Install from Diskの選択](/assets/posts/2025-03-23-blender-mcp-intro-with-cursor/blender-mcp-addon-install-01.png)
 
-`addon.py`をインストールすると、以下のように表示されます。
+`addon.py`をインストールすると、以下のように表示される。
 
 ![Add-onのインストール後](/assets/posts/2025-03-23-blender-mcp-intro-with-cursor/blender-mcp-addon-install-02.png)
 
 ### Blender Add-onの起動
 
-インストールが完了したら、Blender Add-onを起動します。
+インストールが完了したら、Blender Add-onを起動する。
 
-1. Blenderを開きます。
-2. サイドバーを表示します（右上の `<` ボタン、または `N` キー）。
-3. サイドバーの `BlenderMCP` タブを開き、「Start MCP Server」ボタンをクリックします。
+1. Blenderを開く。
+2. サイドバーを表示する（右上の `<` ボタン、または `N` キー）。
+3. サイドバーの `BlenderMCP` タブを開き、「Start MCP Server」ボタンをクリックする。
 
-「Start MCP Server」が「Stop MCP Server」に変わっていれば、MCPサーバーが正常に起動しています。
+「Start MCP Server」が「Stop MCP Server」に変わっていれば、MCPサーバーが正常に起動している。
 
 ![Start MCP Serverの選択](/assets/posts/2025-03-23-blender-mcp-intro-with-cursor/blender-mcp-addon-start.png)
 
 ## Cursorの設定
 
-最後にCursorの設定を行います。
+最後にCursorの設定を行う。
 
-1. `Cursor > Preferences > Cursor Settings > Features > MCP Server` からCursorにMCPサーバーを設定します。
-2. 「Add new MCP Server」をクリックします。
-3. 設定内容は以下の通りです：
+1. `Cursor > Preferences > Cursor Settings > Features > MCP Server` からCursorにMCPサーバーを設定する。
+2. 「Add new MCP Server」をクリックする。
+3. 設定内容は以下の通りである：
     - **Name**：任意の名前（例：`BlenderMCP`）
     - **Type**：`command`
     - **Command**：`uvx blender-mcp`
-4. 左側のインジケーターが緑色になっていれば、設定は完了です。
+4. 左側のインジケーターが緑色になっていれば、設定は完了である。
 
 ![MCP Serverの設定](/assets/posts/2025-03-23-blender-mcp-intro-with-cursor/blender-mcp-cursor-settings.png)
 
 ## CursorでBlenderを操作する
 
-設定が完了すると、MCPを通じてCursorからBlenderを操作できるようになります。ただし、現時点ではCursorからMCPサーバーを呼び出すためには、[Agent](https://docs.cursor.com/chat/agent)機能を使用する必要があるので、注意が必要です。
+設定が完了すると、MCPを通じてCursorからBlenderを操作できるようになる。ただし、現時点ではCursorからMCPサーバーを呼び出すためには、[Agent](https://docs.cursor.com/chat/agent)機能を使用する必要がある。
 
-以下は、実際にCursorを使ってBlenderを操作している様子です。
+以下は、実際にCursorを使ってBlenderを操作している様子。
 
 <EmbedTweet id="1903658114496553152" />
 
