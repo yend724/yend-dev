@@ -1,0 +1,183 @@
+---
+title: UUIDを生成するMCPサーバーをTypeScriptで自作する
+date: 2025-04-18T00:00:00
+tags:
+    - MCP
+    - Cursor
+    - TypeScript
+draft: false
+---
+
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) に入門するため、UUIDを返すだけのシンプルなMCPサーバーをTypeScriptで自作し、Cursor上で動作を確認した。
+
+## サンプルコード
+
+サンプルコードは以下のリポジトリ。
+
+- [GitHub - yend724/mcp-tutorial/uuid-generator-server-typescript](https://github.com/yend724/mcp-tutorial/tree/main/uuid-generator-server-typescript)
+
+## 開発環境のセットアップ
+
+Node.js環境でプロジェクトを作成し、MCP TypeScript SDKとTypeScript関連パッケージを導入する。
+
+```sh
+npm init -y
+npm install @modelcontextprotocol/sdk
+npm install -D @types/node typescript
+```
+
+`package.json` に `build` スクリプトを追加する。
+
+```json
+{
+  "name": "uuid-generator-server-typescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "uuid-generator": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\""
+  },
+  "files": [
+    "build"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.4.0"
+  }
+}
+```
+
+`tsconfig.json` を以下のように設定する。
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "outDir": "　./build",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
+```
+
+`package.json` と `tsconfig.json` は適宜変更して問題ない。今回は公式の [Quickstart](https://modelcontextprotocol.io/quickstart/server#node) のコードをほぼそのまま流用した。
+
+
+## MCPサーバーの実装
+
+UUIDを生成して返すサーバーの実装。
+
+実装は非常にシンプルで `generate_uuid` というツールを登録し、呼び出し時に `crypto.randomUUID()` によってUUIDを返すだけ。
+
+```ts
+// src/index.ts
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+
+// MCPサーバーのインスタンスを作成
+const server = new McpServer({
+  name: 'uuid-generator', // MCPサーバー名
+  version: '1.0.0',       // バージョン
+});
+
+// MCPのツール（機能）を登録
+server.tool('generate_uuid', 'UUIDを生成する。', {}, async () => {
+  // UUIDの生成
+  const uuid = crypto.randomUUID();
+
+  // MCPのレスポンス形式に従ってUUIDを返却
+  return {
+    content: [
+      {
+        type: 'text', // レスポンスはテキスト
+        text: `生成されたUUID: ${uuid}`, // 表示するテキスト内容
+      },
+    ],
+  };
+});
+
+// メイン関数を定義
+async function main() {
+  const transport = new StdioServerTransport();
+
+  // サーバーを指定したトランスポートで起動・接続
+  await server.connect(transport);
+
+  console.log('UUID Generator MCP Server running on stdio');
+}
+
+// メイン関数を実行し、エラーが発生した場合はログを出力してプロセスを終了
+main().catch(error => {
+  console.error('Fatal error in main():', error);
+  process.exit(1);
+});
+```
+
+### ビルド
+
+上記コードが実装できたら、次のコマンドでビルドする。
+
+```sh
+npm run build
+```
+
+`build/index.js` が生成されれば、問題なし。
+
+## CursorにMCPサーバーを登録する
+
+作成したMCPサーバーをCursor上で利用するために、以下の手順でMCPサーバーを登録する。
+
+`Preferences > Cursor Settings > MCP > MCP Servers` からMCPサーバーを登録できる。
+
+![CursorのMCPサーバーの設定画面で、まだ何も設定されていない](/assets/posts/2025-04-18-mcp-server-introduction/mcp-servers-01.png)
+
+右上の「+ Add new global MCP server」をクリックし、MCPサーバーをJSONで追加する。
+
+```json
+{
+  "mcpServers": {
+    "uuid-generator": {
+      "command": "node",
+      "args": [
+        "[PATH_TO]/build/index.js"
+      ]
+    }
+  }
+}
+```
+
+以下のように「uuid-generator」の左のインジケーターが緑になっていればOK。
+
+![CursorのMCPサーバーの設定画面で、uuid-generatorのMCPサーバーを設定した](/assets/posts/2025-04-18-mcp-server-introduction/mcp-servers-02.png)
+
+## Cursorで実行している様子
+
+ChatのAgentで「generate_uuid: UUIDを生成してください」のようにリクエストを投げると、`generate_uuid` ツールが呼び出され、UUIDが生成され、その結果が表示された。
+
+![UUID生成のチャットリクエスト](/assets/posts/2025-04-18-mcp-server-introduction/uuid-generation-chat-request.png)
+
+## おわりに
+
+UUID生成という最小構成のツールを通して、MCPサーバーは手軽に自作できることが確認できた。
+
+## 参考リンク
+
+- [Introduction - Model Context Protocol](https://modelcontextprotocol.io/introduction)
+- [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
