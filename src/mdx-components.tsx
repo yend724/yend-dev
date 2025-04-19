@@ -1,3 +1,4 @@
+import { Image } from "@/shared/ui/image";
 import { CodeBlock } from "@/shared/ui/code-block";
 import { EmbedTweet } from "@/shared/ui/embed-tweet";
 import { Link } from "@/shared/ui/link";
@@ -37,6 +38,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     code: (props) => <code {...props} />,
     a: (props) => <Link {...props} />,
     // Tweetコンポーネントを登録
-    EmbedTweet: EmbedTweet,
+    EmbedTweet,
+    Image,
   };
 }
