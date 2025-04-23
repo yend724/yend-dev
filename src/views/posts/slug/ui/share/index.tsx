@@ -8,7 +8,7 @@ type Props = {
 };
 export const Share: React.FC<Props> = ({ slug, title }) => {
   return (
-    <div className="mt-4 flex flex-wrap items-center gap-4">
+    <div className="flex flex-wrap items-center gap-4">
       <ShareButton
         shareData={{
           title: `${title} | ${SITE_METADATA.author}`,

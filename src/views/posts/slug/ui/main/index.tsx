@@ -24,7 +24,7 @@ export const Main = async ({
           記事一覧へ戻る
         </Link>
       </div>
-      <div className="grid gap-y-2">
+      <div className="grid gap-y-4">
         <div className="flex items-center gap-x-1 text-sm opacity-80">
           <CalendarIcon className="size-3.5" />
           <FormattedDate date={frontmatter.date} />
