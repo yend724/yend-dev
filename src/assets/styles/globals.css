@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/**
+ * アニメーション・キーフレーム設定
+ */
 @theme {
   --animate-rotate-x: rotate-x 2s ease-in-out infinite;
   --animate-wiggle: bg-fade 4s ease-out both;
@@ -26,7 +29,11 @@
   }
 }
 
+/**
+ * ベーススタイル
+ */
 @layer base {
+  /* ボーダー色の基本設定 */
   *,
   ::after,
   ::before,
@@ -34,28 +41,63 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
-}
 
-@layer utilities {
-  :root {
-    --neumorphism-shadow-color-01: #1b1b1b;
-    --neumorphism-shadow-color-02: #313131;
-    color-scheme: dark;
-  }
-}
-
-@layer base {
+  /* ターゲット要素のアニメーション */
   *:target {
     @apply animate-wiggle;
   }
+
+  /* リンクの基本スタイル */
   a {
     @apply break-all;
   }
+
+  /* 見出しアンカー設定 */
+  [data-heading-level]::before {
+    @apply inline-block opacity-80;
+  }
+  [data-heading-level="1"]::before {
+    content: "#";
+  }
+  [data-heading-level="2"]::before {
+    content: "##";
+  }
+  [data-heading-level="3"]::before {
+    content: "###";
+  }
+  [data-heading-level="4"]::before {
+    content: "#####";
+  }
+  [data-heading-level="5"]::before {
+    content: "#####";
+  }
+  [data-heading-level="6"]::before {
+    content: "######";
+  }
+
+  /* 目次スタイル */
+  .toc .toc-list-item {
+    counter-increment: count 1;
+  }
+  .toc .toc-list-item a {
+    @apply relative flex items-start gap-x-1 w-full py-1 px-4 rounded-sm before:content-[counter(count)_"."];
+  }
+  @media (any-hover: hover) {
+    .toc .toc-list-item a:hover {
+      @apply after:content-["▶︎"] after:absolute after:left-0 after:top-1/2 after:-translate-y-1/2 after:font-semibold after:font-mono;
+    }
+  }
+}
+
+/**
+ * マークダウン本文スタイル
+ */
+@layer base {
   .markdown-body {
     @apply bg-transparent!;
   }
   .markdown-body *:is(h1, h2) {
-    @apply py-[0.3em];
+    @apply py-[0.3em]!;
   }
   .markdown-body *:is(h1, h2, h3, h4, h5, h6) a {
     @apply text-inherit! no-underline!;
@@ -87,40 +129,24 @@
   .markdown-body table tr:nth-of-type(2n) {
     @apply bg-neutral-900!;
   }
-  [data-heading-level]::before {
-    @apply inline-block opacity-80;
-  }
-  [data-heading-level="1"]::before {
-    content: "#";
-  }
-  [data-heading-level="2"]::before {
-    content: "##";
-  }
-  [data-heading-level="3"]::before {
-    content: "###";
-  }
-  [data-heading-level="4"]::before {
-    content: "#####";
-  }
-  [data-heading-level="5"]::before {
-    content: "#####";
-  }
-  [data-heading-level="6"]::before {
-    content: "######";
-  }
-  .toc .toc-list-item {
-    counter-increment: count 1;
-  }
-  .toc .toc-list-item a {
-    @apply relative flex items-start gap-x-1 w-full py-1 px-4 rounded-sm before:content-[counter(count)_"."];
-  }
-  @media (any-hover: hover) {
-    .toc .toc-list-item a:hover {
-      @apply after:content-["▶︎"] after:absolute after:left-0 after:top-1/2 after:-translate-y-1/2 after:font-semibold after:font-mono;
-    }
+}
+
+/**
+ * ユーティリティ
+ */
+@layer utilities {
+  :root {
+    --neumorphism-shadow-color-01: #1b1b1b;
+    --neumorphism-shadow-color-02: #313131;
+    color-scheme: dark;
   }
 }
+
+/**
+ * コンポーネント
+ */
 @layer component {
+  /* ニューモーフィズム関連スタイル */
   .neumorphism-shadow {
     box-shadow: 5px 5px 10px var(--neumorphism-shadow-color-01), -5px -5px 10px
       var(--neumorphism-shadow-color-02);
