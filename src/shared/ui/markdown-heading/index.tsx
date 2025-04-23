@@ -1,15 +1,16 @@
 import { Link } from "@/shared/ui/link";
+import { createHeadingComponentsByLevel } from "./utils";
 
 type Props = {
-  level: "1" | "2" | "3" | "4" | "5" | "6";
+  level: number;
   children: React.ReactNode;
 };
 export const MarkdownHeading: React.FC<Props> = ({ level, children }) => {
-  const HeadingTag = `h${level}` as React.ElementType;
+  const { tag: HeadingTag, props } = createHeadingComponentsByLevel({ level });
   const childrenString = `${children}`;
 
   return (
-    <HeadingTag id={childrenString}>
+    <HeadingTag id={childrenString} {...props}>
       <Link
         className="flex gap-x-2"
         href={`#${childrenString}`}
