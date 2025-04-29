@@ -1,20 +1,24 @@
-import type { Frontmatter } from "@/entities/post";
-import { FormattedDate } from "@/shared/ui/date-time";
-import { CalendarIcon } from "@/shared/ui/icons";
-import { Link } from "@/shared/ui/link";
-import { ArrowLeft } from "lucide-react";
-import { Share } from "../share";
-import { Tags } from "../tags";
-import { Toc } from "../toc";
+import type { AdjacentPosts, Frontmatter } from '@/entities/post';
+import { FormattedDate } from '@/shared/ui/date-time';
+import { CalendarIcon } from '@/shared/ui/icons';
+import { Link } from '@/shared/ui/link';
+import { ArrowLeft } from 'lucide-react';
+import { Share } from '../share';
+import { Tags } from '../tags';
+import { Toc } from '../toc';
 
 export const Main = async ({
   frontmatter,
   children,
   slug,
+  prevPost,
+  nextPost,
 }: {
   frontmatter: Frontmatter;
   slug: string;
   children: React.ReactNode;
+  prevPost: AdjacentPosts['prev'];
+  nextPost: AdjacentPosts['next'];
 }) => {
   return (
     <div className="w-full space-y-12 pb-12">
@@ -35,6 +39,30 @@ export const Main = async ({
       </div>
       <Toc />
       <div className="markdown-body">{children}</div>
+      <div className="mt-20 space-y-2 rounded-md border border-neutral-200/20 bg-neutral-900 p-4 ">
+        {prevPost && (
+          <div>
+            <Link
+              className="underline hover:no-underline"
+              href={`/posts/${prevPost.slug}`}
+            >
+              <span>【前の記事】</span>
+              <span>{prevPost.title}</span>
+            </Link>
+          </div>
+        )}
+        {nextPost && (
+          <div>
+            <Link
+              className="underline hover:no-underline"
+              href={`/posts/${nextPost.slug}`}
+            >
+              <span>【次の記事】</span>
+              <span>{nextPost.title}</span>
+            </Link>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
