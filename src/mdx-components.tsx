@@ -3,14 +3,16 @@ import { EmbedTweet } from "@/shared/ui/embed-tweet";
 import { Image } from "@/shared/ui/image";
 import { Link } from "@/shared/ui/link";
 import { MarkdownHeading } from "@/shared/ui/markdown-heading";
-import { twMerge } from "tailwind-merge";
 import type { MDXComponents } from "mdx/types";
+import { twMerge } from "tailwind-merge";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   // ヘッディングコンポーネントの生成を効率化
   const headingComponents: MDXComponents = {};
   for (let i = 1; i <= 6; i++) {
-    headingComponents[`h${i}`] = ({ children }: { children: React.ReactNode }) => (
+    headingComponents[`h${i}`] = ({
+      children,
+    }: { children: React.ReactNode }) => (
       <MarkdownHeading level={i}>{children}</MarkdownHeading>
     );
   }

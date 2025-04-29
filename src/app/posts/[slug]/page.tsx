@@ -44,12 +44,14 @@ export const generateMetadata = async ({ params }: Params) => {
   const { frontmatter } = await getPost(`${slug}${EXTENSION.mdx}`);
   const publishedDateTime = new Date(frontmatter.date).toISOString();
 
-  // OGP画像を生成して保存する
-  makeDirRecursive(OGP_DIR);
-  writeFile(
-    `${OGP_DIR}/${slug}.png`,
-    await generateOgpImage(frontmatter.title),
-  );
+  if (env().isProd) {
+    // OGP画像を生成して保存する
+    makeDirRecursive(OGP_DIR);
+    writeFile(
+      `${OGP_DIR}/${slug}.png`,
+      await generateOgpImage(frontmatter.title),
+    );
+  }
 
   return generateSharedMeta({
     title: frontmatter.title,
