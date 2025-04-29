@@ -52,29 +52,6 @@
     @apply break-all;
   }
 
-  /* 見出しアンカー設定 */
-  [data-heading-level]::before {
-    @apply inline-block opacity-80;
-  }
-  [data-heading-level="1"]::before {
-    content: "#";
-  }
-  [data-heading-level="2"]::before {
-    content: "##";
-  }
-  [data-heading-level="3"]::before {
-    content: "###";
-  }
-  [data-heading-level="4"]::before {
-    content: "#####";
-  }
-  [data-heading-level="5"]::before {
-    content: "#####";
-  }
-  [data-heading-level="6"]::before {
-    content: "######";
-  }
-
   /* 目次スタイル */
   .toc .toc-list-item {
     counter-increment: count 1;
@@ -86,48 +63,6 @@
     .toc .toc-list-item a:hover {
       @apply after:content-["▶︎"] after:absolute after:left-0 after:top-1/2 after:-translate-y-1/2 after:font-semibold after:font-mono;
     }
-  }
-}
-
-/**
- * マークダウン本文スタイル
- */
-@layer base {
-  .markdown-body {
-    @apply bg-transparent!;
-  }
-  .markdown-body *:is(h1, h2) {
-    @apply py-[0.3em]!;
-  }
-  .markdown-body *:is(h1, h2, h3, h4, h5, h6) a {
-    @apply text-inherit! no-underline!;
-  }
-  .markdown-body a {
-    @apply text-sky-400! underline! hover:no-underline!;
-  }
-  .markdown-body ul {
-    @apply list-disc!;
-  }
-  .markdown-body ol {
-    @apply list-decimal!;
-  }
-  .markdown-body table {
-    @apply w-full!;
-  }
-  .markdown-body table th {
-    @apply whitespace-nowrap!;
-  }
-  .markdown-body pre {
-    @apply px-4! py-6!;
-  }
-  .markdown-body table :is(tr, th, td) {
-    @apply bg-transparent! border-0! px-4! py-2! text-start!;
-  }
-  .markdown-body table tr:has(th) {
-    @apply border-y! bg-neutral-900! border-neutral-200/20!;
-  }
-  .markdown-body table tr:nth-of-type(2n) {
-    @apply bg-neutral-900!;
   }
 }
 
