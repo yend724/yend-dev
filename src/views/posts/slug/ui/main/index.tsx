@@ -21,7 +21,7 @@ export const Main = async ({
   nextPost: AdjacentPosts['next'];
 }) => {
   return (
-    <div className="w-full space-y-12 pb-12">
+    <div className="w-full space-y-12 pb-4">
       <div className="flex">
         <Link href="/#書いたやつ" className="flex items-center gap-x-2">
           <ArrowLeft size={14} />
@@ -39,9 +39,9 @@ export const Main = async ({
       </div>
       <Toc />
       <div className="markdown-body">{children}</div>
-      <div className="mt-20 space-y-2 rounded-md border border-neutral-200/20 bg-neutral-900 p-4 ">
+      <ul className="mt-20 space-y-2 rounded-md border border-neutral-200/20 bg-neutral-900 p-4 ">
         {prevPost && (
-          <div>
+          <li>
             <Link
               className="underline hover:no-underline"
               href={`/posts/${prevPost.slug}`}
@@ -49,10 +49,10 @@ export const Main = async ({
               <span>【前の記事】</span>
               <span>{prevPost.title}</span>
             </Link>
-          </div>
+          </li>
         )}
         {nextPost && (
-          <div>
+          <li>
             <Link
               className="underline hover:no-underline"
               href={`/posts/${nextPost.slug}`}
@@ -60,9 +60,9 @@ export const Main = async ({
               <span>【次の記事】</span>
               <span>{nextPost.title}</span>
             </Link>
-          </div>
+          </li>
         )}
-      </div>
+      </ul>
     </div>
   );
 };
