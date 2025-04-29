@@ -1,5 +1,5 @@
-import { LinkText } from '@/shared/ui/link-text';
-import { getBooks } from '../../api/books';
+import { LinkText } from "@/shared/ui/link-text";
+import { getBooks } from "../../api/books";
 
 export const Books: React.FC = async () => {
   const { default: books } = await getBooks();
@@ -13,7 +13,7 @@ export const Books: React.FC = async () => {
           </tr>
         </thead>
         <tbody>
-          {books.map(book => {
+          {books.map((book) => {
             return (
               <tr key={book.link}>
                 <td>

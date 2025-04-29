@@ -1,10 +1,10 @@
-import { CodeBlock } from '@/shared/ui/code-block';
-import { EmbedTweet } from '@/shared/ui/embed-tweet';
-import { Image } from '@/shared/ui/image';
-import { LinkText } from '@/shared/ui/link-text';
-import { MarkdownHeading } from '@/shared/ui/markdown-heading';
-import type { MDXComponents } from 'mdx/types';
-import { twMerge } from 'tailwind-merge';
+import { CodeBlock } from "@/shared/ui/code-block";
+import { EmbedTweet } from "@/shared/ui/embed-tweet";
+import { Image } from "@/shared/ui/image";
+import { LinkText } from "@/shared/ui/link-text";
+import { MarkdownHeading } from "@/shared/ui/markdown-heading";
+import type { MDXComponents } from "mdx/types";
+import { twMerge } from "tailwind-merge";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   // ヘッディングコンポーネントの生成を効率化
@@ -21,20 +21,20 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ...components,
     ...headingComponents,
     pre: ({ children }) => {
-      const [language] = children.props.className?.split(':') ?? [''];
-      const formattedLanguage = language.replace('language-', '');
+      const [language] = children.props.className?.split(":") ?? [""];
+      const formattedLanguage = language.replace("language-", "");
       return (
         <CodeBlock lang={formattedLanguage}>
           {children.props.children}
         </CodeBlock>
       );
     },
-    code: props => <code {...props} />,
-    a: props => <LinkText {...props} />,
+    code: (props) => <code {...props} />,
+    a: (props) => <LinkText {...props} />,
     // Tweetコンポーネントを登録
     EmbedTweet,
     Image: ({ className, ...props }) => (
-      <Image {...props} className={twMerge(className, 'mx-auto')} />
+      <Image {...props} className={twMerge(className, "mx-auto")} />
     ),
   };
 }

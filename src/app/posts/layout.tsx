@@ -1,7 +1,7 @@
-import { Footer } from '@/shared/ui/footer';
-import { Header } from '@/shared/ui/header';
-import 'katex/dist/katex.min.css';
-import '@/assets/styles/markdown.css';
+import { Footer } from "@/shared/ui/footer";
+import { Header } from "@/shared/ui/header";
+import "katex/dist/katex.min.css";
+import "@/assets/styles/markdown.css";
 
 const RootLayout = ({
   children,
