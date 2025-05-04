@@ -6,6 +6,7 @@ import { ArrowLeft } from 'lucide-react';
 import { Share } from '../share';
 import { Tags } from '../tags';
 import { Toc } from '../toc';
+import { PostNavigation } from '../post-navigation';
 
 export const Main = async ({
   frontmatter,
@@ -38,31 +39,10 @@ export const Main = async ({
         <Share slug={slug} title={frontmatter.title} />
       </div>
       <Toc />
-      <div className="markdown-body">{children}</div>
-      <ul className="mt-20 space-y-2 rounded-md border border-neutral-200/20 bg-neutral-900 p-4 ">
-        {prevPost && (
-          <li>
-            <Link
-              className="underline hover:no-underline"
-              href={`/posts/${prevPost.slug}`}
-            >
-              <span>【前の記事】</span>
-              <span>{prevPost.title}</span>
-            </Link>
-          </li>
-        )}
-        {nextPost && (
-          <li>
-            <Link
-              className="underline hover:no-underline"
-              href={`/posts/${nextPost.slug}`}
-            >
-              <span>【次の記事】</span>
-              <span>{nextPost.title}</span>
-            </Link>
-          </li>
-        )}
-      </ul>
+      <div className="grid gap-y-12">
+        <div className="markdown-body">{children}</div>
+        <PostNavigation prevPost={prevPost} nextPost={nextPost} />
+      </div>
     </div>
   );
 };

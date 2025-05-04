@@ -1,15 +1,15 @@
-import type { BundledLanguage } from "shiki";
-import { codeToHtml } from "shiki";
-import { CopyButton } from "./copy-button";
+import type { BundledLanguage } from 'shiki';
+import { codeToHtml } from 'shiki';
+import { CopyButton } from './copy-button';
 
 type Props = {
   children: string;
   lang: BundledLanguage;
 };
-export const CodeBlock: React.FC<Props> = async (props) => {
+export const CodeBlock: React.FC<Props> = async props => {
   const code = await codeToHtml(props.children, {
     lang: props.lang,
-    theme: "github-dark-default",
+    theme: 'github-dark-default',
   });
 
   return (
