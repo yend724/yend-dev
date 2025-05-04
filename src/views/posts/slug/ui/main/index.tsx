@@ -1,12 +1,12 @@
-import type { AdjacentPosts, Frontmatter } from '@/entities/post';
-import { FormattedDate } from '@/shared/ui/date-time';
-import { CalendarIcon } from '@/shared/ui/icons';
-import { Link } from '@/shared/ui/link';
-import { ArrowLeft } from 'lucide-react';
-import { Share } from '../share';
-import { Tags } from '../tags';
-import { Toc } from '../toc';
-import { PostNavigation } from '../post-navigation';
+import type { AdjacentPosts, Frontmatter } from "@/entities/post";
+import { FormattedDate } from "@/shared/ui/date-time";
+import { CalendarIcon } from "@/shared/ui/icons";
+import { Link } from "@/shared/ui/link";
+import { ArrowLeft } from "lucide-react";
+import { PostNavigation } from "../post-navigation";
+import { Share } from "../share";
+import { Tags } from "../tags";
+import { Toc } from "../toc";
 
 export const Main = async ({
   frontmatter,
@@ -18,8 +18,8 @@ export const Main = async ({
   frontmatter: Frontmatter;
   slug: string;
   children: React.ReactNode;
-  prevPost: AdjacentPosts['prev'];
-  nextPost: AdjacentPosts['next'];
+  prevPost: AdjacentPosts["prev"];
+  nextPost: AdjacentPosts["next"];
 }) => {
   return (
     <div className="w-full space-y-12 pb-4">

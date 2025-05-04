@@ -1,25 +1,25 @@
-import { AdjacentPosts } from '@/entities/post';
-import { Link } from '@/shared/ui/link';
+import type { AdjacentPosts } from "@/entities/post";
+import { Link } from "@/shared/ui/link";
 
 type Props = {
-  prevPost: AdjacentPosts['prev'];
-  nextPost: AdjacentPosts['next'];
+  prevPost: AdjacentPosts["prev"];
+  nextPost: AdjacentPosts["next"];
 };
 
 type NavigationItemProps = {
-  post: NonNullable<AdjacentPosts['prev'] | AdjacentPosts['next']>;
-  dir: 'prev' | 'next';
+  post: NonNullable<AdjacentPosts["prev"] | AdjacentPosts["next"]>;
+  dir: "prev" | "next";
 };
 
 const NavigationItem = ({ post, dir }: NavigationItemProps) => (
   <li>
     <Link
-      className="underline hover:no-underline flex items-center"
+      className="flex items-center underline hover:no-underline"
       href={`/posts/${post.slug}`}
     >
-      {dir === 'prev' && '←'}
+      {dir === "prev" && "←"}
       <span>{post.title}</span>
-      {dir === 'next' && '→'}
+      {dir === "next" && "→"}
     </Link>
   </li>
 );
@@ -28,7 +28,7 @@ export const PostNavigation: React.FC<Props> = ({ prevPost, nextPost }) => {
   if (!prevPost && !nextPost) return null;
 
   return (
-    <ul className="flex justify-between flex-wrap gap-4">
+    <ul className="flex flex-wrap justify-between gap-4">
       {prevPost && <NavigationItem post={prevPost} dir="prev" />}
       {nextPost && <NavigationItem post={nextPost} dir="next" />}
     </ul>

@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 export const EmbedTweet = ({ id }: { id: string }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // クライアントサイドでのみ実行
-    const script = document.createElement('script');
-    script.src = 'https://platform.twitter.com/widgets.js';
+    const script = document.createElement("script");
+    script.src = "https://platform.twitter.com/widgets.js";
     script.async = true;
-    script.setAttribute('charset', 'utf-8');
+    script.setAttribute("charset", "utf-8");
 
     // ウィジェットのロード
     if (containerRef.current) {
