@@ -5,11 +5,11 @@ type Projects = {
   title: string;
   description: string;
 };
-type Library = Projects & {
+export type Library = Projects & {
   npm: string;
   github: string;
 };
-type WebApp = Projects & {
+export type WebApp = Projects & {
   app: string;
   github: string;
   thumbnail?: string;
