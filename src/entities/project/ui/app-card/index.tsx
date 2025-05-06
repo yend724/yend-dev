@@ -1,8 +1,8 @@
-import type { WebApp } from '@/shared/config/project';
-import { Card } from '@/shared/ui/card';
-import { GitHubIcon, LinkIcon } from '@/shared/ui/icons';
-import Image from 'next/image';
-import { LinkList } from '../project-link-list';
+import type { WebApp } from "@/shared/config/project";
+import { Card } from "@/shared/ui/card";
+import { GitHubIcon, LinkIcon } from "@/shared/ui/icons";
+import Image from "next/image";
+import { LinkList } from "../project-link-list";
 
 type Props = WebApp;
 export const AppCard: React.FC<Props> = ({
@@ -33,14 +33,14 @@ export const AppCard: React.FC<Props> = ({
             {
               href: app,
               icon: <LinkIcon width={18} height={20} />,
-              label: 'URL',
+              label: "URL",
             },
             {
               href: github,
               icon: (
                 <Image src={GitHubIcon} alt="GitHub" width={16} height={16} />
               ),
-              label: 'GitHub',
+              label: "GitHub",
             },
           ]}
         />

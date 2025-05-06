@@ -26,10 +26,10 @@ export const Main: React.FC = async () => {
               />
             </div>
             <hgroup>
-              <h1 className="text-wrap text-left font-semibold text-2xl text-white">
+              <h1 className="text-wrap text-left font-semibold text-2xl text-white leading-none">
                 {SITE_METADATA.creator}
               </h1>
-              <p className="text-base">プログラムを書く砂滑</p>
+              <p className="text-base opacity-80">{SITE_METADATA.mentionId}</p>
             </hgroup>
           </div>
         </div>

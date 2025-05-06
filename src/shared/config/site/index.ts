@@ -5,6 +5,7 @@ export const SITE_METADATA = {
   locale: "ja_JP",
   colorScheme: "dark",
   creator: "YEND",
+  mentionId: "@yend724",
   author: "YEND",
   rss: "https://yend.dev/rss.xml",
 };
