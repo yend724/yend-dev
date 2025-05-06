@@ -1,3 +1,4 @@
+import BoidsSimulation from "@/assets/images/works/playground-boids-simulation-thumbnail.png";
 import GitHubActionsCronExpressionBuilder from "@/assets/images/works/cron-expression-builder-thumbnail.png";
 import CSV2MarkdownTable from "@/assets/images/works/csv-2-markdown-table-thumbnail.png";
 
@@ -11,6 +12,11 @@ export type Library = Projects & {
 };
 export type WebApp = Projects & {
   app: string;
+  github: string;
+  thumbnail?: string;
+};
+export type Playground = Projects & {
+  url: string;
   github: string;
   thumbnail?: string;
 };
@@ -49,5 +55,15 @@ export const WEB_APPS: WebApp[] = [
     app: "https://cron-expression-builder.yend.dev",
     github: "https://github.com/yend724/cron-expression-builder",
     thumbnail: GitHubActionsCronExpressionBuilder.src,
+  },
+];
+export const PLAYGROUNDS: Playground[] = [
+  {
+    title: "Boids Simulation",
+    description: "Boidsアルゴリズムを用いた簡易シミュレーション",
+    url: "https://playground.yend.dev/boids-simulation/",
+    github:
+      "https://github.com/yend724/yend-playground/tree/main/src/boids-simulation",
+    thumbnail: BoidsSimulation.src,
   },
 ];
