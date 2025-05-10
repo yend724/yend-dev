@@ -14,11 +14,11 @@ type NavigationItemProps = {
 const NavigationItem = ({ post, dir }: NavigationItemProps) => (
   <li>
     <Link
-      className="flex items-center underline hover:no-underline"
+      className="underline hover:no-underline"
       href={`/posts/${post.slug}`}
     >
       {dir === "prev" && "←"}
-      <span>{post.title}</span>
+　　　　{post.title}
       {dir === "next" && "→"}
     </Link>
   </li>
