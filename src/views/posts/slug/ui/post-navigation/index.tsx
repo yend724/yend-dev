@@ -17,9 +17,7 @@ const NavigationItem = ({ post, dir }: NavigationItemProps) => (
       className="underline hover:no-underline"
       href={`/posts/${post.slug}`}
     >
-      {dir === "prev" && "←"}
-　　　　{post.title}
-      {dir === "next" && "→"}
+      {dir === "prev" && "←"}{post.title}{dir === "next" && "→"}
     </Link>
   </li>
 );
