@@ -11,7 +11,7 @@
     "lint:fix": "biome check --fix src --unsafe"
   },
   "dependencies": {
-    "lucide-react": "^0.509.0",
+    "lucide-react": "^0.511.0",
     "next": "15.3.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
