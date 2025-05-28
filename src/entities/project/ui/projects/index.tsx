@@ -1,7 +1,7 @@
-import { LIBRARIES, PLAYGROUNDS, WEB_APPS } from '@/shared/config/project';
-import { AppCard } from '../app-card';
-import { LibraryCard } from '../library-card';
-import { Section } from '../section';
+import { LIBRARIES, PLAYGROUNDS, WEB_APPS } from "@/shared/config/project";
+import { AppCard } from "../app-card";
+import { LibraryCard } from "../library-card";
+import { Section } from "../section";
 
 export const Projects = () => {
   return (
@@ -10,7 +10,7 @@ export const Projects = () => {
         icon="🛠️"
         title="ライブラリ"
         items={LIBRARIES}
-        renderItems={item => (
+        renderItems={(item) => (
           <LibraryCard
             key={item.title}
             title={item.title}
@@ -24,7 +24,7 @@ export const Projects = () => {
         icon="💻"
         title="Webアプリ"
         items={WEB_APPS}
-        renderItems={item => (
+        renderItems={(item) => (
           <AppCard
             key={item.title}
             title={item.title}
@@ -39,7 +39,7 @@ export const Projects = () => {
         icon="🎮"
         title="プレイグラウンド"
         items={PLAYGROUNDS}
-        renderItems={item => (
+        renderItems={(item) => (
           <AppCard
             key={item.title}
             title={item.title}

@@ -1,6 +1,6 @@
-import BoidsSimulation from "@/assets/images/works/playground-boids-simulation-thumbnail.png";
 import GitHubActionsCronExpressionBuilder from "@/assets/images/works/cron-expression-builder-thumbnail.png";
 import CSV2MarkdownTable from "@/assets/images/works/csv-2-markdown-table-thumbnail.png";
+import BoidsSimulation from "@/assets/images/works/playground-boids-simulation-thumbnail.png";
 
 type Projects = {
   title: string;

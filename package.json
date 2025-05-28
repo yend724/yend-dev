@@ -11,6 +11,7 @@
     "lint:fix": "biome check --fix src --unsafe"
   },
   "dependencies": {
+    "@react-aria/utils": "^3.29.0",
     "lucide-react": "^0.511.0",
     "next": "15.3.2",
     "react": "19.1.0",
