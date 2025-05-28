@@ -8,11 +8,18 @@ export const useHandleOpenLink = () => {
 
   useEffect(() => {
     const clickableElement = clickableRef.current;
+    const anchorElement = anchorRef.current;
+
+    if (!clickableElement || !anchorElement) {
+      return;
+    }
+
     const handleOpenLink = (event: PointerEvent) => {
-      if (anchorRef.current) {
-        openLink(anchorRef.current, event);
+      if (document.getSelection()?.isCollapsed) {
+        openLink(anchorElement, event);
       }
     };
+
     clickableElement?.addEventListener("pointerup", handleOpenLink);
     return () => {
       clickableElement?.removeEventListener("pointerup", handleOpenLink);
