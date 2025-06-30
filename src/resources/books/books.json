@@ -1,5 +1,20 @@
 [
   {
+    "title": "単体テストの考え方/使い方",
+    "link": "https://www.amazon.co.jp/dp/B0BLTG8Z9K",
+    "completedAt": "2025/06"
+  },
+  {
+    "title": "UIデザインのアイデア帳　アプリ・Web制作の現場で使える 基本＋実践ノウハウ83",
+    "link": "https://www.amazon.co.jp/dp/B0DTPFZ3VR",
+    "completedAt": "2025/06"
+  },
+  {
+    "title": "白と黒のとびら",
+    "link": "https://www.amazon.co.jp/dp/B07BGVKW86",
+    "completedAt": "2025/05"
+  },
+  {
     "title": "Processing で作って学ぶ、コンピュータシミュレーション入門",
     "link": "https://www.amazon.co.jp/dp/B0DR1YDMLM",
     "completedAt": "2025/04"
@@ -15,7 +30,7 @@
     "completedAt": "2025/04"
   },
   {
-    "title": "基礎からわかるTCP/IPネットワークコンピューティング入門 第3版",
+    "title": "ネットワークコンピューティング入門(第3版) (基礎からわかるTCP/IP)",
     "link": "https://www.amazon.co.jp/dp/4274050734",
     "completedAt": "2025/04"
   },
@@ -55,7 +70,7 @@
     "completedAt": "2025/01"
   },
   {
-    "title": "アナログ・アルゴリズム グリッドシステムによる形の探求",
+    "title": "アナログ・アルゴリズム ANALOG ALGORITHMグリッドシステムによる形の探求",
     "link": "https://www.amazon.co.jp/dp/4802512996",
     "completedAt": "2025/01"
   },
@@ -140,7 +155,7 @@
     "completedAt": "2024/10"
   },
   {
-    "title": "情報処理 安全確保支援士 合格教本 (令和06年【春期】【秋期】)",
+    "title": "令和06年【春期】【秋期】 情報処理安全確保支援士 合格教本",
     "link": "https://www.amazon.co.jp/dp/4297138131",
     "completedAt": "2024/10"
   },
@@ -205,7 +220,7 @@
     "completedAt": "2024/07"
   },
   {
-    "title": "ROS2とPythonで作って学ぶAIロボット入門",
+    "title": "ROS2とPythonで作って学ぶAIロボット入門 (KS理工学専門書)",
     "link": "https://www.amazon.co.jp/dp/4065289564",
     "completedAt": "2024/07"
   },
@@ -335,7 +350,7 @@
     "completedAt": "2024/02"
   },
   {
-    "title": "ChatGPT API×Pythonで始める対話型AI実装入門 GPT‐3.5&GPT‐4 対応",
+    "title": "ChatGPT API×Pythonで始める対話型AI実装入門(GPT-3.5&GPT-4 対応)",
     "link": "https://www.amazon.co.jp/dp/429501785X",
     "completedAt": "2024/02"
   },
@@ -630,7 +645,7 @@
     "completedAt": "2022/08"
   },
   {
-    "title": "Google Cloudのしくみと技術がこれ1冊でしっかりわかる教科書 (図解即戦力)",
+    "title": "図解即戦力 Google Cloudのしくみと技術がこれ1冊でしっかりわかる教科書",
     "link": "https://www.amazon.co.jp/dp/4297123010",
     "completedAt": "2022/07"
   },
@@ -640,7 +655,7 @@
     "completedAt": "2022/07"
   },
   {
-    "title": "HTML解体新書 仕様から紐解く本格入門",
+    "title": "HTML解体新書-仕様から紐解く本格入門",
     "link": "https://www.amazon.co.jp/dp/4862465277",
     "completedAt": "2022/05"
   },
@@ -700,7 +715,7 @@
     "completedAt": "2021/12"
   },
   {
-    "title": "パーフェクト Ruby on Rails 増補改訂版 (Perfect series)",
+    "title": "パーフェクト Ruby on Rails 【増補改訂版】",
     "link": "https://www.amazon.co.jp/dp/4297114623",
     "completedAt": "2021/12"
   },
@@ -765,7 +780,7 @@
     "completedAt": "2020/12"
   },
   {
-    "title": "Webフロントエンドハイパフォーマンスチューニング Webサイト・アプリケーションを徹底的に高速化",
+    "title": "Webフロントエンド ハイパフォーマンス チューニング Webサイト・アプリケーションを徹底的に高速化",
     "link": "https://www.amazon.co.jp/dp/4774189677",
     "completedAt": "2019/12"
   },
