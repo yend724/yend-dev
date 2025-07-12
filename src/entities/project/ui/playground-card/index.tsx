@@ -1,8 +1,10 @@
+import Image from "next/image";
+
+import { LinkList } from "../project-link-list";
+
 import type { Playground } from "@/shared/config/project";
 import { Card } from "@/shared/ui/card";
 import { GitHubIcon, LinkIcon } from "@/shared/ui/icons";
-import Image from "next/image";
-import { LinkList } from "../project-link-list";
 
 type Props = Playground;
 export const PlaygroundCard: React.FC<Props> = ({

@@ -18,7 +18,7 @@ type Props = {
 const Page: React.FC<Props> = async ({ params }) => {
   const slug = (await params).slug;
   const { component: Component, frontmatter } = await getPost(
-    `${slug}${EXTENSION.mdx}`,
+    `${slug}${EXTENSION.mdx}`
   );
 
   // 前後の記事を取得
@@ -60,7 +60,7 @@ export const generateMetadata = async ({ params }: Props) => {
     makeDirRecursive(OGP_DIR);
     writeFile(
       `${OGP_DIR}/${slug}.png`,
-      await generateOgpImage(frontmatter.title),
+      await generateOgpImage(frontmatter.title)
     );
   });
 

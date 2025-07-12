@@ -1,8 +1,10 @@
+import Image from "next/image";
+
+import { LinkList } from "../project-link-list";
+
 import type { WebApp } from "@/shared/config/project";
 import { Card } from "@/shared/ui/card";
 import { GitHubIcon, LinkIcon } from "@/shared/ui/icons";
-import Image from "next/image";
-import { LinkList } from "../project-link-list";
 
 type Props = WebApp;
 export const AppCard: React.FC<Props> = ({

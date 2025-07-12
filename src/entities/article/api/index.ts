@@ -1,6 +1,5 @@
-import { getPosts } from "@/entities/post";
-import { env } from "@/shared/config/env";
 import Parser from "rss-parser";
+
 import type { ArticlePreviewInterface } from "../model/article";
 import type {
   QiitaRSSFeed,
@@ -9,10 +8,13 @@ import type {
   ZennRSSFeedItem,
 } from "../model/feed";
 
+import { env } from "@/shared/config/env";
+import { getPosts } from "@/entities/post";
+
 const parser = new Parser();
 
 const normalizeZennArticle = (
-  article: ZennRSSFeedItem,
+  article: ZennRSSFeedItem
 ): ArticlePreviewInterface => {
   return {
     id: article.guid,
@@ -24,14 +26,14 @@ const normalizeZennArticle = (
 };
 export const getZennArticles = async () => {
   const feed = (await parser.parseURL(
-    "https://zenn.dev/yend724/feed?all=1",
+    "https://zenn.dev/yend724/feed?all=1"
   )) as ZennRSSFeed;
   const articles = feed.items.map(normalizeZennArticle);
   return articles;
 };
 
 const normalizeQiitaArticle = (
-  article: QiitaRSSFeedItem,
+  article: QiitaRSSFeedItem
 ): ArticlePreviewInterface => {
   return {
     id: article.id,
@@ -43,7 +45,7 @@ const normalizeQiitaArticle = (
 };
 export const getQiitaArticles = async () => {
   const feed = (await parser.parseURL(
-    "https://qiita.com/yend724/feed",
+    "https://qiita.com/yend724/feed"
   )) as QiitaRSSFeed;
   const articles = feed.items.map(normalizeQiitaArticle);
   return articles;

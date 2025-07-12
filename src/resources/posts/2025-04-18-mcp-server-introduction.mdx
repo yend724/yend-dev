@@ -2,9 +2,9 @@
 title: UUIDを生成するMCPサーバーをTypeScriptで自作する
 date: 2025-04-18T00:00:00
 tags:
-    - MCP
-    - Cursor
-    - TypeScript
+  - MCP
+  - Cursor
+  - TypeScript
 draft: false
 ---
 
@@ -40,9 +40,7 @@ npm install -D @types/node typescript
   "scripts": {
     "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\""
   },
-  "files": [
-    "build"
-  ],
+  "files": ["build"],
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -79,7 +77,6 @@ npm install -D @types/node typescript
 
 `package.json` と `tsconfig.json` は適宜変更して問題ない。今回は公式の [Quickstart](https://modelcontextprotocol.io/quickstart/server#node) のコードをほぼそのまま流用した。
 
-
 ## MCPサーバーの実装
 
 UUIDを生成して返すサーバーの実装。
@@ -88,17 +85,17 @@ UUIDを生成して返すサーバーの実装。
 
 ```ts
 // src/index.ts
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 
 // MCPサーバーのインスタンスを作成
 const server = new McpServer({
-  name: 'uuid-generator', // MCPサーバー名
-  version: '1.0.0',       // バージョン
+  name: "uuid-generator", // MCPサーバー名
+  version: "1.0.0", // バージョン
 });
 
 // MCPのツール（機能）を登録
-server.tool('generate_uuid', 'UUIDを生成する。', {}, async () => {
+server.tool("generate_uuid", "UUIDを生成する。", {}, async () => {
   // UUIDの生成
   const uuid = crypto.randomUUID();
 
@@ -106,7 +103,7 @@ server.tool('generate_uuid', 'UUIDを生成する。', {}, async () => {
   return {
     content: [
       {
-        type: 'text', // レスポンスはテキスト
+        type: "text", // レスポンスはテキスト
         text: `生成されたUUID: ${uuid}`, // 表示するテキスト内容
       },
     ],
@@ -120,12 +117,12 @@ async function main() {
   // サーバーを指定したトランスポートで起動・接続
   await server.connect(transport);
 
-  console.log('UUID Generator MCP Server running on stdio');
+  console.log("UUID Generator MCP Server running on stdio");
 }
 
 // メイン関数を実行し、エラーが発生した場合はログを出力してプロセスを終了
-main().catch(error => {
-  console.error('Fatal error in main():', error);
+main().catch((error) => {
+  console.error("Fatal error in main():", error);
   process.exit(1);
 });
 ```
@@ -155,9 +152,7 @@ npm run build
   "mcpServers": {
     "uuid-generator": {
       "command": "node",
-      "args": [
-        "[PATH_TO]/build/index.js"
-      ]
+      "args": ["[PATH_TO]/build/index.js"]
     }
   }
 }
@@ -165,13 +160,23 @@ npm run build
 
 以下のように「uuid-generator」の左のインジケーターが緑になっていればOK。
 
-<Image src="/assets/posts/2025-04-18-mcp-server-introduction/mcp-servers-02.png" alt="CursorのMCPサーバーの設定画面で、uuid-generatorのMCPサーバーを設定した" width={2406} height={464} />
+<Image
+  src="/assets/posts/2025-04-18-mcp-server-introduction/mcp-servers-02.png"
+  alt="CursorのMCPサーバーの設定画面で、uuid-generatorのMCPサーバーを設定した"
+  width={2406}
+  height={464}
+/>
 
 ## Cursorで実行している様子
 
 ChatのAgentで「generate_uuid: UUIDを生成してください」のようにリクエストを投げると、`generate_uuid` ツールが呼び出され、UUIDが生成され、その結果が表示された。
 
-<Image src="/assets/posts/2025-04-18-mcp-server-introduction/uuid-generation-chat-request.png" alt="UUID生成のチャットリクエスト" width={712} height={1012} />
+<Image
+  src="/assets/posts/2025-04-18-mcp-server-introduction/uuid-generation-chat-request.png"
+  alt="UUID生成のチャットリクエスト"
+  width={712}
+  height={1012}
+/>
 
 ## おわりに
 

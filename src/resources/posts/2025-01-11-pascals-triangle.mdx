@@ -60,7 +60,6 @@ $nCk = \frac{n!}{k! \cdot (n-k)!}$
 
 それでは、`TypeScript` でパスカルの三角形を実装してみる。
 
-
 ```ts
 /**
  * 二項係数（nCr）を計算する関数
@@ -85,17 +84,17 @@ const combination = (n: number, r: number): number => {
  * @param row 出力する行番号（0から始まる）
  */
 const logPascalRow = (row: number): void => {
-  let line = '';
+  let line = "";
   for (let r = 0; r <= row; r++) {
     const value = combination(row, r);
-    line += value + ' ';
+    line += value + " ";
   }
   console.log(line);
 };
 
 // パスカルの三角形を出力
 const N = 7;
-console.log('出力:');
+console.log("出力:");
 for (let i = 0; i < N; i++) {
   logPascalRow(i);
 }

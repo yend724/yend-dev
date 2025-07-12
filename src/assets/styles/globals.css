@@ -83,17 +83,20 @@
 @layer component {
   /* ニューモーフィズム関連スタイル */
   .neumorphism-shadow {
-    box-shadow: 5px 5px 10px var(--neumorphism-shadow-color-01), -5px -5px 10px
-      var(--neumorphism-shadow-color-02);
+    box-shadow:
+      5px 5px 10px var(--neumorphism-shadow-color-01),
+      -5px -5px 10px var(--neumorphism-shadow-color-02);
   }
   .neumorphism-border {
-    box-shadow: inset 1px 1px 2px var(--neumorphism-shadow-color-01), inset -1px
-      -1px 2px var(--neumorphism-shadow-color-02);
+    box-shadow:
+      inset 1px 1px 2px var(--neumorphism-shadow-color-01),
+      inset -1px -1px 2px var(--neumorphism-shadow-color-02);
   }
   @media (any-hover: hover) {
     .neumorphism-shadow:hover {
-      box-shadow: inset 5px 5px 10px var(--neumorphism-shadow-color-01), inset
-        -5px -5px 10px var(--neumorphism-shadow-color-02);
+      box-shadow:
+        inset 5px 5px 10px var(--neumorphism-shadow-color-01),
+        inset -5px -5px 10px var(--neumorphism-shadow-color-02);
     }
   }
 }

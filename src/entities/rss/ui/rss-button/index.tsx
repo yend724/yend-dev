@@ -1,6 +1,7 @@
+import { Rss as RssIcon } from "lucide-react";
+
 import { SITE_PATHS } from "@/shared/config/path";
 import { Link } from "@/shared/ui/link";
-import { Rss as RssIcon } from "lucide-react";
 
 export const RssButton = () => {
   return (

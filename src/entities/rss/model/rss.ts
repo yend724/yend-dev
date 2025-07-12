@@ -1,6 +1,6 @@
-import { OGP_IMAGE, SITE_METADATA } from "@/shared/config/site";
-
 import { Feed } from "feed";
+
+import { OGP_IMAGE, SITE_METADATA } from "@/shared/config/site";
 
 const createFeed = () => {
   return new Feed({
@@ -23,7 +23,7 @@ const addPostToFeed = (
     title: string;
     slug: string;
     date: string;
-  },
+  }
 ) => {
   feed.addItem({
     title: post.title,
@@ -43,7 +43,7 @@ export const generateRSS = (
     title: string;
     slug: string;
     date: string;
-  }[],
+  }[]
 ) => {
   const feed = createFeed();
   for (const post of posts) {

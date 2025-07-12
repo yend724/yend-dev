@@ -1,5 +1,11 @@
 "use client";
 
+import Image from "next/image";
+
+import type { ArticlePreviewInterface } from "../../model/article";
+
+import { useHandleOpenLink } from "./hooks/useHandleOpenLink";
+
 import { Card } from "@/shared/ui/card";
 import { FormattedDate } from "@/shared/ui/date-time";
 import {
@@ -10,9 +16,6 @@ import {
   ZennIcon,
 } from "@/shared/ui/icons";
 import { Link } from "@/shared/ui/link";
-import Image from "next/image";
-import type { ArticlePreviewInterface } from "../../model/article";
-import { useHandleOpenLink } from "./hooks/useHandleOpenLink";
 
 const PLATFORM_ICON_MAP = {
   zenn: {

@@ -1,3 +1,8 @@
+import Image from "next/image";
+
+import { Articles } from "../articles";
+import { Section } from "../section";
+
 import ProfileIconImage from "@/assets/images/common/profile-icon.png";
 import { Books } from "@/entities/books";
 import { Certifications } from "@/entities/certification";
@@ -5,9 +10,6 @@ import { Projects } from "@/entities/project";
 import { SITE_METADATA } from "@/shared/config/site";
 import { SOCIALS } from "@/shared/config/social";
 import { LinkTag } from "@/shared/ui/link-tag";
-import Image from "next/image";
-import { Articles } from "../articles";
-import { Section } from "../section";
 
 export const Main: React.FC = async () => {
   return (

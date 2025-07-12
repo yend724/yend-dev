@@ -57,26 +57,26 @@ const bubbleSort = (arr: number[]): number[] => {
  * @returns {number[]} ソート済みの新しい配列（元の配列は変更しない）
  */
 const selectionSort = (arr: number[]): number[] => {
-    const arrLength = arr.length;
-    const result = [...arr];
+  const arrLength = arr.length;
+  const result = [...arr];
 
-    for (let i = 0; i < arrLength - 1; i++) {
-        let minIdx = i;
+  for (let i = 0; i < arrLength - 1; i++) {
+    let minIdx = i;
 
-        // 未ソート部分から最小値を見つける
-        for (let j = i + 1; j < arrLength; j++) {
-            if (result[j] < result[minIdx]) {
-                minIdx = j;
-            }
-        }
-
-        // 最小値を未ソート部分の先頭と交換
-        if (minIdx !== i) {
-            [result[i], result[minIdx]] = [result[minIdx], result[i]];
-        }
+    // 未ソート部分から最小値を見つける
+    for (let j = i + 1; j < arrLength; j++) {
+      if (result[j] < result[minIdx]) {
+        minIdx = j;
+      }
     }
 
-    return result;
+    // 最小値を未ソート部分の先頭と交換
+    if (minIdx !== i) {
+      [result[i], result[minIdx]] = [result[minIdx], result[i]];
+    }
+  }
+
+  return result;
 };
 ```
 

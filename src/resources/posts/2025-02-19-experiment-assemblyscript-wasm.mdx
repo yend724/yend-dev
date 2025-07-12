@@ -2,9 +2,9 @@
 title: AssemblyScriptでWebAssemblyを気軽に試す
 date: 2025-02-19T19:45:00
 tags:
-    - AssemblyScript
-    - WebAssembly
-    - Wasm
+  - AssemblyScript
+  - WebAssembly
+  - Wasm
 draft: false
 ---
 
@@ -57,13 +57,13 @@ export function add(a: i32, b: i32): i32 {
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<script type="module">
-import { add } from "./build/release.js";
-document.body.innerText = add(1, 2);
-</script>
-</head>
-<body></body>
+  <head>
+    <script type="module">
+      import { add } from "./build/release.js";
+      document.body.innerText = add(1, 2);
+    </script>
+  </head>
+  <body></body>
 </html>
 ```
 
@@ -136,22 +136,22 @@ export function fib_js(n) {
 <html lang="ja">
   <head>
     <script type="module">
-      import { fib_wasm } from './build/release.js';
-      import { fib_js } from './script.js';
+      import { fib_wasm } from "./build/release.js";
+      import { fib_js } from "./script.js";
 
       const wasmStart = performance.now();
       const wasmResult = fib_wasm(40);
       const wasmEnd = performance.now();
       const wasmTime = wasmEnd - wasmStart;
-      document.getElementById('wasm-result').textContent = wasmResult;
-      document.getElementById('wasm-time').textContent = `${wasmTime}ms`;
+      document.getElementById("wasm-result").textContent = wasmResult;
+      document.getElementById("wasm-time").textContent = `${wasmTime}ms`;
 
       const jsStart = performance.now();
       const jsResult = fib_js(40);
       const jsEnd = performance.now();
       const jsTime = jsEnd - jsStart;
-      document.getElementById('js-result').textContent = jsResult;
-      document.getElementById('js-time').textContent = `${jsTime}ms`;
+      document.getElementById("js-result").textContent = jsResult;
+      document.getElementById("js-time").textContent = `${jsTime}ms`;
     </script>
   </head>
   <body>

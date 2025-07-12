@@ -1,5 +1,6 @@
-import { LinkText } from "@/shared/ui/link-text";
 import { getBooks } from "../../api/books";
+
+import { LinkText } from "@/shared/ui/link-text";
 
 export const Books: React.FC = async () => {
   const { default: books } = await getBooks();

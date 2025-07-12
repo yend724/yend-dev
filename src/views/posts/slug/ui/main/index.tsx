@@ -1,12 +1,14 @@
-import type { AdjacentPosts, Frontmatter } from "@/entities/post";
-import { FormattedDate } from "@/shared/ui/date-time";
-import { CalendarIcon } from "@/shared/ui/icons";
-import { Link } from "@/shared/ui/link";
 import { ArrowLeft } from "lucide-react";
+
 import { PostNavigation } from "../post-navigation";
 import { Share } from "../share";
 import { Tags } from "../tags";
 import { Toc } from "../toc";
+
+import { Link } from "@/shared/ui/link";
+import { CalendarIcon } from "@/shared/ui/icons";
+import { FormattedDate } from "@/shared/ui/date-time";
+import type { AdjacentPosts, Frontmatter } from "@/entities/post";
 
 export const Main = async ({
   frontmatter,

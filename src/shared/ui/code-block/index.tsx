@@ -1,5 +1,6 @@
 import type { BundledLanguage } from "shiki";
 import { codeToHtml } from "shiki";
+
 import { CopyButton } from "./copy-button";
 
 type Props = {

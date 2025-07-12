@@ -1,5 +1,6 @@
-import { Link } from "@/shared/ui/link";
 import { createHeadingComponentsByLevel } from "./utils";
+
+import { Link } from "@/shared/ui/link";
 
 type Props = {
   level: number;

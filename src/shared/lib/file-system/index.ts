@@ -8,7 +8,7 @@ export const makeDirRecursive = (dir: string) => {
 
 export const writeFile = (
   path: string,
-  data: string | NodeJS.ArrayBufferView,
+  data: string | NodeJS.ArrayBufferView
 ) => {
   fs.writeFileSync(path, data);
 };

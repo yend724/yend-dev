@@ -14,13 +14,13 @@ export const Card = forwardRef<HTMLElement, Props>(
         ref={ref}
         className={twMerge(
           "grid gap-4 rounded-lg border border-neutral-200/20 bg-neutral-900 p-4",
-          className,
+          className
         )}
       >
         {children}
       </Component>
     );
-  },
+  }
 );
 
 Card.displayName = "Card";

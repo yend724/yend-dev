@@ -10,7 +10,6 @@ tags:
 
 基本的なデータ構造であるスタックとキューについて学んでいく。
 
-
 ## スタック
 
 スタックは最初に入れたデータが最後に取り出されるデータ構造である。日本語では「積み重ね」という意味を持つ。
@@ -41,7 +40,7 @@ class Stack {
    */
   push(item: number) {
     this.list.push(item);
-    console.log('stack.list =>', this.list);
+    console.log("stack.list =>", this.list);
   }
 
   /**
@@ -52,7 +51,7 @@ class Stack {
   pop() {
     if (this.list.length > 0) {
       const popped = this.list.pop();
-      console.log('stack.list =>', this.list);
+      console.log("stack.list =>", this.list);
       return popped;
     }
     return null;
@@ -78,7 +77,6 @@ console.log(poped); // 1
 キューにデータを入れることを「エンキュー」、データを取り出すことを「デキュー」と呼ぶ。
 
 ```ts
-
 /**
  * A class representing a queue (FIFO: First In, First Out).
  */
@@ -99,7 +97,7 @@ class Queue {
    */
   enqueue(item: number) {
     this.list.push(item);
-    console.log('queue.list =>', this.list);
+    console.log("queue.list =>", this.list);
   }
 
   /**
@@ -110,7 +108,7 @@ class Queue {
   dequeue() {
     if (this.list.length > 0) {
       const dequeued = this.list.shift();
-      console.log('queue.list =>', this.list);
+      console.log("queue.list =>", this.list);
       return dequeued;
     }
     return null;

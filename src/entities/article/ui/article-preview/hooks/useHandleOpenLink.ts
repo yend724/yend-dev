@@ -1,5 +1,4 @@
 import { openLink } from "@react-aria/utils";
-
 import { useEffect, useRef } from "react";
 
 export const useHandleOpenLink = () => {

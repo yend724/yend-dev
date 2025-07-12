@@ -1,15 +1,18 @@
 import fs from "node:fs";
-import { getProjectRoot } from "@/shared/lib/endpoint";
+
 import React from "react";
 import satori from "satori";
 import sharp from "sharp";
+
 import { OgpImage } from "../ui";
 
+import { getProjectRoot } from "@/shared/lib/endpoint";
+
 const fontRegular = fs.readFileSync(
-  `${getProjectRoot()}/src/assets/fonts/NotoSansJP-Regular.ttf`,
+  `${getProjectRoot()}/src/assets/fonts/NotoSansJP-Regular.ttf`
 );
 const fontSemibold = fs.readFileSync(
-  `${getProjectRoot()}/src/assets/fonts/NotoSansJP-SemiBold.ttf`,
+  `${getProjectRoot()}/src/assets/fonts/NotoSansJP-SemiBold.ttf`
 );
 
 export const generateOgpImage = async (title: string): Promise<Buffer> => {

@@ -1,4 +1,5 @@
 import fs from "node:fs";
+
 import { getPosts } from "@/entities/post";
 import { generateRSS } from "@/entities/rss";
 import { runInProduction } from "@/shared/lib/env";
