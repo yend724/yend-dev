@@ -1,24 +1,26 @@
+English | [日本語](README.ja.md)
+
 # YEND.DEV
 
-> YENDの実験場
+> YEND's Experimental Ground
 
-YENDの個人ポートフォリオサイト・ブログサイトです。プログラミング、数学、技術に関する記事を投稿し、個人プロジェクトや読書ログを公開しています。
+This is YEND's personal portfolio and blog site. It features articles on programming, mathematics, and technology, along with personal projects and reading logs.
 
-🔗 **サイトURL**: [https://yend.dev/](https://yend.dev/)
+🔗 **Site URL**: [https://yend.dev/](https://yend.dev/)
 
-## 📋 サイトの内容
+## 📋 Site Contents
 
-- **ブログ**: プログラミング・数学・技術に関する記事
-- **プロジェクト紹介**: 自作ライブラリ・ウェブアプリ・プレイグラウンドの紹介
-- **読書ログ**: 技術書を中心とした読書記録
-- **資格情報**: 応用情報技術者試験、情報処理安全確保支援士試験合格の記録
-- **RSSフィード**: 記事の更新通知対応
+- **Blog**: Articles on programming, mathematics, and technology
+- **Project Showcase**: Introduction to custom libraries, web applications, and playgrounds
+- **Reading Log**: Reading records focused on technical books
+- **Certifications**: Records of passing Applied Information Technology Engineer Exam and Information Processing Security Support Specialist Exam
+- **RSS Feed**: Article update notifications supported
 
-## 👤 作者について
+## 👤 About the Author
 
 **YEND** ([@yend724](https://github.com/yend724))
 
-**SNS・アカウント**:
+**Social Media & Accounts**:
 - [X (Twitter)](https://x.com/yend724)
 - [Zenn](https://zenn.dev/yend724)
 - [Qiita](https://qiita.com/yend724)
