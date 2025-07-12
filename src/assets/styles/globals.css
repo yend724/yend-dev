@@ -57,11 +57,11 @@
     counter-increment: count 1;
   }
   .toc .toc-list-item a {
-    @apply relative flex items-start gap-x-1 w-full py-1 px-4 rounded-sm before:content-[counter(count)_"."];
+    @apply relative flex w-full items-start gap-x-1 rounded-sm px-4 py-1 before:content-[counter(count)_"."];
   }
   @media (any-hover: hover) {
     .toc .toc-list-item a:hover {
-      @apply after:content-["▶︎"] after:absolute after:left-0 after:top-1/2 after:-translate-y-1/2 after:font-semibold after:font-mono;
+      @apply after:absolute after:top-1/2 after:left-0 after:-translate-y-1/2 after:font-mono after:font-semibold after:content-["▶︎"];
     }
   }
 }

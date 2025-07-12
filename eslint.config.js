@@ -1,9 +1,9 @@
 import js from "@eslint/js";
-import tseslint from "typescript-eslint";
+import prettierConfig from "eslint-config-prettier";
+import importPlugin from "eslint-plugin-import";
 import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
-import importPlugin from "eslint-plugin-import";
-import prettierConfig from "eslint-config-prettier";
+import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   js.configs.recommended,
@@ -54,8 +54,21 @@ export default tseslint.config(
             "parent",
             "sibling",
             "index",
+            "object",
+            "type",
+          ],
+          pathGroups: [
+            {
+              pattern: "**/*.css",
+              group: "index",
+              position: "after",
+            },
           ],
           "newlines-between": "always",
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
+          },
         },
       ],
 

@@ -3,7 +3,7 @@ import { Link } from "@/shared/ui/link";
 
 export const Footer = () => {
   return (
-    <footer className="border-neutral-200/20 border-t">
+    <footer className="border-t border-neutral-200/20">
       <div className="mx-auto grid w-full max-w-5xl gap-4 p-4 pt-6 text-start">
         <ul className="flex flex-wrap gap-2 text-sm">
           {SOCIALS.map((link) => {

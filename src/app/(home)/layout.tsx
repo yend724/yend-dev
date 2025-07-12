@@ -1,6 +1,7 @@
+import "@/assets/styles/markdown.css";
+
 import { Footer } from "@/shared/ui/footer";
 import { Header } from "@/shared/ui/header";
-import "@/assets/styles/markdown.css";
 
 const RootLayout = ({
   children,

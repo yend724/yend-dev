@@ -3,6 +3,7 @@ import Image from "next/image";
 import { LinkList } from "../project-link-list";
 
 import type { Playground } from "@/shared/config/project";
+
 import { Card } from "@/shared/ui/card";
 import { GitHubIcon, LinkIcon } from "@/shared/ui/icons";
 
@@ -17,7 +18,7 @@ export const PlaygroundCard: React.FC<Props> = ({
   return (
     <Card as="article" key={title}>
       <div className="grid gap-2">
-        <h4 className="font-semibold text-lg">{title}</h4>
+        <h4 className="text-lg font-semibold">{title}</h4>
         <div className="relative grid aspect-video place-items-center overflow-hidden rounded-sm">
           {thumbnail && (
             <Image

@@ -5,10 +5,11 @@ import { Share } from "../share";
 import { Tags } from "../tags";
 import { Toc } from "../toc";
 
-import { Link } from "@/shared/ui/link";
-import { CalendarIcon } from "@/shared/ui/icons";
-import { FormattedDate } from "@/shared/ui/date-time";
 import type { AdjacentPosts, Frontmatter } from "@/entities/post";
+
+import { FormattedDate } from "@/shared/ui/date-time";
+import { CalendarIcon } from "@/shared/ui/icons";
+import { Link } from "@/shared/ui/link";
 
 export const Main = async ({
   frontmatter,
@@ -36,7 +37,7 @@ export const Main = async ({
           <CalendarIcon className="size-3.5" />
           <FormattedDate date={frontmatter.date} />
         </div>
-        <h1 className="font-bold text-3xl">{frontmatter.title}</h1>
+        <h1 className="text-3xl font-bold">{frontmatter.title}</h1>
         {frontmatter.tags.length && <Tags tags={frontmatter.tags} />}
         <Share slug={slug} title={frontmatter.title} />
       </div>

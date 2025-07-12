@@ -1,5 +1,6 @@
-import type { MDXComponents } from "mdx/types";
 import { twMerge } from "tailwind-merge";
+
+import type { MDXComponents } from "mdx/types";
 
 import { CodeBlock } from "@/shared/ui/code-block";
 import { EmbedTweet } from "@/shared/ui/embed-tweet";

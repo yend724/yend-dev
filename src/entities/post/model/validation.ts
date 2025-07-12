@@ -1,7 +1,8 @@
 import * as v from "valibot";
 
-import type { Frontmatter } from "./frontmatter";
 import { componentSchema, frontmatterSchema } from "./schema";
+
+import type { Frontmatter } from "./frontmatter";
 
 type Component = React.FC;
 

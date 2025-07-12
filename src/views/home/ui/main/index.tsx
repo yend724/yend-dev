@@ -28,7 +28,7 @@ export const Main: React.FC = async () => {
               />
             </div>
             <hgroup>
-              <h1 className="text-wrap text-left font-semibold text-2xl text-white leading-none">
+              <h1 className="text-left text-2xl leading-none font-semibold text-wrap text-white">
                 {SITE_METADATA.creator}
               </h1>
               <p className="text-base opacity-80">{SITE_METADATA.mentionId}</p>

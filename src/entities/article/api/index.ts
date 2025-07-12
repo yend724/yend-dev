@@ -8,8 +8,8 @@ import type {
   ZennRSSFeedItem,
 } from "../model/feed";
 
-import { env } from "@/shared/config/env";
 import { getPosts } from "@/entities/post";
+import { env } from "@/shared/config/env";
 
 const parser = new Parser();
 

@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 
-import type { ArticlePreviewInterface } from "../../model/article";
-
 import { useHandleOpenLink } from "./hooks/useHandleOpenLink";
+
+import type { ArticlePreviewInterface } from "../../model/article";
 
 import { Card } from "@/shared/ui/card";
 import { FormattedDate } from "@/shared/ui/date-time";
@@ -50,7 +50,7 @@ export const ArticlePreview: React.FC<Props> = ({ article }) => {
           <CalendarIcon className="size-3.5" />
           <FormattedDate date={article.isoDate} />
         </div>
-        <h3 className="font-semibold text-lg">
+        <h3 className="text-lg font-semibold">
           <Link ref={anchorRef} href={article.link}>
             {article.title}
           </Link>
@@ -64,10 +64,10 @@ export const ArticlePreview: React.FC<Props> = ({ article }) => {
             height={16}
           />
           <div className="flex w-full items-center justify-between gap-x-1">
-            <span className="font-medium text-sm">
+            <span className="text-sm font-medium">
               {PLATFORM_ICON_MAP[article.platform].label}
             </span>
-            <span className="transition-all duration-200 group-hover:animate-rotate-x group-hover:text-sky-500">
+            <span className="group-hover:animate-rotate-x transition-all duration-200 group-hover:text-sky-500">
               <ChevronRightIcon width={16} height={16} />
             </span>
           </div>
