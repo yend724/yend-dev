@@ -61,6 +61,11 @@ jobs:
             すべての返信を日本語で行ってください。
             コードコメントやコミットメッセージも日本語で書いてください。
 
+            PRを作成する際は、以下のブランチ命名規則に従ってください：
+            - ブランチ名は claude/issue-{issue番号}-{YYYYMMDD} の形式を使用する
+            - 例: claude/issue-123-20250101
+            - Issueが関連しない場合は claude/feature-{YYYYMMDD} を使用する
+
           # Optional: Custom environment variables for Claude
           # claude_env: |
           #   NODE_ENV: test
