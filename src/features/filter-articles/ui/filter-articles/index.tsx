@@ -17,33 +17,14 @@ type Props = {
   articles: ArticlePreviewInterface[];
 };
 export const FilterArticles: React.FC<Props> = ({ articles }) => {
-  const {
-    filters,
-    // searchTerm,
-    filteredArticles,
-    handleFilterChange,
-    // handleSearchTermChange,
-  } = useFilterArticles(articles);
+  const { filters, filteredArticles, handleFilterChange } =
+    useFilterArticles(articles);
 
   const filterKeys = Object.keys(filters) as (keyof typeof filters)[];
 
   return (
     <div className="space-y-8">
       <div className="grid gap-y-4">
-        {/* <div className="relative">
-          <SearchIcon
-            className="-translate-y-1/2 pointer-events-none absolute top-1/2 left-2"
-            width={16}
-            height={16}
-          />
-          <input
-            className="w-full rounded-xs border border-neutral-200/20 py-1 pr-2 pl-7"
-            type="text"
-            placeholder="タイトルを検索..."
-            value={searchTerm}
-            onChange={handleSearchTermChange}
-          />
-        </div> */}
         <fieldset className="flex flex-wrap gap-4">
           {filterKeys.map((filter) => (
             <label
