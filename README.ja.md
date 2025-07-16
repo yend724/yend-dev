@@ -21,6 +21,7 @@ YENDの個人ポートフォリオサイト・ブログサイトです。プロ�
 **YEND** ([@yend724](https://github.com/yend724))
 
 **SNS・アカウント**:
+
 - [X (Twitter)](https://x.com/yend724)
 - [Zenn](https://zenn.dev/yend724)
 - [Qiita](https://qiita.com/yend724)

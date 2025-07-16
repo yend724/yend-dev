@@ -21,6 +21,7 @@ This is YEND's personal portfolio and blog site. It features articles on program
 **YEND** ([@yend724](https://github.com/yend724))
 
 **Social Media & Accounts**:
+
 - [X (Twitter)](https://x.com/yend724)
 - [Zenn](https://zenn.dev/yend724)
 - [Qiita](https://qiita.com/yend724)
