@@ -1,6 +1,5 @@
+import { Books } from "@/entities/books";
 import { type Book } from "@/entities/books/api/books";
-
-import { Books, getBooks } from "@/entities/books";
 
 type Props = {
   books: Book[];

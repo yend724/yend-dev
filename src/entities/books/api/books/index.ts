@@ -3,9 +3,8 @@ export const getBooks = async () => {
   return books;
 };
 
-
 export type Book = {
   title: string;
   link: string;
   completedAt: string; // ISO date string
-}
+};

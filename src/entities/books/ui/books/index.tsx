@@ -1,6 +1,7 @@
+import type { Book } from "../../api/books";
+
 import { FormattedDate } from "@/shared/ui/date-time";
 import { LinkText } from "@/shared/ui/link-text";
-import type { Book } from "../../api/books";
 
 export const Books: React.FC<{ books: Book[] }> = ({ books }) => {
   return (
