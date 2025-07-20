@@ -1,6 +1,7 @@
 import { generateOgpImage, generateSharedMeta } from "@/entities/ogp";
 import { getPost, getPosts } from "@/entities/post";
 import { getAdjacentPosts } from "@/entities/post/lib/get-adjacent-posts";
+import { getRelativePosts } from "@/entities/post/lib/get-relative-posts";
 import { env } from "@/shared/config/env";
 import { EXTENSION } from "@/shared/config/extension";
 import { OGP_ASSETS_DIR, OGP_DIR, OGP_IMAGE } from "@/shared/config/site";
@@ -24,12 +25,16 @@ const Page: React.FC<Props> = async ({ params }) => {
   // 前後の記事を取得
   const adjacentPosts = getAdjacentPosts(posts, slug);
 
+  // 同じタグの記事を取得
+  const relativePosts = getRelativePosts(posts, slug, frontmatter);
+
   return (
     <Posts
       frontmatter={frontmatter}
       slug={slug}
       prevPost={adjacentPosts.prev}
       nextPost={adjacentPosts.next}
+      relativePosts={relativePosts.slice(0, 3)}
     >
       <Component />
     </Posts>
