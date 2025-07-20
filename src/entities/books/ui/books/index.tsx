@@ -1,31 +1,24 @@
-import { getBooks } from "../../api/books";
-
+import { FormattedDate } from "@/shared/ui/date-time";
 import { LinkText } from "@/shared/ui/link-text";
+import type { Book } from "../../api/books";
 
-export const Books: React.FC = async () => {
-  const { default: books } = await getBooks();
+export const Books: React.FC<{ books: Book[] }> = ({ books }) => {
   return (
-    <div className="markdown-body">
-      <table>
-        <thead>
-          <tr>
-            <th>書籍名</th>
-            <th>読了年月</th>
-          </tr>
-        </thead>
-        <tbody>
-          {books.map((book) => {
-            return (
-              <tr key={book.link}>
-                <td>
-                  <LinkText href={book.link}>{book.title}</LinkText>
-                </td>
-                <td className="whitespace-nowrap">{book.completedAt}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
+    <ul className="grid gap-6">
+      {books.map((book) => (
+        <li
+          key={book.link}
+          className="grid gap-2 transition-all hover:border-sky-500"
+        >
+          <LinkText className="text-lg font-semibold" href={book.link}>
+            {book.title}
+          </LinkText>
+          <span className="flex flex-wrap gap-x-1 text-sm">
+            <span>読了日:</span>
+            <FormattedDate date={book.completedAt} format="YYYY/MM" />
+          </span>
+        </li>
+      ))}
+    </ul>
   );
 };

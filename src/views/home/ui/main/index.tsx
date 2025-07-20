@@ -11,6 +11,11 @@ import { SITE_METADATA } from "@/shared/config/site";
 import { SOCIALS } from "@/shared/config/social";
 import { LinkTag } from "@/shared/ui/link-tag";
 
+import { getBooks } from "@/entities/books/api/books";
+import { LinkText } from "@/shared/ui/link-text";
+
+const { default: books } = await getBooks();
+
 export const Main: React.FC = async () => {
   return (
     <div className="grid gap-16">
@@ -50,8 +55,15 @@ export const Main: React.FC = async () => {
       <Section title="取得した資格">
         <Certifications />
       </Section>
-      <Section title="読んだ書籍">
-        <Books />
+      <Section
+        title="読んだ書籍"
+        more={
+          <LinkText href="/reading-records/" className="text-inherit">
+            → すべての読んだ書籍はこちら
+          </LinkText>
+        }
+      >
+        <Books books={books.slice(0, 6)} />
       </Section>
     </div>
   );
