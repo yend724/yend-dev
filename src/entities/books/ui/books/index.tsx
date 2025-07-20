@@ -1,25 +1,31 @@
 import type { Book } from "../../api/books";
 
+import { Card } from "@/shared/ui/card";
 import { FormattedDate } from "@/shared/ui/date-time";
-import { LinkText } from "@/shared/ui/link-text";
+import { LinkIcon } from "@/shared/ui/icons";
+import { Link } from "@/shared/ui/link";
 
-export const Books: React.FC<{ books: Book[] }> = ({ books }) => {
+type Props = {
+  books: Book[];
+};
+export const Books: React.FC<Props> = ({ books }) => {
   return (
-    <ul className="grid gap-6">
+    <div className="grid gap-4">
       {books.map((book) => (
-        <li
-          key={book.link}
-          className="grid gap-2 transition-all hover:border-sky-500"
-        >
-          <LinkText className="text-lg font-semibold" href={book.link}>
-            {book.title}
-          </LinkText>
-          <span className="flex flex-wrap gap-x-1 text-sm">
+        <Card key={book.link} className="grid gap-2">
+          <div className="flex items-center gap-x-1 text-sm opacity-80">
             <span>読了日:</span>
             <FormattedDate date={book.completedAt} format="YYYY/MM" />
-          </span>
-        </li>
+          </div>
+          <p className="text-lg font-semibold">{book.title}</p>
+          <div className="flex">
+            <Link className="group flex items-center gap-2" href={book.link}>
+              <LinkIcon width={18} height={20} />
+              <span className="text-sky-400 group-hover:underline">URL</span>
+            </Link>
+          </div>
+        </Card>
       ))}
-    </ul>
+    </div>
   );
 };

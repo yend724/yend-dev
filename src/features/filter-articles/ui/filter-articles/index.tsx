@@ -5,13 +5,12 @@ import {
   ArticlePreview,
   type ArticlePreviewInterface,
 } from "@/entities/article";
-// import { SearchIcon } from "lucide-react";
 
 const FILTER_LABEL_MAP = {
   zenn: "Zenn",
   qiita: "Qiita",
   yend: "YEND.DEV",
-};
+} as const;
 
 type Props = {
   articles: ArticlePreviewInterface[];

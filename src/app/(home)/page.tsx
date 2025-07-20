@@ -3,7 +3,7 @@ import fs from "node:fs";
 import { getPosts } from "@/entities/post";
 import { generateRSS } from "@/entities/rss";
 import { runInProduction } from "@/shared/lib/env";
-import { Main } from "@/views/home";
+import { Home } from "@/views/home";
 
 const posts = await getPosts();
 const filteredPosts = posts
@@ -20,7 +20,7 @@ runInProduction(async () => {
 });
 
 const Page = () => {
-  return <Main />;
+  return <Home />;
 };
 
 export default Page;

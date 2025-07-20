@@ -11,7 +11,7 @@ import { FormattedDate } from "@/shared/ui/date-time";
 import { CalendarIcon } from "@/shared/ui/icons";
 import { Link } from "@/shared/ui/link";
 
-export const Main = async ({
+export const Posts = async ({
   frontmatter,
   children,
   slug,

@@ -7,7 +7,7 @@ import { OGP_ASSETS_DIR, OGP_DIR, OGP_IMAGE } from "@/shared/config/site";
 import { SITE_METADATA } from "@/shared/config/site";
 import { runInProduction } from "@/shared/lib/env";
 import { makeDirRecursive, writeFile } from "@/shared/lib/file-system";
-import { Main } from "@/views/posts/slug";
+import { Posts } from "@/views/posts/[slug]";
 
 const posts = await getPosts();
 
@@ -25,14 +25,14 @@ const Page: React.FC<Props> = async ({ params }) => {
   const adjacentPosts = getAdjacentPosts(posts, slug);
 
   return (
-    <Main
+    <Posts
       frontmatter={frontmatter}
       slug={slug}
       prevPost={adjacentPosts.prev}
       nextPost={adjacentPosts.next}
     >
       <Component />
-    </Main>
+    </Posts>
   );
 };
 
