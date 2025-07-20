@@ -46,7 +46,10 @@ export const Main: React.FC = async () => {
           ))}
         </div>
       </div>
-      <Section title="書いたやつ">
+      <Section
+        title="書いたやつ"
+        more={<LinkText href="/posts/">→ すべての記事はこちら</LinkText>}
+      >
         <Articles />
       </Section>
       <Section title="作ったもの">
