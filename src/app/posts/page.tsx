@@ -13,13 +13,13 @@ const myArticles = await getMyArticles();
 const articles = [...zennArticles, ...qiitaArticles, ...myArticles];
 
 export const metadata = {
-  title: "書いた記事",
+  title: "書いた記事一覧",
 };
 
 const Page: React.FC = () => {
   return (
     <div className="grid gap-8">
-      <h1 className="text-2xl font-semibold">書いたやつ</h1>
+      <h1 className="text-xl font-semibold">書いたやつ一覧</h1>
       <FilterArticles articles={sortArticlesByIsoDate(articles)} />
     </div>
   );

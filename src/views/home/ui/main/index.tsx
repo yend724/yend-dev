@@ -47,7 +47,11 @@ export const Main: React.FC = async () => {
       </div>
       <Section
         title="書いたやつ"
-        more={<LinkText href="/posts/">→ すべての記事はこちら</LinkText>}
+        more={
+          <LinkText href="/posts/" className="text-white">
+            → すべての記事はこちら
+          </LinkText>
+        }
       >
         <Articles />
       </Section>
@@ -60,7 +64,7 @@ export const Main: React.FC = async () => {
       <Section
         title="読んだ書籍"
         more={
-          <LinkText href="/reading-records/" className="text-inherit">
+          <LinkText href="/reading-records/" className="text-white">
             → すべての読んだ書籍はこちら
           </LinkText>
         }
