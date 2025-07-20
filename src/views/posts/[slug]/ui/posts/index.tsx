@@ -49,7 +49,7 @@ export const Posts = async ({
         <div className="markdown-body">{children}</div>
         {relativePosts.length > 0 && (
           <aside className="grid gap-y-4">
-            <h2 className="text-2xl font-semibold">関連記事</h2>
+            <h2 className="text-2xl font-semibold">次に読む</h2>
             <ul className="list-inside list-disc space-y-2">
               {relativePosts.map((post) => (
                 <li key={post.slug}>
