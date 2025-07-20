@@ -30,7 +30,7 @@ export const Posts = async ({
   return (
     <div className="w-full space-y-12 pb-4">
       <div className="flex">
-        <Link href="/#書いたやつ" className="flex items-center gap-x-2">
+        <Link href="/posts/" className="flex items-center gap-x-2">
           <ArrowLeft size={14} />
           記事一覧へ戻る
         </Link>
