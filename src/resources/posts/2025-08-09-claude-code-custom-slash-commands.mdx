@@ -1,0 +1,165 @@
+---
+title: Claude Code のカスタムスラッシュコマンドを作ってみる
+date: 2025-08-09T13:00:00
+tags:
+  - Claude Code
+draft: false
+---
+
+Claude Code では、よく使うプロンプトを Markdown ファイルで定義することで、カスタムスラッシュコマンド `/<command-name>` として呼び出すことができる。
+
+公式ドキュメント: [Custom slash commands](https://docs.anthropic.com/en/docs/claude-code/slash-commands#custom-slash-commands)
+
+## 構文とコマンドの種類
+
+### 構文
+
+ビルドインのスラッシュコマンドと同様に、カスタムスラッシュコマンドは以下の構文で呼び出す。
+
+```shell
+/<command-name> [arguments]
+```
+
+- `<command-name>` はコマンド名で、Markdown ファイルのファイル名がそのまま使われる。
+- `[arguments]` はオプションの引数。
+
+
+### コマンドの種類
+
+カスタムスラッシュコマンドには以下の2種類が存在する。ファイルの配置場所によって分類される。
+
+| タイプ | 配置場所 | スコープ | 用途 |
+|-------|---------|---------|------|
+| プロジェクトコマンド | `.claude/commands` | プロジェクト内 | チームで共有するコマンド |
+| パーソナルコマンド | `~/.claude/commands` | 全プロジェクト | 個人専用のコマンド |
+
+
+## 実際に作ってみる
+
+本記事ではパーソナルコマンドを作成してみる。プロジェクトコマンドを作成する場合は、プロジェクトのルートディレクトリに `.claude/commands` ディレクトリを作成し、その中に Markdown ファイルを配置する。
+
+### シンプルなコマンド
+
+簡単な例として、文章を英語に翻訳するコマンドを作成してみる。
+
+```shell
+mkdir ~/.claude/commands
+echo 'これから入力する文章を英語に翻訳してください。' > ~/.claude/commands/translate-en.md
+```
+
+使用例：
+
+```shell
+/translate-en
+```
+
+Claude Code で `/` を入力すると以下のように候補に表示された。
+
+![`/translate-en`が候補に表示されている例](/assets/posts/2025-08-09-claude-code-custom-slash-commands/translate-en.png)
+
+実際に使ってみると次のように動作した。
+
+![> /translate-en is running… ⏺ どのような文章を英語に翻訳したいですか？文章を入力してください。> 吾輩は猫である。名前はまだ無い。⏺ I am a cat. As yet I have no name.](/assets/posts/2025-08-09-claude-code-custom-slash-commands/translate-en-done.png)
+
+### `$ARGUMENTS` による引数の受け渡し
+
+`$ARGUMENTS` を使うと、コマンド実行時に引数を渡すことができる。
+
+```shell
+mkdir ~/.claude/commands
+echo 'これから入力する文章を $ARGUMENTS に翻訳してください' > ~/.claude/commands/translate.md
+```
+
+使用例：
+
+```shell
+/translate 日本語
+/translate 英語
+```
+
+### `@` によるファイル参照
+
+`@` を使うことで、ファイルを参照できる。
+
+```md
+@docs/styleguide/frontend.md に従って、レビューを行ってください。
+```
+
+また以下のように複数のファイルを参照することもできる。
+
+```md
+@docs/styleguide/frontend.md, @docs/styleguide/backend.md に従って、レビューを行ってください。
+```
+
+### Frontmatter でメタデータを定義する
+
+`Frontmatter` を使うことで、コマンドのメタデータを定義できる。これにより、より柔軟な機能を持つコマンドを作成できる。
+
+| Frontmatter     | 目的                                                              | デフォルト動作 / 備考                                         |
+|------------------|-------------------------------------------------------------------|--------------------------------------------------------------|
+| `allowed-tools`  | コマンド内で使用可能なツールのリスト                               | 会話から継承                                                 |
+| `argument-hint`  | スラッシュコマンド入力時に表示される引数のヒント                    | 例：`add [tagId]`、`remove [tagId]`、`list`                  |
+| `description`    | コマンドの説明。意味や用途を簡潔に示すための文言                   | 明示しない場合は、プロンプトの最初の行が使用される           |
+| `model`          | 使用する Claude モデル（`opus`、`sonnet`、`haiku` など）            | 会話から継承（指定しない場合は現在のコンテキストを使用）     |
+
+例：
+
+```md
+---
+allowed-tools: Bash(git diff --staged), Bash(git diff HEAD), Bash(git status:*), Bash(git log --oneline HEAD~10), Bash(git branch --show-current), Bash(git show --stat HEAD)
+description: "ステージ済みの変更を解析し、コードレビューを行う"
+model: opus
+---
+
+ステージ済みの変更をコードをレビューしてください。
+```
+
+ただ、`argument-hint` は自分の環境だと表示されなかった。ビルドインである `/add-dir` コマンドの `<path>` と同等の機能だと思っているが、何か間違っているのかも。
+
+![add-dir コマンドの argument-hint の表示](/assets/posts/2025-08-09-claude-code-custom-slash-commands/add-dir.png)
+
+### Bash コマンドの実行
+
+`!` プレフィックスを使うことで、スラッシュコマンド実行前に Bash コマンドを実行できる。Bash コマンドを使う際には `allowed-tools` に明示的に Bash コマンドを指定する必要がある。
+
+```md
+---
+allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git commit:*)
+description: Gitコミットを提案する
+---
+
+## コンテキスト
+
+- 現在の git ステータス: !`git status`
+- 現在の git diff（ステージ済みおよび未ステージの変更）: !`git diff HEAD`
+- 現在のブランチ: !`git branch --show-current`
+- 直近のコミット履歴: !`git log --oneline -10`
+
+## あなたのタスク
+
+上記内容に基づき、1つの Git コミットを提案してください。
+```
+
+### 名前空間
+
+サブディレクトリを作るとコマンドを名前空間で分類できる。
+
+```bash
+mkdir -p ~/.claude/commands/frontend
+mkdir -p ~/.claude/commands/backend
+
+echo "Reactコンポーネントを作成" > ~/.claude/commands/frontend/component.md
+echo "APIエンドポイントを作成" > ~/.claude/commands/backend/api.md
+```
+
+使用例：
+
+```shell
+/frontend:component
+/backend:api
+```
+
+
+## 参考
+
+- https://docs.anthropic.com/en/docs/claude-code/slash-commands#custom-slash-commands
