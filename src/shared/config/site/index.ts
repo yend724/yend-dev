@@ -8,6 +8,7 @@ export const SITE_METADATA = {
   mentionId: "@yend724",
   author: "YEND",
   rss: "https://yend.dev/rss.xml",
+  domain: "yend.dev"
 };
 
 export const OGP_IMAGE = {

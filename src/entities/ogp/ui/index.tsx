@@ -1,3 +1,5 @@
+import { SITE_METADATA } from "@/shared/config/site";
+
 type Props = {
   title: string;
 };
@@ -44,7 +46,7 @@ export const OgpImage: React.FC<Props> = ({ title }) => {
               lineHeight: 1,
             }}
           >
-            YEND
+            {SITE_METADATA.creator}
           </div>
         </div>
         <div
@@ -54,7 +56,7 @@ export const OgpImage: React.FC<Props> = ({ title }) => {
             opacity: 0.8,
           }}
         >
-          yend.dev
+          {SITE_METADATA.domain}
         </div>
       </div>
     </div>
