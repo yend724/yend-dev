@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run build:ogp && npm run build:rss && next build",
+    "build:ogp": "npx tsx src/scripts/generate-ogp-images.ts",
+    "build:rss": "npx tsx src/scripts/generate-rss.ts",
     "start": "next start",
     "lint": "run-p lint:eslint lint:prettier",
     "lint:fix": "run-s lint:prettier:fix lint:eslint:fix",

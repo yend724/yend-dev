@@ -1,3 +1,5 @@
+import React from "react";
+
 import { SITE_METADATA } from "@/shared/config/site";
 
 type Props = {

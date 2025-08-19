@@ -1,13 +1,11 @@
-import { generateOgpImage, generateSharedMeta } from "@/entities/ogp";
+import { generateSharedMeta } from "@/entities/ogp";
 import { getPost, getPosts } from "@/entities/post";
 import { getAdjacentPosts } from "@/entities/post/lib/get-adjacent-posts";
 import { getRelativePosts } from "@/entities/post/lib/get-relative-posts";
 import { env } from "@/shared/config/env";
 import { EXTENSION } from "@/shared/config/extension";
-import { OGP_ASSETS_DIR, OGP_DIR, OGP_IMAGE } from "@/shared/config/site";
+import { OGP_ASSETS_DIR, OGP_IMAGE } from "@/shared/config/site";
 import { SITE_METADATA } from "@/shared/config/site";
-import { runInProduction } from "@/shared/lib/env";
-import { makeDirRecursive, writeFile } from "@/shared/lib/file-system";
 import { Posts } from "@/views/posts/[slug]";
 
 const posts = await getPosts();
@@ -59,15 +57,6 @@ export const generateMetadata = async ({ params }: Props) => {
   const { slug } = await params;
   const { frontmatter } = await getPost(`${slug}${EXTENSION.mdx}`);
   const publishedDateTime = new Date(frontmatter.date).toISOString();
-
-  runInProduction(async () => {
-    // OGP画像を生成して保存する
-    makeDirRecursive(OGP_DIR);
-    writeFile(
-      `${OGP_DIR}/${slug}.png`,
-      await generateOgpImage(frontmatter.title)
-    );
-  });
 
   return generateSharedMeta({
     title: frontmatter.title,
