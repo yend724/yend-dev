@@ -1,0 +1,59 @@
+---
+title: HTML Living Standard の non-normative
+date: 0000-00-00T00:00:00
+tags:
+  - HTML
+draft: true
+---
+
+[HTML Living Standard](https://html.spec.whatwg.org/) を読んでいると、しばしば `This section is non-normative` という記述を目にする。あまり深く考えたことがなかったので、この `non-normative` という用語について調べてみた。
+
+## HTML Living Standardでの使用例
+
+HTML Living Standard では、次のような記述を見かける。
+
+> This section is non-normative.
+
+日本語訳：
+
+> このセクションは非規範的です。
+
+## `normative` と `non-normative` の定義
+
+自分が見た限り HTML Living Standard 自体には `non-normative` (ないしは `normative`) の明示的な定義は記載されていないようだった。これは、W3CやIETFなどの技術仕様書で一般的に使われる標準的な用語らしい。
+
+### MDNでの説明
+
+たとえば [MDN の Non-normative のページ](https://developer.mozilla.org/en-US/docs/Glossary/Non-normative) dでは次のように説明されている。
+
+### W3C文書での定義
+
+たとえばW3Cの古い文書であるUser Agent Accessibility Guidelines 1.0（2001年）には、明確な定義がある：
+
+> **Normative（規範的）**：「その文書の要件が最も正確に述べられるために依存するもの」を指す。規範的なものは適合性のために必要。
+>
+> **Informative/Non-normative（参考的/非規範的）**：適合性のために決して必要とされない。
+
+### WHATWGでの説明
+
+WHATWGのWikiでは、以下のように説明されている：
+
+
+### IETFでの定義
+
+IETFのIESG声明では、以下のように明確に定義されている：
+
+## 結論
+
+「non-normative」は、仕様書において「参考情報」であることを示すマーカー。実装者にとっては、以下のような判断基準になる：
+
+- **Normative**：必ず守らなければならない仕様（MUST/SHALL/SHOULD）
+- **Non-normative**：理解を深めるための補足情報
+
+## 参考資料
+
+- [HTML Living Standard](https://html.spec.whatwg.org/)
+- [IESG Statement: Normative and Informative References](https://datatracker.ietf.org/doc/statement-iesg-iesg-statement-normative-and-informative-references-20060419/)
+- [W3C Process Document](https://www.w3.org/policies/process/)
+- [WHATWG Wiki: How to write a spec](https://wiki.whatwg.org/wiki/Specs/howto)
+- [MDN: Non-normative](https://developer.mozilla.org/en-US/docs/Glossary/Non-normative)
