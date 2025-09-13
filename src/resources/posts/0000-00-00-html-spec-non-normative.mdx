@@ -1,16 +1,16 @@
 ---
-title: HTML Living Standard の non-normative
-date: 0000-00-00T00:00:00
+title: HTML Standardのnon-normative
+date: 2025-09-13T19:40:00
 tags:
   - HTML
-draft: true
+draft: false
 ---
 
-[HTML Living Standard](https://html.spec.whatwg.org/) を読んでいると、しばしば `This section is non-normative` という記述を目にする。あまり深く考えたことがなかったので、この `non-normative` という用語について調べてみた。
+[HTML Standard](https://html.spec.whatwg.org/)を読んでいると、「This section is non-normative.」というフレーズを目にする。あまり深く考えたことがなかったので、この*non-normative*という用語について調べてみた。
 
-## HTML Living Standardでの使用例
+## HTML Standardでの使用例
 
-HTML Living Standard では、次のような記述を見かける。
+たとえばこのフレーズは[1.2 Is this HTML5?](https://html.spec.whatwg.org/multipage/introduction.html#is-this-html5?)や[4.3.12 Usage summary](https://html.spec.whatwg.org/multipage/sections.html#usage-summary-2)などに見られる。
 
 > This section is non-normative.
 
@@ -18,42 +18,126 @@ HTML Living Standard では、次のような記述を見かける。
 
 > このセクションは非規範的です。
 
-## `normative` と `non-normative` の定義
+一方で、自分が読んでいる限りHTML Standardでは、*non-normative*(ないしは*normative*)の明示的な定義は記載されていないようだった。検索してみたところ、これは他の技術仕様書でも一般的に使われている用語らしい。
 
-自分が見た限り HTML Living Standard 自体には `non-normative` (ないしは `normative`) の明示的な定義は記載されていないようだった。これは、W3CやIETFなどの技術仕様書で一般的に使われる標準的な用語らしい。
+## 各文書における*non-normative*の扱い
 
-### MDNでの説明
+ということで、いくつかの技術仕様書における*non-normative*の扱いを調べてみた。
 
-たとえば [MDN の Non-normative のページ](https://developer.mozilla.org/en-US/docs/Glossary/Non-normative) dでは次のように説明されている。
+以下、日本語訳に関しては、筆者による意訳であり、公式な訳ではないことに注意。
 
-### W3C文書での定義
+### MDNにおける記載
 
-たとえばW3Cの古い文書であるUser Agent Accessibility Guidelines 1.0（2001年）には、明確な定義がある：
+[MDN](https://developer.mozilla.org/)では、次のように記載されている。
 
-> **Normative（規範的）**：「その文書の要件が最も正確に述べられるために依存するもの」を指す。規範的なものは適合性のために必要。
+> Software specifications often contain information marked as non-normative or informative, which is provided to help readers understand the specification better, or to show an example or best practice. Non-normative parts of the specification are provided as guidelines, and are not considered part of the formal specification. Sections that contain the official part of the specification are often marked as normative.
+
+日本語訳：
+> ソフトウェア仕様書には、しばしば 非規範的 (non-normative) または 参考的 (informative) として示された情報が含まれている。これらは読者が仕様をよりよく理解するため、または例やベストプラクティスを示すために提供される。仕様書の非規範的な部分はガイドラインとして提供され、正式な仕様の一部とは見なされない。一方、公式な仕様の部分を含むセクションは、しばしば 規範的 (normative) として示される。
+
+参照: https://developer.mozilla.org/en-US/docs/Glossary/Non-normative
+
+### W3C文書における記載
+
+W3Cの各文書内でも、*non-normative*に関する記述が見られる。ここでは例として以下の3つを取り上げる。
+
+#### WAI-ARIA 1.2における記載
+
+[Accessible Rich Internet Applications (WAI-ARIA) 1.2](https://www.w3.org/TR/wai-aria-1.2/) では、次のように記載されている。
+
+> Informative
 >
-> **Informative/Non-normative（参考的/非規範的）**：適合性のために決して必要とされない。
+> Content provided for information purposes and not required for conformance. Content required for conformance is referred to as normative.
 
-### WHATWGでの説明
+日本語訳：
 
-WHATWGのWikiでは、以下のように説明されている：
+> 参考的 (Informative)
+>
+> 情報提供を目的として記載され、適合のためには要求されない内容。適合のために要求される内容は 規範的 (normative) と呼ばれる。
 
+参照: https://www.w3.org/TR/wai-aria-1.2/#dfn-informative
 
-### IETFでの定義
+#### UAAG 2.0における記載
 
-IETFのIESG声明では、以下のように明確に定義されている：
+[User Agent Accessibility Guidelines (UAAG) 2.0](https://www.w3.org/TR/UAAG20/)では、次のように記載されている。
 
-## 結論
+> normative, informative (non-normative)
+>
+> Required (or not required) for conformance. Abilities identified as "normative" are required for conformance (noting that one can conform in a variety of well-defined ways to UAAG 2.0). Abilities identified as "informative" (or, "non-normative") are never required for conformance.
 
-「non-normative」は、仕様書において「参考情報」であることを示すマーカー。実装者にとっては、以下のような判断基準になる：
+日本語訳：
+> 規範的 (normative)、参考的 (informative / non-normative)
+>
+> 適合のために必要か（あるいは不要か）を示す。
+> 「規範的 (normative)」とされる機能は、適合のために必要である（ただし UAAG 2.0 には、明確に定義されたさまざまな方法で適合できることに注意）。
+> 「参考的 (informative)」（または「非規範的 (non-normative)」）とされる機能は、適合のために要求されることは決してない。
 
-- **Normative**：必ず守らなければならない仕様（MUST/SHALL/SHOULD）
-- **Non-normative**：理解を深めるための補足情報
+参照: https://www.w3.org/TR/UAAG20/#def-informative
 
-## 参考資料
+#### WCAG 2.2における記載
 
-- [HTML Living Standard](https://html.spec.whatwg.org/)
-- [IESG Statement: Normative and Informative References](https://datatracker.ietf.org/doc/statement-iesg-iesg-statement-normative-and-informative-references-20060419/)
-- [W3C Process Document](https://www.w3.org/policies/process/)
-- [WHATWG Wiki: How to write a spec](https://wiki.whatwg.org/wiki/Specs/howto)
-- [MDN: Non-normative](https://developer.mozilla.org/en-US/docs/Glossary/Non-normative)
+[Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/)では、次のように記載されている。
+
+> informative
+> for information purposes and not required for conformance
+>
+> Note
+> Content required for conformance is referred to as "normative."
+
+日本語訳：
+> 参考的 (informative)
+> 情報提供を目的とし、適合のためには要求されないもの。
+>
+> 注記
+> 適合のために要求される内容は「規範的 (normative)」と呼ばれる。
+
+参照: https://www.w3.org/TR/WCAG22/#dfn-informative
+
+### WHATWG Wikiによる記載
+
+[WHATWG Wiki](https://wiki.whatwg.org/)では、次のように記載されている。
+
+> Content in a specification falls into two general categories: normative and informative. Normative content includes the requirements and definitions and uses verbs such as must, should, and may. Refer to RFC 2119 for their definitions. If a normative statement uses the verb must (and applies to UAs), the browser implementor should be able to write a test case for it. (If it is not possible to write a test case for the statement, do not use the word must.) The verb "may" merely grants permission and is used rarely. Do not use "may not". Normal lowercase is preferred for readability.
+>
+> Informative content is everything that is not normative. Informative (non-normative) content includes diagrams and code examples—very useful content, but supportive in nature to the actual browser requirements. Informative content must not include RFC 2119 keywords (use words like "can" or "is" instead).
+
+日本語訳：
+> 仕様書の内容は、大きく二つのカテゴリに分けられる：規範的（normative）なものと、参考的（informative）なものである。
+規範的な内容には、要件や定義が含まれ、must、should、may といった動詞が使われる。これらの定義については RFC 2119 を参照すること。規範的な記述に must が使われており（かつそれが UA に適用される場合）、ブラウザ実装者はその記述に対してテストケースを書ける必要がある。（もしテストケースが書けないのであれば、must という語を使ってはならない。）動詞 may は単に許可を与えるものであり、まれにしか使われない。may not は使用してはならない。可読性のために、通常の小文字を用いることが望ましい。
+>
+> 参考的（informative）な内容とは、規範的（normative）でないすべての内容を指す。参考的（非規範的）な内容には、図表やコード例が含まれる。これらは非常に有用ではあるが、実際のブラウザ要件を補助する性質のものである。参考的な内容には RFC 2119 のキーワードを含めてはならない（代わりに “can” や “is” といった語を用いること）。
+
+### IESG Statementによる記載
+
+[IESG](http://www.ietf.org/iesg.html)では、IESG Statementとして次のように記載されている、
+
+> Within an RFC, references to other documents fall into two general categories: "normative" and "informative". Normative references specify documents that must be read to understand or implement the technology in the new RFC, or whose technology must be present for the technology in the new RFC to work. An informative reference is not normative; rather, it only provides additional information. For example, an informative reference might provide background or historical information. Informative references are not required to implement the technology in the RFC.
+
+日本語訳：
+> RFC において、他の文書への参照は大きく二つのカテゴリに分類される：「規範的 (normative)」と「参考的 (informative)」である。規範的参照は、新しい RFC に記載された技術を理解または実装するために読まなければならない文書、あるいは新しい RFC の技術が動作するためにその技術が存在していなければならない文書を指定する。一方、参考的参照は規範的ではなく、追加的な情報を提供するにとどまる。たとえば、参考的参照は背景や歴史的な情報を示す場合がある。RFC における技術を実装する際に、参考的参照は必須ではない。
+
+参照: https://datatracker.ietf.org/doc/statement-iesg-iesg-statement-normative-and-informative-references-20060419/
+
+## *normative* / *non-normative*の判別基準
+
+[infra Standard](https://infra.spec.whatwg.org/)の[2.1. Conformance](https://infra.spec.whatwg.org/#conformance)のセクションで、どのように規範的（normative）と非規範的（non-normative）を切り分けるかについて説明されている。
+
+> All assertions, diagrams, examples, and notes are non-normative, as are all sections explicitly marked non-normative. Everything else is normative.
+
+日本語訳：
+> すべての主張、図、例、注記は非規範的であり、明示的に非規範的と記されているすべてのセクションも同様です。それ以外のすべては規範的です。
+
+## まとめ
+
+以上をまとめると、技術仕様書における*non-normative*（非規範的）とは、以下のように理解できる。
+
+- 規範的（normative）
+  - 仕様に準拠するために必須の要件。実装者はこれらの内容に従う必要がある。
+- 非規範的（non-normative）
+  - 仕様の理解を助けるための情報、例、ベストプラクティスなど。実装者はこれらの内容に従う必要はないが、参考にすることができる。
+
+もし仮に*normative*と*non-normative*で矛盾が生じた場合、*normative*が優先と考えてよさそう。
+
+## おわりに
+
+HTML Standardを読む際には、セクションが*normative*か*non-normative*かを意識することで、実装に必要な要件と参考情報を適切に区別できる。普段あまり意識することはないかもしれないが、覚えておくと役に立つことがあるかもしれない。
