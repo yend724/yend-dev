@@ -1,5 +1,30 @@
 [
   {
+    "title": "副業をはじめたいんですけど、税金ってどうしたらいいですか?",
+    "completedAt": "2025-11-02 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4492733647"
+  },
+  {
+    "title": "データベーススペシャリスト2015年版 (2015年版) (情報処理教科書)",
+    "completedAt": "2025-09-23 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4798138487"
+  },
+  {
+    "title": "Web ブラウザセキュリティ Web アプリケーションの安全性を支える仕組みを整理する",
+    "completedAt": "2025-09-18 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4908686106"
+  },
+  {
+    "title": "ザ・ゴール コミック版",
+    "completedAt": "2025-09-17 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4478039399"
+  },
+  {
+    "title": "まずはこの一冊から 意味がわかる線形代数",
+    "completedAt": "2025-08-11 20:52:38",
+    "link": "https://www.amazon.co.jp/dp/4860642880"
+  },
+  {
     "title": "やさしいMCP入門",
     "completedAt": "2025-07-26 21:39:40",
     "link": "https://www.amazon.co.jp/dp/4798075736"
@@ -15,7 +40,7 @@
     "link": "https://www.amazon.co.jp/dp/4815629129"
   },
   {
-    "title": "白と黒のとびら オートマトンと形式言語をめぐる冒険",
+    "title": "白と黒のとびら",
     "completedAt": "2025-05-30 00:00:00",
     "link": "https://www.amazon.co.jp/dp/4130633570"
   },
@@ -40,9 +65,9 @@
     "link": "https://www.amazon.co.jp/dp/4274050734"
   },
   {
-    "title": "スラスラわかるネットワーク＆TCP/IPのきほん 第3版",
-    "completedAt": "2025-04-07 07:41:51",
-    "link": "https://www.amazon.co.jp/dp/B0CM325P8V"
+    "title": "スラスラわかるネットワーク&TCP/IPのきほん 第3版",
+    "completedAt": "2025-04-07 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4815623333"
   },
   {
     "title": "Creating Web Animations: Bringing Your UIs to Life (English Edition)",
@@ -265,7 +290,7 @@
     "link": "https://www.amazon.co.jp/dp/B01N14WBX3"
   },
   {
-    "title": "応用情報技術者合格教本 (令和06年【春期】【秋期】)",
+    "title": "令和06年【春期】【秋期】 応用情報技術者 合格教本",
     "completedAt": "2024-05-03 02:20:09",
     "link": "https://www.amazon.co.jp/dp/4297138654"
   },
@@ -580,7 +605,7 @@
     "link": "https://www.amazon.co.jp/dp/B0BF469YLK"
   },
   {
-    "title": "プリンシプルオブプログラミング 3年目までに身につけたい一生役立つ101の原理原則",
+    "title": "プリンシプル オブ プログラミング 3年目までに身につけたい 一生役立つ101の原理原則",
     "completedAt": "2023-01-29 13:49:25",
     "link": "https://www.amazon.co.jp/dp/4798046140"
   },
@@ -600,7 +625,7 @@
     "link": "https://www.amazon.co.jp/dp/4798155454"
   },
   {
-    "title": "Generative Design with p5.js 5.js版ジェネラティブデザイン ウェブでのクリエイティブ・コーディング",
+    "title": "Generative Design with p5.js [p5.js版ジェネラティブデザイン] ―ウェブでのクリエイティブ・コーディング",
     "completedAt": "2022-12-31 00:00:00",
     "link": "https://www.amazon.co.jp/dp/4802510977"
   },
@@ -635,7 +660,7 @@
     "link": "https://www.amazon.co.jp/dp/4641053804"
   },
   {
-    "title": "Form Design Patterns シンプルでインクルーシブなフォーム制作実践ガイド",
+    "title": "Form Design Patterns ―シンプルでインクルーシブなフォーム制作実践ガイド",
     "completedAt": "2022-10-05 14:05:40",
     "link": "https://www.amazon.co.jp/dp/4862464513"
   },
@@ -665,7 +690,7 @@
     "link": "https://www.amazon.co.jp/dp/4862465277"
   },
   {
-    "title": "docker基礎からのコンテナ構築 さわって学ぶクラウドインフラ",
+    "title": "さわって学ぶクラウドインフラ docker基礎からのコンテナ構築",
     "completedAt": "2022-05-24 22:40:43",
     "link": "https://www.amazon.co.jp/dp/4296106422"
   },
@@ -700,7 +725,7 @@
     "link": "https://www.amazon.co.jp/dp/4802512198"
   },
   {
-    "title": "ノンデザイナーズ・デザインブック 第4版",
+    "title": "ノンデザイナーズ・デザインブック [第4版]",
     "completedAt": "2022-01-17 16:23:25",
     "link": "https://www.amazon.co.jp/dp/4839955557"
   },
@@ -745,7 +770,7 @@
     "link": "https://www.amazon.co.jp/dp/4798063401"
   },
   {
-    "title": "AWS認定ソリューションアーキテクト[アソシエイト] 改訂第2版 AWS認定資格試験テキスト",
+    "title": "AWS認定資格試験テキスト AWS認定ソリューションアーキテクト - アソシエイト 改訂第2版",
     "completedAt": "2021-10-31 00:00:00",
     "link": "https://www.amazon.co.jp/dp/4815607389"
   },
@@ -775,7 +800,7 @@
     "link": "https://www.amazon.co.jp/dp/4797399848"
   },
   {
-    "title": "Amazon Web Services AWSのしくみと技術がこれ1冊でしっかりわかる教科書 (図解即戦力)",
+    "title": "図解即戦力 Amazon Web Servicesのしくみと技術がこれ1冊でしっかりわかる教科書",
     "completedAt": "2021-01-31 00:00:00",
     "link": "https://www.amazon.co.jp/dp/4297108895"
   },
@@ -805,7 +830,7 @@
     "link": "https://www.amazon.co.jp/dp/4774142352"
   },
   {
-    "title": "まずはこの一冊から 意味がわかる統計学 まずはこの一冊から",
+    "title": "まずはこの一冊から 意味がわかる統計学",
     "completedAt": "2018-12-31 00:00:00",
     "link": "https://www.amazon.co.jp/dp/4860643046"
   }
