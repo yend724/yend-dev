@@ -19,7 +19,7 @@
   "dependencies": {
     "@react-aria/utils": "^3.29.0",
     "lucide-react": "^0.552.0",
-    "next": "16.0.1",
+    "next": "15.5.6",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "rehype-katex": "^7.0.1",
@@ -38,7 +38,7 @@
     "@eslint/js": "^9.31.0",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
-    "@next/mdx": "^16.0.0",
+    "@next/mdx": "^15.1.4",
     "@tailwindcss/postcss": "^4.0.7",
     "@types/mdx": "^2.0.13",
     "@types/node": "^22.10.2",
