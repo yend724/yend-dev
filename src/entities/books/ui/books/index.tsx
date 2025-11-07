@@ -1,7 +1,8 @@
-import type { Book } from "../../api/books";
-import { groupBooksByMonth, sortBooksByYearMonthDescending } from "../../utils";
 import { yearMonthToKey } from "../../types";
+import { groupBooksByMonth, sortBooksByYearMonthDescending } from "../../utils";
 import { BooksByMonth } from "../books-by-month";
+
+import type { Book } from "../../api/books";
 
 type Props = {
   books: Book[];

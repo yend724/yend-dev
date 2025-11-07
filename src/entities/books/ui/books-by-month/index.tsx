@@ -1,7 +1,8 @@
-import type { Book } from "../../api/books";
-import type { YearMonth } from "../../types";
 import { yearMonthToKey } from "../../types";
 import { BookCard } from "../book-card";
+
+import type { Book } from "../../api/books";
+import type { YearMonth } from "../../types";
 
 type Props = {
   yearMonth: YearMonth;
