@@ -90,6 +90,7 @@ export default tseslint.config(
       "**/build/**",
       "**/dist/**",
       "**/.turbo/**",
+      "**/next-env.d.ts",
     ],
   },
   prettierConfig
