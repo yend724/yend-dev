@@ -1,5 +1,6 @@
-import { type Book } from "@/entities/books/api/books";
 import { convertGroupBooksByMonth } from "./utils";
+
+import { type Book } from "@/entities/books/api/books";
 
 type Props = {
   books: Book[];
