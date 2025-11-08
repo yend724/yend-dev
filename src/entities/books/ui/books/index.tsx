@@ -1,7 +1,4 @@
-import { yearMonthToKey } from "../../types";
-import { groupBooksByMonth, sortBooksByYearMonthDescending } from "../../utils";
-import { BooksByMonth } from "../books-by-month";
-
+import { BookCard } from "../book-card";
 import type { Book } from "../../api/books";
 
 type Props = {
@@ -9,17 +6,10 @@ type Props = {
 };
 
 export const Books: React.FC<Props> = ({ books }) => {
-  const bookGroups = groupBooksByMonth(books);
-  const sortedBookGroups = sortBooksByYearMonthDescending(bookGroups);
-
   return (
-    <div className="grid gap-8">
-      {sortedBookGroups.map((group) => (
-        <BooksByMonth
-          key={yearMonthToKey(group.yearMonth)}
-          yearMonth={group.yearMonth}
-          books={group.books}
-        />
+    <div className="grid gap-4">
+      {books.map((book) => (
+        <BookCard key={book.link} book={book} />
       ))}
     </div>
   );
