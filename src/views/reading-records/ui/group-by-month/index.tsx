@@ -18,8 +18,10 @@ export const GroupByMonth: React.FC<Props> = ({
           <div key={`${group.year}-${group.month}`} className="grid gap-4">
             <div className="grid grid-cols-[auto_1fr] items-center gap-x-2">
               <h2 className="grid">
-                <span className="text-lg font-bold">{group.month}月</span>
-                <span className="text-sm">{group.year}年</span>
+                <span className="text-lg font-bold">
+                  {Number(group.month)}月
+                </span>
+                <span className="text-sm">{Number(group.year)}年</span>
               </h2>
               <hr className="border-neutral-200/20"></hr>
             </div>
