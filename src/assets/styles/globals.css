@@ -44,7 +44,6 @@
   --color-sky-11: var(--sky-11);
   --color-sky-12: var(--sky-12);
 
-
   --animate-rotate-x: rotate-x 2s ease-in-out infinite;
   --animate-wiggle: bg-fade 4s ease-out both;
 
@@ -114,4 +113,3 @@
     }
   }
 }
-
