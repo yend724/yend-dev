@@ -17,7 +17,7 @@ export const Toc = () => {
   }, []);
 
   return (
-    <details className="cursor-pointer rounded-sm bg-neutral-700">
+    <details className="bg-gray-3 cursor-pointer rounded-sm">
       <summary className="p-3 font-semibold">目次</summary>
       <div className="px-3 pt-1 pb-2">
         <nav className="toc" />

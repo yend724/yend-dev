@@ -14,7 +14,7 @@ export const LinkList: React.FC<Props> = ({ linkList }) => (
       <li key={i}>
         <Link href={link.href} className="group flex items-center gap-2">
           <span>{link.icon}</span>
-          <span className="text-sky-400 group-hover:underline">
+          <span className="text-sky-11 group-hover:underline">
             {link.label}
           </span>
         </Link>

@@ -1,9 +1,50 @@
 @import "tailwindcss";
+@import "@radix-ui/colors/gray-dark.css";
+@import "@radix-ui/colors/blue-dark.css";
+@import "@radix-ui/colors/sky-dark.css";
 
 /**
  * アニメーション・キーフレーム設定
  */
 @theme {
+  --color-gray-1: var(--gray-1);
+  --color-gray-2: var(--gray-2);
+  --color-gray-3: var(--gray-3);
+  --color-gray-4: var(--gray-4);
+  --color-gray-5: var(--gray-5);
+  --color-gray-6: var(--gray-6);
+  --color-gray-7: var(--gray-7);
+  --color-gray-8: var(--gray-8);
+  --color-gray-9: var(--gray-9);
+  --color-gray-10: var(--gray-10);
+  --color-gray-11: var(--gray-11);
+  --color-gray-12: var(--gray-12);
+  --color-blue-1: var(--blue-1);
+  --color-blue-2: var(--blue-2);
+  --color-blue-3: var(--blue-3);
+  --color-blue-4: var(--blue-4);
+  --color-blue-5: var(--blue-5);
+  --color-blue-6: var(--blue-6);
+  --color-blue-7: var(--blue-7);
+  --color-blue-8: var(--blue-8);
+  --color-blue-9: var(--blue-9);
+  --color-blue-10: var(--blue-10);
+  --color-blue-11: var(--blue-11);
+  --color-blue-12: var(--blue-12);
+  --color-sky-1: var(--sky-1);
+  --color-sky-2: var(--sky-2);
+  --color-sky-3: var(--sky-3);
+  --color-sky-4: var(--sky-4);
+  --color-sky-5: var(--sky-5);
+  --color-sky-6: var(--sky-6);
+  --color-sky-7: var(--sky-7);
+  --color-sky-8: var(--sky-8);
+  --color-sky-9: var(--sky-9);
+  --color-sky-10: var(--sky-10);
+  --color-sky-11: var(--sky-11);
+  --color-sky-12: var(--sky-12);
+
+
   --animate-rotate-x: rotate-x 2s ease-in-out infinite;
   --animate-wiggle: bg-fade 4s ease-out both;
 
@@ -27,6 +68,8 @@
       transform: rotateX(360deg);
     }
   }
+
+  /* color-scheme: dark; */
 }
 
 /**
@@ -39,7 +82,13 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+    border-color: var(--color-gray-2, currentColor);
+  }
+
+  :root {
+    &.dark {
+      color-scheme: dark;
+    }
   }
 
   /* ターゲット要素のアニメーション */
@@ -66,37 +115,3 @@
   }
 }
 
-/**
- * ユーティリティ
- */
-@layer utilities {
-  :root {
-    --neumorphism-shadow-color-01: #1b1b1b;
-    --neumorphism-shadow-color-02: #313131;
-    color-scheme: dark;
-  }
-}
-
-/**
- * コンポーネント
- */
-@layer component {
-  /* ニューモーフィズム関連スタイル */
-  .neumorphism-shadow {
-    box-shadow:
-      5px 5px 10px var(--neumorphism-shadow-color-01),
-      -5px -5px 10px var(--neumorphism-shadow-color-02);
-  }
-  .neumorphism-border {
-    box-shadow:
-      inset 1px 1px 2px var(--neumorphism-shadow-color-01),
-      inset -1px -1px 2px var(--neumorphism-shadow-color-02);
-  }
-  @media (any-hover: hover) {
-    .neumorphism-shadow:hover {
-      box-shadow:
-        inset 5px 5px 10px var(--neumorphism-shadow-color-01),
-        inset -5px -5px 10px var(--neumorphism-shadow-color-02);
-    }
-  }
-}

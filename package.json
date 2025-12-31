@@ -17,6 +17,7 @@
     "lint:prettier:fix": "prettier --write ."
   },
   "dependencies": {
+    "@radix-ui/colors": "^3.0.0",
     "@react-aria/utils": "^3.29.0",
     "lucide-react": "^0.552.0",
     "next": "15.5.9",

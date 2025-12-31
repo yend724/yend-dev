@@ -17,10 +17,10 @@ export const Person: React.FC = () => {
         />
       </div>
       <hgroup>
-        <h1 className="text-left text-2xl leading-none font-semibold text-wrap text-white">
+        <h1 className="text-left text-2xl leading-none font-semibold text-wrap">
           {SITE_METADATA.creator}
         </h1>
-        <p className="text-base opacity-80">{SITE_METADATA.mentionId}</p>
+        <p className="text-gray-11 text-base">{SITE_METADATA.mentionId}</p>
       </hgroup>
     </div>
   );

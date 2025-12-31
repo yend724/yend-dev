@@ -11,10 +11,7 @@ export const LinkText: React.FC<Props> = ({ className, ...props }) => {
     <NextLink
       target={isAbsolute ? "_blank" : undefined}
       rel={isAbsolute ? "noopener noreferrer" : undefined}
-      className={twMerge(
-        "text-sky-400 underline hover:no-underline",
-        className
-      )}
+      className={twMerge("text-sky-11 underline hover:no-underline", className)}
       {...props}
     />
   );

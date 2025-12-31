@@ -7,7 +7,7 @@ type Props = {
 export const LinkTag: React.FC<Props> = ({ label, href }) => {
   return (
     <Link
-      className="neumorphism-shadow rounded-full px-4 py-2 text-sm text-sky-400"
+      className="text-sky-11 border-sky-6 bg-sky-3 hover:bg-sky-4 rounded-full border px-4 py-2 text-sm"
       href={href}
     >
       {label}

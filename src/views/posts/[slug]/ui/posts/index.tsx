@@ -36,7 +36,7 @@ export const Posts = async ({
         </Link>
       </div>
       <div className="grid gap-y-4">
-        <div className="flex items-center gap-x-1 text-sm opacity-80">
+        <div className="text-gray-11 flex items-center gap-x-1 text-sm">
           <CalendarIcon className="size-3.5" />
           <FormattedDate date={frontmatter.date} />
         </div>

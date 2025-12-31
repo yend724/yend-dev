@@ -13,7 +13,7 @@ export const Card = forwardRef<HTMLElement, Props>(
       <Component
         ref={ref}
         className={twMerge(
-          "grid gap-4 rounded-lg border border-neutral-200/20 bg-neutral-900 p-4",
+          "bg-gray-3 border-gray-6 grid gap-4 rounded-lg border p-4",
           className
         )}
       >

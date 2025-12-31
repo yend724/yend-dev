@@ -9,7 +9,7 @@ type Props = {
 export const ReadingRecords: React.FC<Props> = ({ books }) => {
   return (
     <div className="grid gap-8">
-      <h1 className="text-xl font-semibold text-white">読んだ書籍一覧</h1>
+      <h1 className="text-xl font-semibold">読んだ書籍一覧</h1>
       <GroupByMonth
         books={books}
         renderGroupBooksByMonth={(books) => <Books books={books} />}

@@ -42,11 +42,11 @@ export const ArticlePreview: React.FC<Props> = ({ article }) => {
     <Card
       key={article.id}
       as="article"
-      className="group cursor-pointer transition-all duration-200 hover:border-sky-500"
+      className="group hover:border-sky-8 cursor-pointer transition-all duration-200"
       ref={clickableRef}
     >
       <div className="grid gap-2">
-        <div className="flex items-center gap-x-1 text-sm opacity-80">
+        <div className="text-gray-11 flex items-center gap-x-1 text-sm">
           <CalendarIcon className="size-3.5" />
           <FormattedDate date={article.isoDate} />
         </div>
@@ -67,7 +67,7 @@ export const ArticlePreview: React.FC<Props> = ({ article }) => {
             <span className="text-sm font-medium">
               {PLATFORM_ICON_MAP[article.platform].label}
             </span>
-            <span className="group-hover:animate-rotate-x transition-all duration-200 group-hover:text-sky-500">
+            <span className="group-hover:animate-rotate-x group-hover:text-sky-8 transition-all duration-200">
               <ChevronRightIcon width={16} height={16} />
             </span>
           </div>
