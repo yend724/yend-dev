@@ -1,6 +1,5 @@
 import GitHubActionsCronExpressionBuilder from "@/assets/images/works/cron-expression-builder-thumbnail.png";
 import CSV2MarkdownTable from "@/assets/images/works/csv-2-markdown-table-thumbnail.png";
-import Gazoutsunageru from "@/assets/images/works/gazoutsunage-ru-thumbnail.png";
 import BoidsSimulation from "@/assets/images/works/playground-boids-simulation-thumbnail.png";
 
 type Projects = {
@@ -62,7 +61,7 @@ export const WEB_APPS: WebApp[] = [
     description: "複数の画像を1つにつなげる無料オンラインツール",
     app: "https://gazoutsunage-ru.yend.dev",
     github: "https://github.com/yend724/gazoutsunage-ru",
-    thumbnail: Gazoutsunageru.src,
+    thumbnail: 'https://gazoutsunage-ru.yend.dev/img/ogp.png',
   },
 ];
 
