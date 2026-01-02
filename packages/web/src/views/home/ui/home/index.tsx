@@ -1,13 +1,12 @@
-import { Articles } from "../articles";
-import { Person } from "../person";
-import { Section } from "../section";
-import { SocialLinks } from "../social-links";
-
 import { Books } from "../../../../entities/books";
 import { getBooks } from "../../../../entities/books/api/books";
 import { Certifications } from "../../../../entities/certification";
 import { Projects } from "../../../../entities/project";
 import { LinkText } from "../../../../shared/ui/link-text";
+import { Articles } from "../articles";
+import { Person } from "../person";
+import { Section } from "../section";
+import { SocialLinks } from "../social-links";
 
 const { default: books } = await getBooks();
 

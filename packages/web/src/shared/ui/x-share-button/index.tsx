@@ -1,7 +1,8 @@
+import { Link } from "../link";
+
 import { generateXUrl } from "./utils";
 
 import XLogo from "@/assets/images/common/x-logo.svg";
-import { Link } from "../link";
 
 type Props = {
   shareData: {

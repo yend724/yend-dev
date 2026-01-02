@@ -1,5 +1,9 @@
 import { ArrowLeft } from "lucide-react";
 
+import { FormattedDate } from "../../../../../shared/ui/date-time";
+import { CalendarIcon } from "../../../../../shared/ui/icons";
+import { Link } from "../../../../../shared/ui/link";
+import { LinkText } from "../../../../../shared/ui/link-text";
 import { PostNavigation } from "../post-navigation";
 import { Share } from "../share";
 import { Tags } from "../tags";
@@ -10,11 +14,6 @@ import type {
   Frontmatter,
   Post,
 } from "../../../../../entities/post";
-
-import { FormattedDate } from "../../../../../shared/ui/date-time";
-import { CalendarIcon } from "../../../../../shared/ui/icons";
-import { Link } from "../../../../../shared/ui/link";
-import { LinkText } from "../../../../../shared/ui/link-text";
 
 export const Posts = async ({
   frontmatter,

@@ -1,9 +1,9 @@
-import { getPostsData } from "./utils/get-posts-data";
-
 import { generateOgpImage } from "../entities/ogp";
 import { env } from "../shared/config/env";
 import { OGP_DIR } from "../shared/config/site";
 import { makeDirRecursive, writeFile } from "../shared/lib/file-system";
+
+import { getPostsData } from "./utils/get-posts-data";
 
 const generateOgpImages = async () => {
   const isFiltering = env().isProd;

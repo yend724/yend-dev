@@ -1,9 +1,9 @@
 import fs from "node:fs";
 
-import { getPostsData } from "./utils/get-posts-data";
-
 import { generateRSS } from "../entities/rss";
 import { env } from "../shared/config/env";
+
+import { getPostsData } from "./utils/get-posts-data";
 
 const generateRSSFeed = async () => {
   const isFiltering = env().isProd;

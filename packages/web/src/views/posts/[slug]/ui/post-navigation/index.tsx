@@ -1,6 +1,6 @@
-import type { AdjacentPosts } from "../../../../../entities/post";
-
 import { Link } from "../../../../../shared/ui/link";
+
+import type { AdjacentPosts } from "../../../../../entities/post";
 
 type Props = {
   prevPost: AdjacentPosts["prev"];

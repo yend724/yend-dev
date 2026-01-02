@@ -1,12 +1,11 @@
-import { AppCard } from "../app-card";
-import { LibraryCard } from "../library-card";
-import { Section } from "../section";
-
 import {
   LIBRARIES,
   PLAYGROUNDS,
   WEB_APPS,
 } from "../../../../shared/config/project";
+import { AppCard } from "../app-card";
+import { LibraryCard } from "../library-card";
+import { Section } from "../section";
 
 export const Projects = () => {
   return (

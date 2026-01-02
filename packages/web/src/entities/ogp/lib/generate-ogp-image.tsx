@@ -4,9 +4,8 @@ import React from "react";
 import satori from "satori";
 import sharp from "sharp";
 
-import { OgpImage } from "../ui";
-
 import { getProjectRoot } from "../../../shared/lib/endpoint";
+import { OgpImage } from "../ui";
 
 const fontRegular = fs.readFileSync(
   `${getProjectRoot()}/src/assets/fonts/NotoSansJP-Regular.ttf`

@@ -1,11 +1,10 @@
 import Image from "next/image";
 
+import { Card } from "../../../../shared/ui/card";
+import { GitHubIcon, PackageIcon } from "../../../../shared/ui/icons";
 import { LinkList } from "../project-link-list";
 
 import type { Library } from "../../../../shared/config/project";
-
-import { Card } from "../../../../shared/ui/card";
-import { GitHubIcon, PackageIcon } from "../../../../shared/ui/icons";
 
 type Props = Library;
 export const LibraryCard: React.FC<Props> = ({

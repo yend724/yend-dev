@@ -61,7 +61,7 @@ export const WEB_APPS: WebApp[] = [
     description: "複数の画像を1つにつなげる無料オンラインツール",
     app: "https://gazoutsunage-ru.yend.dev",
     github: "https://github.com/yend724/gazoutsunage-ru",
-    thumbnail: 'https://gazoutsunage-ru.yend.dev/img/ogp.png',
+    thumbnail: "https://gazoutsunage-ru.yend.dev/img/ogp.png",
   },
 ];
 

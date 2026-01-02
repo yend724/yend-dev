@@ -1,7 +1,7 @@
-import { GroupByMonth } from "./group-by-month";
-
 import { Books } from "../../../entities/books";
 import { type Book } from "../../../entities/books/api/books";
+
+import { GroupByMonth } from "./group-by-month";
 
 type Props = {
   books: Book[];

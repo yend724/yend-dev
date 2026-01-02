@@ -1,9 +1,8 @@
 import fs from "node:fs";
 
-import { validateComponent, validateFrontmatter } from "../model/validation";
-
 import { EXTENSION } from "../../../shared/config/extension";
 import { getProjectRoot } from "../../../shared/lib/endpoint";
+import { validateComponent, validateFrontmatter } from "../model/validation";
 
 export const getPost = async (fileName: string) => {
   const post = await import(`../../../resources/posts/${fileName}`);

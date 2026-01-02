@@ -1,6 +1,6 @@
-import { createHeadingComponentsByLevel } from "./utils";
-
 import { Link } from "../link";
+
+import { createHeadingComponentsByLevel } from "./utils";
 
 type Props = {
   level: number;

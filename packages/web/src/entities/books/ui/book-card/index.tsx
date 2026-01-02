@@ -1,9 +1,9 @@
-import type { Book } from "../../api/books";
-
 import { Card } from "../../../../shared/ui/card";
 import { FormattedDate } from "../../../../shared/ui/date-time";
 import { LinkIcon } from "../../../../shared/ui/icons";
 import { Link } from "../../../../shared/ui/link";
+
+import type { Book } from "../../api/books";
 
 type Props = {
   book: Book;

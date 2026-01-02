@@ -1,12 +1,12 @@
 import { twMerge } from "tailwind-merge";
 
-import type { MDXComponents } from "mdx/types";
-
 import { CodeBlock } from "./shared/ui/code-block";
 import { EmbedTweet } from "./shared/ui/embed-tweet";
 import { Image } from "./shared/ui/image";
 import { LinkText } from "./shared/ui/link-text";
 import { MarkdownHeading } from "./shared/ui/markdown-heading";
+
+import type { MDXComponents } from "mdx/types";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   // ヘッディングコンポーネントの生成を効率化
