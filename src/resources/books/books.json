@@ -1,18 +1,93 @@
 [
   {
+    "title": "マンガでわかるCPU",
+    "completedAt": "2026-01-01 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4274050610"
+  },
+  {
+    "title": "つくって、みなおす、デザインシステム??現場での合意形成から設計、運用まで",
+    "completedAt": "2025-12-30 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4297144115"
+  },
+  {
+    "title": "実践Claude Code入門―現場で活用するためのAIコーディングの思考法",
+    "completedAt": "2025-12-30 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4297153548"
+  },
+  {
+    "title": "Figmaで作るUIデザインアイデア集 サンプルで学ぶ35のパターン",
+    "completedAt": "2025-12-27 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4295019089"
+  },
+  {
+    "title": "デジタルメディアデザイン見本帳 WebデザインからUI・空間体験・メタバースまで",
+    "completedAt": "2025-12-23 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4295204560"
+  },
+  {
+    "title": "関数型ドメインモデリング ドメイン駆動設計とF#でソフトウェアの複雑さに立ち向かおう",
+    "completedAt": "2025-11-29 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4048931164"
+  },
+  {
+    "title": "デザインはヒアリングからはじまる",
+    "completedAt": "2025-11-28 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4839988064"
+  },
+  {
+    "title": "現場の「あるある」から学んだ 今すぐ使える「UIデザイン」41の法則",
+    "completedAt": "2025-11-18 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4798189928"
+  },
+  {
+    "title": "アイデアのつくり方",
+    "completedAt": "2025-11-17 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4484881047"
+  },
+  {
+    "title": "モデルベースUIデザイン 構造化UIと情報設計の方法論",
+    "completedAt": "2025-11-16 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4798182680"
+  },
+  {
+    "title": "デザインディレクション・ブック 「的確なデザイン」のために、 ビジネスパーソンがディレクションをきちんと行えるようになるためのガイド",
+    "completedAt": "2025-11-16 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4839981817"
+  },
+  {
+    "title": "現場のプロがわかりやすく教える位置情報エンジニア養成講座",
+    "completedAt": "2025-11-11 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4798068926"
+  },
+  {
+    "title": "「悩まない」配色の基本 好きな色から考える",
+    "completedAt": "2025-11-08 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4798178799"
+  },
+  {
     "title": "副業をはじめたいんですけど、税金ってどうしたらいいですか?",
     "completedAt": "2025-11-02 00:00:00",
     "link": "https://www.amazon.co.jp/dp/4492733647"
   },
   {
-    "title": "データベーススペシャリスト2015年版 (2015年版) (情報処理教科書)",
+    "title": "図解入門TCP/IP 第2版　仕組み・動作が見てわかる",
+    "completedAt": "2025-10-06 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/B0DLGKH98H"
+  },
+  {
+    "title": "情報処理教科書 データベーススペシャリスト 2025年版 (EXAMPRESS)",
     "completedAt": "2025-09-23 00:00:00",
-    "link": "https://www.amazon.co.jp/dp/4798138487"
+    "link": "https://www.amazon.co.jp/dp/4798190934"
   },
   {
     "title": "Web ブラウザセキュリティ Web アプリケーションの安全性を支える仕組みを整理する",
     "completedAt": "2025-09-18 00:00:00",
     "link": "https://www.amazon.co.jp/dp/4908686106"
+  },
+  {
+    "title": "ザ・ゴール2 コミック版",
+    "completedAt": "2025-09-18 00:00:00",
+    "link": "https://www.amazon.co.jp/dp/4478068747"
   },
   {
     "title": "ザ・ゴール コミック版",
@@ -435,7 +510,7 @@
     "link": "https://www.amazon.co.jp/dp/B0BL74RWVY"
   },
   {
-    "title": "フロントエンドの知識地図 一冊でHTML/CSS/JavaScriptの開発技術が学べる本",
+    "title": "フロントエンドの知識地図?? 一冊でHTML/CSS/JavaScriptの開発技術が学べる本",
     "completedAt": "2023-11-24 17:55:12",
     "link": "https://www.amazon.co.jp/dp/4297138719"
   },
@@ -605,7 +680,7 @@
     "link": "https://www.amazon.co.jp/dp/B0BF469YLK"
   },
   {
-    "title": "プリンシプル オブ プログラミング 3年目までに身につけたい 一生役立つ101の原理原則",
+    "title": "プリンシプル オブ プログラミング 3年目までに身につけたい 一生役立つ101の原理原則 3年目までに身につけたい 一生役立つ101の原理原則",
     "completedAt": "2023-01-29 13:49:25",
     "link": "https://www.amazon.co.jp/dp/4798046140"
   },
@@ -695,7 +770,7 @@
     "link": "https://www.amazon.co.jp/dp/4296106422"
   },
   {
-    "title": "グラフィックスプログラミング入門 リアルタイムに動く画面を描く。プログラマー直伝の基本 ゲーム&モダンJavaScript文法で2倍楽しい (WEB+DB PRESS plusシリーズ)",
+    "title": "[ゲーム&モダンJavaScript文法で2倍楽しい]グラフィックスプログラミング入門 ??リアルタイムに動く画面を描く。プログラマー直伝の基本",
     "completedAt": "2022-05-24 22:40:10",
     "link": "https://www.amazon.co.jp/dp/4297110857"
   },
