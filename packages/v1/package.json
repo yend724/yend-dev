@@ -19,7 +19,7 @@
   "dependencies": {
     "@radix-ui/colors": "^3.0.0",
     "@react-aria/utils": "^3.29.0",
-    "lucide-react": "^0.562.0",
+    "lucide-react": "^0.563.0",
     "next": "^16.1.1",
     "react": "19.2.4",
     "react-dom": "19.2.4",
