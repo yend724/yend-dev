@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { postsDir } from "@yend.dev/resources/paths";
+import { postsDir } from "@resources/paths";
 
 import { EXTENSION } from "../../shared/config/extension";
 

@@ -1,12 +1,12 @@
 import fs from "node:fs";
 
-import { postsDir } from "@yend.dev/resources/paths";
+import { postsDir } from "@resources/paths";
 
 import { EXTENSION } from "../../../shared/config/extension";
 import { validateComponent, validateFrontmatter } from "../model/validation";
 
 export const getPost = async (fileName: string) => {
-  const post = await import(`@yend.dev/resources/posts/${fileName}`);
+  const post = await import(`@resources/posts/${fileName}`);
   const component = validateComponent(post);
   const frontmatter = validateFrontmatter(post);
   frontmatter.date = new Date(`${frontmatter.date}+09:00`).toISOString();
