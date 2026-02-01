@@ -1,0 +1,142 @@
+---
+title: AIエージェントとフロントエンド開発をつなぐAgentationが便利そう
+date: 2026-02-01T19:00:00
+tags:
+  - Agentation
+  - フロントエンド開発
+draft: false
+---
+
+[Agentation](https://agentation.dev/)を触ってみたのでメモ。
+
+## 概要
+
+Agentationは、Webページ上の要素にアノテーションを付けて、AIコーディングエージェント向けの構造化フィードバックを生成できる開発ツール。要素クリック・テキスト選択・メモ追加で、Claude CodeやCursorなど任意のエージェントに貼
+れるMarkdownを出力する。エージェント非依存で、React以外の追加依存は不要。クラス名やセレクタ、位置情報を含められるため、該当コードを素早く特定できる。
+
+「[Annotating for agents](https://benji.org/annotating)」の投稿が起点になっているらしい。
+
+## 導入
+
+### インストール
+
+```sh
+npm install agentation
+```
+
+### セットアップ
+
+アプリのルート（もしくはルートに近い場所）で`<Agentation />`を追加する。`NODE_ENV`を参照して、開発環境でのみ有効にする。
+
+```tsx
+import { Agentation } from "agentation";
+
+function App() {
+  return (
+    <>
+      <YourApp />
+      {process.env.NODE_ENV === "development" && <Agentation />}
+    </>
+  );
+}
+```
+
+## 使い方
+
+ざっくり以下の手順で使う。
+
+1. 右下のメニューアイコンをクリックして有効化
+2. 要素にホバーすると要素名がハイライト表示される
+3. 対象の要素をクリックしてアノテーションを追加
+4. フィードバックを書いてAddをクリック
+5. コピーアイコンでMarkdownをコピー
+6. エージェントに貼り付ける
+
+### エージェントとの連携
+
+Agentationはコードベースにアクセスできるエージェント（Claude Code、Cursor、Windsurfなど）と組み合わせて使う。
+
+1. 実行中のアプリでバグや修正したい箇所を見つける
+2. Agentationで要素にアノテーションを付ける
+3. 出力をコピーしてエージェントに貼る
+4. エージェントがクラス名やセレクタでコードを検索
+5. 該当するコンポーネント/ファイルを見つけて修正
+
+Agentationを使うことで簡単に `.sidebar > .nav-actions > button.primary` の様なコンテキストを渡せるので、エージェントが直接grepで特定しやすくなる。
+
+## API
+
+`<Agentation />` コンポーネントのAPI（Props）として以下が用意されている。[`Annotation`](#Annotationオブジェクト)はコールバックに渡されるオブジェクト。
+
+※詳しくは「[API | Agentation](https://agentation.dev/api)」を参照。
+
+| プロパティ           | 型                                    | 説明                                                     |
+| -------------------- | ------------------------------------- | -------------------------------------------------------- |
+| `onAnnotationAdd`    | `(annotation: Annotation) => void`    | 追加時に呼ばれる                                         |
+| `onAnnotationDelete` | `(annotation: Annotation) => void`    | 削除時に呼ばれる                                         |
+| `onAnnotationUpdate` | `(annotation: Annotation) => void`    | コメント編集時に呼ばれる                                 |
+| `onAnnotationsClear` | `(annotations: Annotation[]) => void` | 全削除時に呼ばれる                                       |
+| `onCopy`             | `(markdown: string) => void`          | コピー時にMarkdownを渡す                                 |
+| `copyToClipboard`    | `boolean`                             | `false`でクリップボード書き込みを抑止（default: `true`） |
+
+### コード例
+
+基本的な使い方の例：
+
+```tsx
+import { Agentation, Annotation } from "agentation";
+
+function App() {
+  const handleAnnotation = (annotation: Annotation) => {
+    console.log(annotation.element, annotation.comment);
+  };
+
+  return (
+    <>
+      <YourApp />
+      <Agentation onAnnotationAdd={handleAnnotation} />
+    </>
+  );
+}
+```
+
+### Annotationオブジェクト
+
+Annotationオブジェクトの型定義は以下の通り：
+
+```ts
+type Annotation = {
+  id: string; // 一意識別子
+  element: string; // 要素名
+  elementPath: string; // CSSセレクタパス
+  comment: string; // ユーザーのコメント
+  timestamp: number; // タイムスタンプ
+  x: number; // 位置（ビューポート幅の%）
+  y: number; // 位置（上からのpx）
+  selectedText?: string; // 選択テキスト
+  boundingBox?: {
+    // 要素のサイズ
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  };
+  // Detailed/Forensicモード用
+  nearbyText?: string;
+  cssClasses?: string;
+  nearbyElements?: string;
+  computedStyles?: string;
+  fullPath?: string;
+  accessibility?: string;
+  isMultiSelect?: boolean;
+  isFixed?: boolean;
+};
+```
+
+## おわりに
+
+AIエージェントにUIの修正を伝える手段として、Agentationは便利そうだと感じた。ブラウザ上でセレクタを取得できるので、開発者がコードを追わなくてもエージェントに正確に伝えられるのが良い。しばらく使ってみようと思う。
+
+## 参考
+
+- [Agentation](https://agentation.dev/)
