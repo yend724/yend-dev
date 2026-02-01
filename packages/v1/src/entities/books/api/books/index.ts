@@ -1,7 +1,6 @@
 export const getBooks = async () => {
-  const { default: books } = await import(
-    "../../../../resources/books/books.json"
-  );
+  const { default: books } =
+    await import("../../../../resources/books/books.json");
   return books;
 };
 
