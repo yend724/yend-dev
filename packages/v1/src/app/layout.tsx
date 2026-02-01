@@ -2,6 +2,7 @@ import "@/assets/styles/globals.css";
 import { generateSharedMeta } from "../entities/ogp";
 
 import FaviconIcon from "@/assets/images/common/favicon.ico";
+import { WithAgetation } from "@/shared/ui/with-agetation";
 
 const RootLayout = ({
   children,
@@ -17,7 +18,7 @@ const RootLayout = ({
         <link rel="icon" href={FaviconIcon.src} sizes="any" />
       </head>
       <body className="bg-gray-1 text-gray-12 font-sans antialiased">
-        {children}
+        <WithAgetation>{children}</WithAgetation>
       </body>
     </html>
   );
