@@ -1,8 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 
+import { postsDir } from "@yend.dev/resources/paths";
+
 import { EXTENSION } from "../../shared/config/extension";
-import { getProjectRoot } from "../../shared/lib/endpoint";
 
 type Frontmatter = {
   title: string;
@@ -16,7 +17,6 @@ export type PostData = {
 };
 
 export const getPostsData = (): PostData[] => {
-  const postsDir = path.join(getProjectRoot(), "src/resources/posts");
   const fileNames = fs.readdirSync(postsDir);
 
   const posts = fileNames

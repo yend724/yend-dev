@@ -1,11 +1,12 @@
 import fs from "node:fs";
 
+import { postsDir } from "@yend.dev/resources/paths";
+
 import { EXTENSION } from "../../../shared/config/extension";
-import { getProjectRoot } from "../../../shared/lib/endpoint";
 import { validateComponent, validateFrontmatter } from "../model/validation";
 
 export const getPost = async (fileName: string) => {
-  const post = await import(`../../../resources/posts/${fileName}`);
+  const post = await import(`@yend.dev/resources/posts/${fileName}`);
   const component = validateComponent(post);
   const frontmatter = validateFrontmatter(post);
   frontmatter.date = new Date(`${frontmatter.date}+09:00`).toISOString();
@@ -14,7 +15,7 @@ export const getPost = async (fileName: string) => {
 };
 
 export const getPosts = async () => {
-  const fileNames = fs.readdirSync(`${getProjectRoot()}/src/resources/posts`);
+  const fileNames = fs.readdirSync(postsDir);
   const files = await Promise.all(
     fileNames.map(async (fileName) => getPost(fileName))
   );

@@ -1,0 +1,11 @@
+{
+  "name": "@yend.dev/resources",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./paths": "./paths.ts",
+    "./books": "./books/index.ts",
+    "./posts/*": "./posts/*"
+  }
+}

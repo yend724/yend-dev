@@ -8,6 +8,8 @@ importers:
 
   .: {}
 
+  packages/resources: {}
+
   packages/v1:
     dependencies:
       '@radix-ui/colors':
@@ -16,6 +18,9 @@ importers:
       '@react-aria/utils':
         specifier: ^3.29.0
         version: 3.32.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@yend.dev/resources':
+        specifier: workspace:*
+        version: link:../resources
       agentation:
         specifier: ^1.3.2
         version: 1.3.2(react-dom@19.2.4(react@19.2.4))(react@19.2.4)

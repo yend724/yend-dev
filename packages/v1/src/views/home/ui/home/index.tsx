@@ -8,7 +8,7 @@ import { Person } from "../person";
 import { Section } from "../section";
 import { SocialLinks } from "../social-links";
 
-const { default: books } = await getBooks();
+const books = await getBooks();
 
 export const Home: React.FC = async () => {
   return (
