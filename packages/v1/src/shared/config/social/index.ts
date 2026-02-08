@@ -5,4 +5,5 @@ export const SOCIALS = [
   { label: "X", href: "https://x.com/yend724" },
   { label: "mixi2", href: "https://mixi.social/@yend724" },
   { label: "CodePen", href: "https://codepen.io/yend24" },
+  { label: "ブクログ", href: "https://booklog.jp/users/yend" },
 ];

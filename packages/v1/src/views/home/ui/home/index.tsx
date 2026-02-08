@@ -1,5 +1,3 @@
-import { Books } from "../../../../entities/books";
-import { getBooks } from "../../../../entities/books/api/books";
 import { Certifications } from "../../../../entities/certification";
 import { Projects } from "../../../../entities/project";
 import { LinkText } from "../../../../shared/ui/link-text";
@@ -7,8 +5,6 @@ import { Articles } from "../articles";
 import { Person } from "../person";
 import { Section } from "../section";
 import { SocialLinks } from "../social-links";
-
-const books = await getBooks();
 
 export const Home: React.FC = async () => {
   return (
@@ -28,16 +24,6 @@ export const Home: React.FC = async () => {
       </Section>
       <Section title="取得した資格">
         <Certifications />
-      </Section>
-      <Section
-        title="読んだ書籍"
-        more={
-          <LinkText href="/reading-records/">
-            → すべての読んだ書籍はこちら
-          </LinkText>
-        }
-      >
-        <Books books={books.slice(0, 6)} />
       </Section>
     </div>
   );

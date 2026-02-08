@@ -12,7 +12,6 @@ This is YEND's personal portfolio and blog site. It features articles on program
 
 - **Blog**: Articles on programming, mathematics, and technology
 - **Project Showcase**: Introduction to custom libraries, web applications, and playgrounds
-- **Reading Log**: Reading records focused on technical books
 - **Certifications**: List of obtained certifications
 - **RSS Feed**: Article update notifications supported
 
