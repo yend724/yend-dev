@@ -63,6 +63,13 @@ export const WEB_APPS: WebApp[] = [
     github: "https://github.com/yend724/gazoutsunage-ru",
     thumbnail: "https://gazoutsunage-ru.yend.dev/img/ogp.png",
   },
+  {
+    title: "Typography Playground",
+    description:
+      "CSS タイポグラフィプロパティをリアルタイムプレビューで確認できるブラウザベースツール",
+    app: "https://yend724.github.io/typography-playground/",
+    github: "https://yend724.github.io/typography-playground/ogp.png",
+  },
 ];
 
 export const PLAYGROUNDS: Playground[] = [
