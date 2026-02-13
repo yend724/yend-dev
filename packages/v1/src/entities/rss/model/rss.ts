@@ -23,12 +23,14 @@ const addPostToFeed = (
     title: string;
     slug: string;
     date: string;
+    description: string;
   }
 ) => {
   feed.addItem({
     title: post.title,
     id: `${SITE_METADATA.url}/posts/${post.slug}/`,
     link: `${SITE_METADATA.url}/posts/${post.slug}/`,
+    description: post.description,
     date: new Date(post.date),
     author: [
       {
@@ -43,6 +45,7 @@ export const generateRSS = (
     title: string;
     slug: string;
     date: string;
+    description: string;
   }[]
 ) => {
   const feed = createFeed();

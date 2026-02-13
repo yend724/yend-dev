@@ -12,6 +12,7 @@ export const GET = async () => {
       title: post.frontmatter.title,
       slug: post.slug,
       date: post.frontmatter.date,
+      description: post.frontmatter.description,
     }));
 
   const { rss } = generateRSS(filteredPosts);
