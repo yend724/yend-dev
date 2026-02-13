@@ -1,3 +1,4 @@
+import { JsonLdScript } from "../../../entities/json-ld";
 import { generateSharedMeta } from "../../../entities/ogp";
 import { getPost, getPosts } from "../../../entities/post";
 import { getAdjacentPosts } from "../../../entities/post/lib/get-adjacent-posts";
@@ -6,6 +7,8 @@ import { env } from "../../../shared/config/env";
 import { EXTENSION } from "../../../shared/config/extension";
 import { SITE_METADATA } from "../../../shared/config/site";
 import { Posts } from "../../../views/posts/[slug]";
+
+import type { Article, BreadcrumbList, WithContext } from "schema-dts";
 
 const posts = await getPosts();
 
@@ -25,16 +28,67 @@ const Page: React.FC<Props> = async ({ params }) => {
   // 同じタグの記事を取得
   const relativePosts = getRelativePosts(posts, slug, frontmatter);
 
+  const postUrl = `${SITE_METADATA.url}/posts/${slug}/`;
+
+  const blogPostingJsonLd: WithContext<Article> = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: frontmatter.title,
+    description: frontmatter.description,
+    datePublished: new Date(frontmatter.date).toISOString(),
+    url: postUrl,
+    image: `${postUrl}opengraph-image.png`,
+    author: {
+      "@type": "Person",
+      name: SITE_METADATA.author,
+      url: SITE_METADATA.url,
+    },
+    publisher: {
+      "@type": "Person",
+      name: SITE_METADATA.author,
+      url: SITE_METADATA.url,
+    },
+  };
+
+  const breadcrumbJsonLd: WithContext<BreadcrumbList> = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: SITE_METADATA.title,
+        item: SITE_METADATA.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "記事一覧",
+        item: `${SITE_METADATA.url}/posts/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: frontmatter.title,
+        item: postUrl,
+      },
+    ],
+  };
+
   return (
-    <Posts
-      frontmatter={frontmatter}
-      slug={slug}
-      prevPost={adjacentPosts.prev}
-      nextPost={adjacentPosts.next}
-      relativePosts={relativePosts.slice(0, 3)}
-    >
-      <Component />
-    </Posts>
+    <>
+      <JsonLdScript data={blogPostingJsonLd} />
+      <JsonLdScript data={breadcrumbJsonLd} />
+      <Posts
+        frontmatter={frontmatter}
+        slug={slug}
+        prevPost={adjacentPosts.prev}
+        nextPost={adjacentPosts.next}
+        relativePosts={relativePosts.slice(0, 3)}
+      >
+        <Component />
+      </Posts>
+    </>
   );
 };
 
