@@ -7,4 +7,5 @@ export const frontmatterSchema = v.object({
   date: v.pipe(v.string(), v.regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/)),
   draft: v.boolean(),
   tags: v.undefinedable(v.array(v.string()), () => []),
+  description: v.undefinedable(v.string(), () => ""),
 });

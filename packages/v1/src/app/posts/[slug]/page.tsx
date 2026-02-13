@@ -59,6 +59,10 @@ export const generateMetadata = async ({ params }: Props) => {
 
   return generateSharedMeta({
     title: frontmatter.title,
+    description: frontmatter.description,
+    alternates: {
+      canonical: `${SITE_METADATA.url}/posts/${slug}/`,
+    },
     openGraph: {
       url: `${SITE_METADATA.url}/posts/${slug}/`,
       type: "article",

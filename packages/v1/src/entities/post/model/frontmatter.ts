@@ -3,4 +3,5 @@ export type Frontmatter = {
   date: string;
   draft: boolean;
   tags: string[];
+  description: string;
 };
