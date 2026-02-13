@@ -17,11 +17,6 @@
 /.next/
 /dist/
 
-# production
-/build
-/public/_assets
-/public/rss.xml
-
 # misc
 .DS_Store
 *.pem

@@ -4,7 +4,6 @@ import { getAdjacentPosts } from "../../../entities/post/lib/get-adjacent-posts"
 import { getRelativePosts } from "../../../entities/post/lib/get-relative-posts";
 import { env } from "../../../shared/config/env";
 import { EXTENSION } from "../../../shared/config/extension";
-import { OGP_ASSETS_DIR, OGP_IMAGE } from "../../../shared/config/site";
 import { SITE_METADATA } from "../../../shared/config/site";
 import { Posts } from "../../../views/posts/[slug]";
 
@@ -66,9 +65,9 @@ export const generateMetadata = async ({ params }: Props) => {
       publishedTime: publishedDateTime,
       images: [
         {
-          url: `${SITE_METADATA.url}/${OGP_ASSETS_DIR}/${slug}.png`,
-          width: OGP_IMAGE.width,
-          height: OGP_IMAGE.height,
+          url: `${SITE_METADATA.url}/posts/${slug}/opengraph-image.png`,
+          width: 1200,
+          height: 630,
         },
       ],
     },

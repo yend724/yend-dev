@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "npm run build:ogp && next build --webpack",
-    "build:ogp": "npx tsx src/scripts/generate-ogp-images.ts",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "run-p lint:eslint lint:prettier",
     "lint:fix": "run-s lint:prettier:fix lint:eslint:fix",
