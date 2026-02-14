@@ -7,7 +7,7 @@ export const Tags: React.FC<Props> = ({ tags }) => {
       {tags.sort().map((tag) => (
         <li
           key={tag}
-          className="bg-blue-9 text-blue-12 rounded-sm px-1 text-sm"
+          className="bg-sky-9 rounded-sm px-1.5 py-0.5 text-sm font-semibold text-black"
         >
           {tag}
         </li>

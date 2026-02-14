@@ -77,14 +77,6 @@
   font-style: italic;
 }
 
-.markdown-body h1 {
-  margin: 0.67em 0;
-  font-weight: 600;
-  padding-bottom: 0.3em;
-  font-size: 2em;
-  border-bottom: 1px solid #3d444db3;
-}
-
 .markdown-body mark {
   background-color: #bb800926;
   color: #f0f6fc;
@@ -288,28 +280,41 @@
   color: inherit;
 }
 
+.markdown-body h1 {
+  margin-top: calc(6 / 1 * 1rem);
+  font-weight: 600;
+  padding-bottom: 0.3em;
+  font-size: 2em;
+  border-bottom: 1px solid #3d444db3;
+}
+
 .markdown-body h2 {
+  margin-top: calc(6 / 2 * 1rem);
   font-weight: 600;
   font-size: 1.5em;
   border-bottom: 1px solid #3d444db3;
 }
 
 .markdown-body h3 {
+  margin-top: calc(6 / 3 * 1rem);
   font-weight: 600;
   font-size: 1.25em;
 }
 
 .markdown-body h4 {
+  margin-top: calc(6 / 4 * 1rem);
   font-weight: 600;
   font-size: 1em;
 }
 
 .markdown-body h5 {
+  margin-top: calc(6 / 5 * 1rem);
   font-weight: 600;
   font-size: 0.875em;
 }
 
 .markdown-body h6 {
+  margin-top: calc(6 / 6 * 1rem);
   font-weight: 600;
   font-size: 0.85em;
   color: #9198a1;
