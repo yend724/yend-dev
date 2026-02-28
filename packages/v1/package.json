@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
-    "start": "next start",
+    "start": "serve dist",
     "lint": "run-p lint:eslint lint:prettier",
     "lint:fix": "run-s lint:prettier:fix lint:eslint:fix",
     "lint:eslint": "eslint .",
@@ -56,6 +56,7 @@
     "prettier-plugin-tailwindcss": "^0.7.0",
     "satori": "^0.18.0",
     "schema-dts": "^1.1.5",
+    "serve": "^14.2.5",
     "tailwindcss": "^4.0.7",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.36.0"
