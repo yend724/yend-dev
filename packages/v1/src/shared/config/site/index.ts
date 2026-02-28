@@ -9,6 +9,7 @@ export const SITE_METADATA = {
   author: "YEND",
   rss: "https://yend.dev/rss.xml",
   domain: "yend.dev",
+  favicon: "https://yend.dev/favicon.ico",
 };
 
 export const OGP_IMAGE = {

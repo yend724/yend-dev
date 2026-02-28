@@ -1,7 +1,7 @@
 import "@/assets/styles/globals.css";
 import { generateSharedMeta } from "../entities/ogp";
 
-import FaviconIcon from "@/assets/images/common/favicon.ico";
+import { SITE_METADATA } from "@/shared/config/site";
 import { WithAgetation } from "@/shared/ui/with-agetation";
 
 const RootLayout = ({
@@ -15,7 +15,7 @@ const RootLayout = ({
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="color-schema" content="dark" />
-        <link rel="icon" href={FaviconIcon.src} sizes="any" />
+        <link rel="icon" href={`${SITE_METADATA.favicon}`} sizes="any" />
       </head>
       <body className="bg-gray-1 text-gray-12 font-sans antialiased">
         <WithAgetation>{children}</WithAgetation>
