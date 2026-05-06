@@ -1,4 +1,4 @@
-import { OGP_IMAGE, OGP_X, SITE_METADATA } from "../../../shared/config/site";
+import { OGP_IMAGE, OGP_X, SITE_METADATA } from "@/shared/config/site";
 
 import type { Metadata } from "next";
 

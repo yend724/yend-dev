@@ -4,7 +4,8 @@ import React from "react";
 import satori from "satori";
 import sharp from "sharp";
 
-import { getProjectRoot } from "../../../shared/lib/endpoint";
+import { getProjectRoot } from "@/shared/lib/endpoint";
+
 import { OgpImage } from "../ui";
 
 const fontRegular = fs.readFileSync(

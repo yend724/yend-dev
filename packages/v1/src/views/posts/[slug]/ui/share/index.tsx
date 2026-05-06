@@ -1,6 +1,6 @@
-import { SITE_METADATA } from "../../../../../shared/config/site";
-import { ShareButton } from "../../../../../shared/ui/share-button";
-import { XShareButton } from "../../../../../shared/ui/x-share-button";
+import { SITE_METADATA } from "@/shared/config/site";
+import { ShareButton } from "@/shared/ui/share-button";
+import { XShareButton } from "@/shared/ui/x-share-button";
 
 type Props = {
   slug: string;

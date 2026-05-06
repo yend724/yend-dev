@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { SITE_METADATA } from "../../../../shared/config/site";
+import { SITE_METADATA } from "@/shared/config/site";
 
 import ProfileIconImage from "@/assets/images/common/profile-icon.png";
 

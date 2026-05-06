@@ -2,7 +2,8 @@ import fs from "node:fs";
 
 import { postsDir } from "@resources/paths";
 
-import { EXTENSION } from "../../../shared/config/extension";
+import { EXTENSION } from "@/shared/config/extension";
+
 import { validateComponent, validateFrontmatter } from "../model/validation";
 
 export const getPost = async (fileName: string) => {

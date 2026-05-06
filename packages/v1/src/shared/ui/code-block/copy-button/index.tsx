@@ -34,7 +34,7 @@ export const CopyButton: React.FC<Props> = ({ text }) => {
       }, [])}
     >
       {isCopied ? <Check size={18} /> : <Copy size={18} />}
-      <span className="sr-only">コビー</span>
+      <span className="sr-only">コピー</span>
     </button>
   );
 };

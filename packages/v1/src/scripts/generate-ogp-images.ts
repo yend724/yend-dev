@@ -1,12 +1,12 @@
-import { generateOgpImage } from "../entities/ogp";
-import { env } from "../shared/config/env";
-import { OGP_DIR } from "../shared/config/site";
-import { makeDirRecursive, writeFile } from "../shared/lib/file-system";
+import { generateOgpImage } from "@/entities/ogp";
+import { isProd } from "@/shared/config/env";
+import { OGP_DIR } from "@/shared/config/site";
+import { makeDirRecursive, writeFile } from "@/shared/lib/file-system";
 
 import { getPostsData } from "./utils/get-posts-data";
 
 const generateOgpImages = async () => {
-  const isFiltering = env().isProd;
+  const isFiltering = isProd;
   const posts = getPostsData();
   const targetPosts = posts.filter((post) =>
     isFiltering ? !post.frontmatter.draft : true

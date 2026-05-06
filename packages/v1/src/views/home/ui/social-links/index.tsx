@@ -1,5 +1,5 @@
-import { SOCIALS } from "../../../../shared/config/social";
-import { LinkTag } from "../../../../shared/ui/link-tag";
+import { SOCIALS } from "@/shared/config/social";
+import { LinkTag } from "@/shared/ui/link-tag";
 
 export const SocialLinks: React.FC = () => {
   return (

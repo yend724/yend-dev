@@ -1,7 +1,7 @@
 import Parser from "rss-parser";
 
-import { env } from "../../../shared/config/env";
-import { getPosts } from "../../post";
+import { isProd } from "@/shared/config/env";
+import { getPosts } from "@/entities/post";
 
 import type { ArticlePreviewInterface } from "../model/article";
 import type {
@@ -65,7 +65,7 @@ const normalizeMyArticles = (article: {
   };
 };
 export const getMyArticles = async () => {
-  const isProduction = env().isProd;
+  const isProduction = isProd;
   const posts = await getPosts();
   const articles = posts
     .map((post) => {

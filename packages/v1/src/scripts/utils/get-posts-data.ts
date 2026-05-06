@@ -3,7 +3,7 @@ import path from "node:path";
 
 import { postsDir } from "@resources/paths";
 
-import { EXTENSION } from "../../shared/config/extension";
+import { EXTENSION } from "@/shared/config/extension";
 
 type Frontmatter = {
   title: string;
@@ -25,7 +25,6 @@ export const getPostsData = (): PostData[] => {
       const filePath = path.join(postsDir, fileName);
       const content = fs.readFileSync(filePath, "utf-8");
 
-      // frontmatterを抽出
       const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
       if (!frontmatterMatch) {
         throw new Error(`Frontmatter not found in ${fileName}`);
@@ -38,7 +37,6 @@ export const getPostsData = (): PostData[] => {
         draft: false,
       };
 
-      // 簡易的なYAMLパース
       frontmatterLines.forEach((line) => {
         const [key, ...valueParts] = line.split(":");
         if (key && valueParts.length > 0) {
@@ -55,7 +53,6 @@ export const getPostsData = (): PostData[] => {
         }
       });
 
-      // 日付をISO形式に変換
       frontmatter.date = new Date(`${frontmatter.date}+09:00`).toISOString();
 
       const slug = fileName.replace(EXTENSION.mdx, "");

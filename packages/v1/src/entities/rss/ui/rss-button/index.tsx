@@ -1,7 +1,7 @@
 import { Rss as RssIcon } from "lucide-react";
 
-import { SITE_METADATA } from "../../../../shared/config/site";
-import { Link } from "../../../../shared/ui/link";
+import { SITE_METADATA } from "@/shared/config/site";
+import { Link } from "@/shared/ui/link";
 
 export const RssButton = () => {
   return (

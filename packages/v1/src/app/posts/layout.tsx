@@ -1,5 +1,7 @@
-import { Footer } from "../../shared/ui/footer";
-import { Header } from "../../shared/ui/header";
+import { RssButton } from "@/entities/rss";
+import { Footer } from "@/shared/ui/footer";
+import { Header } from "@/shared/ui/header";
+
 import "katex/dist/katex.min.css";
 import "@/assets/styles/markdown.css";
 
@@ -10,7 +12,7 @@ const RootLayout = ({
 }>) => {
   return (
     <div className="grid min-h-svh grid-rows-[auto_1fr_auto] gap-8">
-      <Header />
+      <Header actions={<RssButton />} />
       <main className="mx-auto w-full max-w-5xl overflow-hidden px-4 pb-12">
         {children}
       </main>

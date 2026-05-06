@@ -2,16 +2,16 @@
 
 import Image from "next/image";
 
-import { Card } from "../../../../shared/ui/card";
-import { FormattedDate } from "../../../../shared/ui/date-time";
+import { Card } from "@/shared/ui/card";
+import { FormattedDate } from "@/shared/ui/date-time";
 import {
   CalendarIcon,
   ChevronRightIcon,
   ProfileIcon,
   QiitaIcon,
   ZennIcon,
-} from "../../../../shared/ui/icons";
-import { Link } from "../../../../shared/ui/link";
+} from "@/shared/ui/icons";
+import { Link } from "@/shared/ui/link";
 
 import { useHandleOpenLink } from "./hooks/useHandleOpenLink";
 

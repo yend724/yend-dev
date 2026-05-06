@@ -1,4 +1,4 @@
-import { CERTIFICATIONS } from "../../../../shared/config/certification";
+import { CERTIFICATIONS } from "@/shared/config/certification";
 
 export const Certifications: React.FC = () => {
   return (

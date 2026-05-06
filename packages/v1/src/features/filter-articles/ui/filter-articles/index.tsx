@@ -2,7 +2,7 @@
 import {
   ArticlePreview,
   type ArticlePreviewInterface,
-} from "../../../../entities/article";
+} from "@/entities/article";
 
 import { useFilterArticles } from "./hooks/useFilterArticles";
 

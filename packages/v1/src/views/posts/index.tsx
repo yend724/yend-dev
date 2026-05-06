@@ -1,5 +1,6 @@
-import { ArticlePreviewInterface } from "../../entities/article";
-import { FilterArticles } from "../../features/filter-articles";
+import type { ArticlePreviewInterface } from "@/entities/article";
+
+import { FilterArticles } from "@/features/filter-articles";
 
 type Props = {
   articles: ArticlePreviewInterface[];

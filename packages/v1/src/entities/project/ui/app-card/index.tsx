@@ -1,10 +1,11 @@
 import Image from "next/image";
 
-import { Card } from "../../../../shared/ui/card";
-import { GitHubIcon, LinkIcon } from "../../../../shared/ui/icons";
+import { Card } from "@/shared/ui/card";
+import { GitHubIcon, LinkIcon } from "@/shared/ui/icons";
+
 import { LinkList } from "../project-link-list";
 
-import type { WebApp } from "../../../../shared/config/project";
+import type { WebApp } from "@/shared/config/project";
 
 type Props = WebApp;
 export const AppCard: React.FC<Props> = ({

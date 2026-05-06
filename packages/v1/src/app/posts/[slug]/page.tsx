@@ -1,12 +1,15 @@
-import { JsonLdScript } from "../../../entities/json-ld";
-import { generateSharedMeta } from "../../../entities/ogp";
-import { getPost, getPosts } from "../../../entities/post";
-import { getAdjacentPosts } from "../../../entities/post/lib/get-adjacent-posts";
-import { getRelativePosts } from "../../../entities/post/lib/get-relative-posts";
-import { env } from "../../../shared/config/env";
-import { EXTENSION } from "../../../shared/config/extension";
-import { SITE_METADATA } from "../../../shared/config/site";
-import { Posts } from "../../../views/posts/[slug]";
+import { JsonLdScript } from "@/entities/json-ld";
+import { generateSharedMeta } from "@/entities/ogp";
+import {
+  getAdjacentPosts,
+  getPost,
+  getPosts,
+  getRelativePosts,
+} from "@/entities/post";
+import { isProd } from "@/shared/config/env";
+import { EXTENSION } from "@/shared/config/extension";
+import { SITE_METADATA } from "@/shared/config/site";
+import { Posts } from "@/views/posts/[slug]";
 
 import type { Article, BreadcrumbList, WithContext } from "schema-dts";
 
@@ -22,10 +25,7 @@ const Page: React.FC<Props> = async ({ params }) => {
     `${slug}${EXTENSION.mdx}`
   );
 
-  // 前後の記事を取得
   const adjacentPosts = getAdjacentPosts(posts, slug);
-
-  // 同じタグの記事を取得
   const relativePosts = getRelativePosts(posts, slug, frontmatter);
 
   const postUrl = `${SITE_METADATA.url}/posts/${slug}/`;
@@ -95,7 +95,7 @@ const Page: React.FC<Props> = async ({ params }) => {
 export default Page;
 
 export const generateStaticParams = async (): Promise<Params[]> => {
-  const isFiltering = env().isProd;
+  const isFiltering = isProd;
   const posts = await getPosts();
   const slugs = posts
     .filter((post) => (isFiltering ? !post.frontmatter.draft : true))

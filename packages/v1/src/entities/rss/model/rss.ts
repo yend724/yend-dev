@@ -1,6 +1,6 @@
 import { Feed } from "feed";
 
-import { OGP_IMAGE, SITE_METADATA } from "../../../shared/config/site";
+import { OGP_IMAGE, SITE_METADATA } from "@/shared/config/site";
 
 const createFeed = () => {
   return new Feed({

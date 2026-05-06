@@ -1,9 +1,9 @@
-import { getPosts } from "../../entities/post";
-import { generateRSS } from "../../entities/rss";
-import { env } from "../../shared/config/env";
+import { getPosts } from "@/entities/post";
+import { generateRSS } from "@/entities/rss";
+import { isProd } from "@/shared/config/env";
 
 export const GET = async () => {
-  const isFiltering = env().isProd;
+  const isFiltering = isProd;
   const posts = await getPosts();
 
   const filteredPosts = posts

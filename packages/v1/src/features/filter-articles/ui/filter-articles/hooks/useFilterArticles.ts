@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
 
-import type { ArticlePreviewInterface } from "../../../../../entities/article";
+import type { ArticlePreviewInterface } from "@/entities/article";
 
 const FILTER = {
   zenn: true,
@@ -10,7 +10,6 @@ const FILTER = {
 
 export const useFilterArticles = (articles: ArticlePreviewInterface[]) => {
   const [filters, setFilters] = useState<typeof FILTER>(FILTER);
-  const [searchTerm, setSearchTerm] = useState("");
 
   const handleFilterChange = useCallback(
     (key: keyof typeof FILTER, value: boolean) => {
@@ -19,26 +18,15 @@ export const useFilterArticles = (articles: ArticlePreviewInterface[]) => {
     []
   );
 
-  const handleSearchTermChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      setSearchTerm(e.target.value);
-    },
-    []
-  );
-
   const filteredArticles = useMemo(() => {
     return articles.filter(
-      (article) =>
-        filters[article.platform as keyof typeof FILTER] &&
-        article.title.toLowerCase().includes(searchTerm.toLowerCase())
+      (article) => filters[article.platform as keyof typeof FILTER]
     );
-  }, [articles, filters, searchTerm]);
+  }, [articles, filters]);
 
   return {
     filters,
-    searchTerm,
     filteredArticles,
     handleFilterChange,
-    handleSearchTermChange,
   };
 };

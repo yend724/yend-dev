@@ -1,8 +1,8 @@
-import "@/assets/styles/globals.css";
-import { generateSharedMeta } from "../entities/ogp";
-
+import { generateSharedMeta } from "@/entities/ogp";
 import { SITE_METADATA } from "@/shared/config/site";
 import { WithAgetation } from "@/shared/ui/with-agetation";
+
+import "@/assets/styles/globals.css";
 
 const RootLayout = ({
   children,

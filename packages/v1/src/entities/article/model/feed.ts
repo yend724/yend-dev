@@ -33,10 +33,3 @@ export type QiitaRSSFeed = {
   title: string;
   lastBuildDate: string;
 };
-export type Article = {
-  id: string;
-  title: string;
-  link: string;
-  isoDate: string;
-  source: "zenn" | "qiita" | "yend";
-};

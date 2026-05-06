@@ -1,4 +1,4 @@
-import { Link } from "../../../../shared/ui/link";
+import { Link } from "@/shared/ui/link";
 
 type LinkItem = {
   href: string;
