@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import tocbot from "tocbot";
+import * as tocbot from "tocbot";
 
 export const Toc = () => {
   useEffect(() => {
@@ -8,8 +8,7 @@ export const Toc = () => {
       tocSelector: ".toc",
       contentSelector: ".markdown-body",
       headingSelector: "h2",
-      tocScrollingWrapper: null,
-    });
+    } as tocbot.IStaticOptions);
 
     return () => {
       tocbot.destroy();
