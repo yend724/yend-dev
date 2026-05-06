@@ -100,16 +100,4 @@
     @apply break-all;
   }
 
-  /* 目次スタイル */
-  .toc .toc-list-item {
-    counter-increment: count 1;
-  }
-  .toc .toc-list-item a {
-    @apply relative flex w-full items-start gap-x-1 rounded-sm px-4 py-1 before:content-[counter(count)_"."];
-  }
-  @media (any-hover: hover) {
-    .toc .toc-list-item a:hover {
-      @apply after:absolute after:top-1/2 after:left-0 after:-translate-y-1/2 after:font-mono after:font-semibold after:content-["▶︎"];
-    }
-  }
 }

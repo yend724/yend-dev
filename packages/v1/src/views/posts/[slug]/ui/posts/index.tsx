@@ -8,14 +8,20 @@ import { LinkText } from "@/shared/ui/link-text";
 import { PostNavigation } from "../post-navigation";
 import { Share } from "../share";
 import { Tags } from "../tags";
-import { Toc } from "../toc";
+import { TableOfContents } from "../table-of-contents";
 
-import type { AdjacentPosts, Frontmatter, Post } from "@/entities/post";
+import type {
+  AdjacentPosts,
+  Frontmatter,
+  Heading,
+  Post,
+} from "@/entities/post";
 
 export const Posts = async ({
   frontmatter,
   children,
   slug,
+  headings,
   prevPost,
   nextPost,
   relativePosts,
@@ -23,6 +29,7 @@ export const Posts = async ({
   frontmatter: Frontmatter;
   slug: string;
   children: React.ReactNode;
+  headings: Heading[];
   prevPost: AdjacentPosts["prev"];
   nextPost: AdjacentPosts["next"];
   relativePosts: Post[];
@@ -44,9 +51,9 @@ export const Posts = async ({
         {frontmatter.tags.length && <Tags tags={frontmatter.tags} />}
         <Share slug={slug} title={frontmatter.title} />
       </div>
-      <Toc />
+      <TableOfContents headings={headings.filter((heading) => heading.level === 2)} />
       <div className="grid gap-y-16">
-        <div className="markdown-body">{children}</div>
+        <div className="markdown-body">{children}</div>1
         {relativePosts.length > 0 && (
           <aside className="grid gap-y-4">
             <h2 className="text-2xl font-semibold">次に読む</h2>

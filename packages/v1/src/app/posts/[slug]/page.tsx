@@ -21,7 +21,7 @@ type Props = {
 };
 const Page: React.FC<Props> = async ({ params }) => {
   const slug = (await params).slug;
-  const { component: Component, frontmatter } = await getPost(
+  const { component: Component, frontmatter, headings } = await getPost(
     `${slug}${EXTENSION.mdx}`
   );
 
@@ -82,6 +82,7 @@ const Page: React.FC<Props> = async ({ params }) => {
       <Posts
         frontmatter={frontmatter}
         slug={slug}
+        headings={headings}
         prevPost={adjacentPosts.prev}
         nextPost={adjacentPosts.next}
         relativePosts={relativePosts.slice(0, 3)}

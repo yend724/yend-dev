@@ -1,9 +1,11 @@
 import fs from "node:fs";
+import path from "node:path";
 
 import { postsDir } from "@resources/paths";
 
 import { EXTENSION } from "@/shared/config/extension";
 
+import { extractHeadings } from "../lib/extract-headings";
 import { validateComponent, validateFrontmatter } from "../model/validation";
 
 export const getPost = async (fileName: string) => {
@@ -12,7 +14,11 @@ export const getPost = async (fileName: string) => {
   const frontmatter = validateFrontmatter(post);
   frontmatter.date = new Date(`${frontmatter.date}+09:00`).toISOString();
   const slug = fileName.replace(EXTENSION.mdx, "");
-  return { component, frontmatter, slug };
+
+  const raw = fs.readFileSync(path.join(postsDir, fileName), "utf-8");
+  const headings = extractHeadings(raw);
+
+  return { component, frontmatter, slug, headings };
 };
 
 export const getPosts = async () => {
