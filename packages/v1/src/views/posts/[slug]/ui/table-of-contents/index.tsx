@@ -1,6 +1,6 @@
-import { Link } from "@/shared/ui/link";
-
 import type { Heading } from "@/entities/post";
+
+import { Link } from "@/shared/ui/link";
 
 type Props = {
   headings: Heading[];

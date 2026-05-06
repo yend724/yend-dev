@@ -1,3 +1,5 @@
+import type { Article, BreadcrumbList, WithContext } from "schema-dts";
+
 import { JsonLdScript } from "@/entities/json-ld";
 import { generateSharedMeta } from "@/entities/ogp";
 import {
@@ -11,8 +13,6 @@ import { EXTENSION } from "@/shared/config/extension";
 import { SITE_METADATA } from "@/shared/config/site";
 import { Posts } from "@/views/posts/[slug]";
 
-import type { Article, BreadcrumbList, WithContext } from "schema-dts";
-
 const posts = await getPosts();
 
 type Params = { slug: string };
@@ -21,9 +21,11 @@ type Props = {
 };
 const Page: React.FC<Props> = async ({ params }) => {
   const slug = (await params).slug;
-  const { component: Component, frontmatter, headings } = await getPost(
-    `${slug}${EXTENSION.mdx}`
-  );
+  const {
+    component: Component,
+    frontmatter,
+    headings,
+  } = await getPost(`${slug}${EXTENSION.mdx}`);
 
   const adjacentPosts = getAdjacentPosts(posts, slug);
   const relativePosts = getRelativePosts(posts, slug, frontmatter);

@@ -1,5 +1,5 @@
-import type { Heading } from "../lib/extract-headings";
 import type { Frontmatter } from "./frontmatter";
+import type { Heading } from "../lib/extract-headings";
 
 export type Post = {
   component: React.FC;

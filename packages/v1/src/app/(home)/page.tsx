@@ -1,8 +1,8 @@
+import type { WebSite, WithContext } from "schema-dts";
+
 import { JsonLdScript } from "@/entities/json-ld";
 import { SITE_METADATA } from "@/shared/config/site";
 import { Home } from "@/views/home";
-
-import type { WebSite, WithContext } from "schema-dts";
 
 const webSiteJsonLd: WithContext<WebSite> = {
   "@context": "https://schema.org",

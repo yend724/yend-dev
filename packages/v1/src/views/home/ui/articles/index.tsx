@@ -1,9 +1,9 @@
+import { ArticlePreview, sortArticlesByIsoDate } from "@/entities/article";
 import {
   getMyArticles,
   getQiitaArticles,
   getZennArticles,
 } from "@/entities/article/api";
-import { ArticlePreview, sortArticlesByIsoDate } from "@/entities/article";
 
 const zennArticles = await getZennArticles();
 const qiitaArticles = await getQiitaArticles();

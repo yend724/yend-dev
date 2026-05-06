@@ -1,8 +1,5 @@
 import Parser from "rss-parser";
 
-import { isProd } from "@/shared/config/env";
-import { getPosts } from "@/entities/post";
-
 import type { ArticlePreviewInterface } from "../model/article";
 import type {
   QiitaRSSFeed,
@@ -10,6 +7,9 @@ import type {
   ZennRSSFeed,
   ZennRSSFeedItem,
 } from "../model/feed";
+
+import { getPosts } from "@/entities/post";
+import { isProd } from "@/shared/config/env";
 
 const parser = new Parser();
 

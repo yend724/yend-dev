@@ -1,6 +1,6 @@
-import { SITE_METADATA } from "@/shared/config/site";
-
 import type { MetadataRoute } from "next";
+
+import { SITE_METADATA } from "@/shared/config/site";
 
 const robots = (): MetadataRoute.Robots => {
   return {

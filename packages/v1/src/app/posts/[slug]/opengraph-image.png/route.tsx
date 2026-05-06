@@ -3,8 +3,8 @@ import { join } from "node:path";
 
 import { ImageResponse } from "next/og";
 
-import { getPost, getPosts } from "@/entities/post";
 import { OgpImage } from "@/entities/ogp/ui";
+import { getPost, getPosts } from "@/entities/post";
 import { isProd } from "@/shared/config/env";
 import { EXTENSION } from "@/shared/config/extension";
 

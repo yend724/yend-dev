@@ -2,6 +2,10 @@
 
 import Image from "next/image";
 
+import { useHandleOpenLink } from "./hooks/useHandleOpenLink";
+
+import type { ArticlePreviewInterface } from "../../model/article";
+
 import { Card } from "@/shared/ui/card";
 import { FormattedDate } from "@/shared/ui/date-time";
 import {
@@ -12,10 +16,6 @@ import {
   ZennIcon,
 } from "@/shared/ui/icons";
 import { Link } from "@/shared/ui/link";
-
-import { useHandleOpenLink } from "./hooks/useHandleOpenLink";
-
-import type { ArticlePreviewInterface } from "../../model/article";
 
 const PLATFORM_ICON_MAP = {
   zenn: {

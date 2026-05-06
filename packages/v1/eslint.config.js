@@ -1,7 +1,6 @@
 import js from "@eslint/js";
 import prettierConfig from "eslint-config-prettier";
-import importPlugin from "eslint-plugin-import";
-import reactPlugin from "eslint-plugin-react";
+import importPlugin from "eslint-plugin-import-x";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import tseslint from "typescript-eslint";
 
@@ -21,16 +20,10 @@ export default tseslint.config(
       },
     },
     plugins: {
-      react: reactPlugin,
       "react-hooks": reactHooksPlugin,
-      import: importPlugin,
+      "import-x": importPlugin,
     },
     rules: {
-      // React rules
-      "react/jsx-uses-react": "off",
-      "react/react-in-jsx-scope": "off",
-      "react/prop-types": "off",
-
       // React Hooks rules
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
@@ -44,7 +37,7 @@ export default tseslint.config(
       "@typescript-eslint/no-non-null-assertion": "warn",
 
       // Import rules
-      "import/order": [
+      "import-x/order": [
         "error",
         {
           groups: [
@@ -75,11 +68,6 @@ export default tseslint.config(
       // General rules
       "no-console": ["warn", { allow: ["warn", "error"] }],
       "no-debugger": "error",
-    },
-    settings: {
-      react: {
-        version: "detect",
-      },
     },
   },
   {

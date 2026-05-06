@@ -1,6 +1,6 @@
-import { SITE_METADATA } from "@/shared/config/site";
-
 import { Link } from "../link";
+
+import { SITE_METADATA } from "@/shared/config/site";
 
 type Props = {
   renderTitle?: (text: string) => React.ReactNode;

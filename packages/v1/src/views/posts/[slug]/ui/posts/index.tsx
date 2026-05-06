@@ -1,14 +1,9 @@
 import { ArrowLeft } from "lucide-react";
 
-import { FormattedDate } from "@/shared/ui/date-time";
-import { CalendarIcon } from "@/shared/ui/icons";
-import { Link } from "@/shared/ui/link";
-import { LinkText } from "@/shared/ui/link-text";
-
 import { PostNavigation } from "../post-navigation";
 import { Share } from "../share";
-import { Tags } from "../tags";
 import { TableOfContents } from "../table-of-contents";
+import { Tags } from "../tags";
 
 import type {
   AdjacentPosts,
@@ -16,6 +11,11 @@ import type {
   Heading,
   Post,
 } from "@/entities/post";
+
+import { FormattedDate } from "@/shared/ui/date-time";
+import { CalendarIcon } from "@/shared/ui/icons";
+import { Link } from "@/shared/ui/link";
+import { LinkText } from "@/shared/ui/link-text";
 
 export const Posts = async ({
   frontmatter,
@@ -51,7 +51,9 @@ export const Posts = async ({
         {frontmatter.tags.length && <Tags tags={frontmatter.tags} />}
         <Share slug={slug} title={frontmatter.title} />
       </div>
-      <TableOfContents headings={headings.filter((heading) => heading.level === 2)} />
+      <TableOfContents
+        headings={headings.filter((heading) => heading.level === 2)}
+      />
       <div className="grid gap-y-16">
         <div className="markdown-body">{children}</div>1
         {relativePosts.length > 0 && (

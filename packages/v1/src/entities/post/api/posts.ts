@@ -3,10 +3,10 @@ import path from "node:path";
 
 import { postsDir } from "@resources/paths";
 
-import { EXTENSION } from "@/shared/config/extension";
-
 import { extractHeadings } from "../lib/extract-headings";
 import { validateComponent, validateFrontmatter } from "../model/validation";
+
+import { EXTENSION } from "@/shared/config/extension";
 
 export const getPost = async (fileName: string) => {
   const post = await import(`@resources/posts/${fileName}`);

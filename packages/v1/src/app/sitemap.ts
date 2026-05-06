@@ -1,8 +1,8 @@
+import type { MetadataRoute } from "next";
+
 import { getPosts } from "@/entities/post";
 import { isProd } from "@/shared/config/env";
 import { SITE_METADATA } from "@/shared/config/site";
-
-import type { MetadataRoute } from "next";
 
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   const isFiltering = isProd;

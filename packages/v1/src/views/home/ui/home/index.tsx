@@ -1,11 +1,11 @@
-import { Certifications } from "@/entities/certification";
-import { Projects } from "@/entities/project";
-import { LinkText } from "@/shared/ui/link-text";
-
 import { Articles } from "../articles";
 import { Person } from "../person";
 import { Section } from "../section";
 import { SocialLinks } from "../social-links";
+
+import { Certifications } from "@/entities/certification";
+import { Projects } from "@/entities/project";
+import { LinkText } from "@/shared/ui/link-text";
 
 export const Home: React.FC = async () => {
   return (
