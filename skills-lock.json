@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "skills": {
+    "frontend-architecture": {
+      "source": "yend724/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-architecture/SKILL.md",
+      "computedHash": "de58e381af7e514691662c3bfd8db7bacd6aeb5271971bbafc75b1a36cb571a5"
+    },
+    "function-programming-conventions": {
+      "source": "yend724/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/function-programming-conventions/SKILL.md",
+      "computedHash": "836ede3d64d3ae736a0e0bd3d6385c72f620a41d4ab039b5ae15688fc8438f7e"
+    },
+    "nextjs-app-router-conventions": {
+      "source": "yend724/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/nextjs-app-router-conventions/SKILL.md",
+      "computedHash": "69b0f6a0d20f3f44fb969ae2a760da929e591c5d27553a7c5b4718d1f0f3536f"
+    },
+    "react-component-conventions": {
+      "source": "yend724/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-component-conventions/SKILL.md",
+      "computedHash": "45ecb74975c0906c944d52a5fa01b1c24b399f0c3b428358540df388f6e9f28d"
+    },
+    "testing-conventions": {
+      "source": "yend724/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/testing-conventions/SKILL.md",
+      "computedHash": "9b2a31143beda356265b9f5ce4d0ab6b2b151161edc267bdca41b22a933ee766"
+    },
+    "typescript-coding-conventions": {
+      "source": "yend724/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/typescript-coding-conventions/SKILL.md",
+      "computedHash": "15cffb3f9b7dabba67e723dda05d88ecdc29512d9de8664a101544f7cc820c4c"
+    }
+  }
+}
