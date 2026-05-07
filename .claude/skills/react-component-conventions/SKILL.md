@@ -1,7 +1,6 @@
 ---
 name: react-component-conventions
-description: React component design conventions focusing on Server/Client component boundaries, composition patterns, and data flow. Auto-triggers when writing or modifying React components to ensure correct RSC patterns and optimal component architecture.
-paths: "*.tsx, *.jsx, *.ts, *.js"
+description: React component design conventions focusing on Server/Client component boundaries, composition patterns, and data flow. Auto-triggers when writing or modifying React components in files matching `*.tsx`, `*.jsx`, `*.ts`, or `*.js` to ensure correct RSC patterns and optimal component architecture.
 ---
 
 # React Component Design Conventions
@@ -10,8 +9,13 @@ React コンポーネント設計の規約集。Server Components / Client Compo
 
 ## When to Apply
 
-以下の作業時に自動で参照する：
+以下のいずれかに該当する作業時に自動で参照する：
 
+- 次のパターンに一致するファイルの作成・修正
+  - `*.tsx`
+  - `*.jsx`
+  - `*.ts`
+  - `*.js`
 - React コンポーネントの新規作成
 - 既存コンポーネントのリファクタリング
 - `"use client"` ディレクティブの追加・削除判断

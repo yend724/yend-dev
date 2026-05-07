@@ -1,7 +1,6 @@
 ---
 name: testing-conventions
-description: Testing conventions covering unit tests, component tests, and E2E tests. Auto-triggers when writing or modifying test files. Uses Vitest for unit/component tests and Playwright for E2E tests.
-paths: "*.test.ts, *.test.tsx, *.spec.ts, *.spec.tsx, e2e/**/*"
+description: Testing conventions covering unit tests, component tests, and E2E tests. Auto-triggers when writing or modifying test files matching `*.test.ts`, `*.test.tsx`, `*.spec.ts`, `*.spec.tsx`, or files under `e2e/**/*`. Uses Vitest for unit/component tests and Playwright for E2E tests.
 ---
 
 # Testing Conventions
@@ -13,9 +12,14 @@ paths: "*.test.ts, *.test.tsx, *.spec.ts, *.spec.tsx, e2e/**/*"
 
 ## When to Apply
 
-以下の作業時に自動で参照する：
+以下のいずれかに該当する作業時に自動で参照する：
 
-- テストファイルの作成・修正
+- 次のパターンに一致するファイルの作成・修正
+  - `*.test.ts`
+  - `*.test.tsx`
+  - `*.spec.ts`
+  - `*.spec.tsx`
+  - `e2e/**/*`
 - テスト対象のロジックやコンポーネントの実装時
 - テスト戦略の設計・レビュー
 

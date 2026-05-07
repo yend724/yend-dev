@@ -1,7 +1,6 @@
 ---
 name: typescript-coding-conventions
-description: General TypeScript coding conventions for type safety, exported API design, and module structure. Auto-triggers when writing or refactoring TypeScript code outside framework-specific rules.
-paths: "*.ts, *.tsx, *.mts, *.cts"
+description: General TypeScript coding conventions for type safety, exported API design, and module structure. Auto-triggers when writing or refactoring TypeScript code in files matching `*.ts`, `*.tsx`, `*.mts`, or `*.cts` outside framework-specific rules.
 ---
 
 # TypeScript Coding Conventions
@@ -10,8 +9,13 @@ TypeScript 全般のコーディング規約集。型安全性、公開インタ
 
 ## When to Apply
 
-以下の作業時に自動で参照する：
+以下のいずれかに該当する作業時に自動で参照する：
 
+- 次のパターンに一致するファイルの作成・修正
+  - `*.ts`
+  - `*.tsx`
+  - `*.mts`
+  - `*.cts`
 - TypeScript ファイルの新規作成
 - JavaScript から TypeScript への移行
 - 型エラー修正や型定義の改善

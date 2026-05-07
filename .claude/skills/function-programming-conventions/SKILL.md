@@ -1,7 +1,6 @@
 ---
 name: function-programming-conventions
-description: Functional programming conventions for TypeScript logic layers. Auto-triggers when writing utilities, services, domain logic, or data transformation logic to ensure pure functions, immutability, and proper side-effect isolation.
-paths: "*.ts"
+description: Functional programming conventions for TypeScript logic layers. Auto-triggers when writing utilities, services, domain logic, or data transformation logic in files matching `*.ts` to ensure pure functions, immutability, and proper side-effect isolation.
 ---
 
 # Functional Programming Conventions
@@ -10,8 +9,10 @@ TypeScript のロジック層における関数型プログラミング規約集
 
 ## When to Apply
 
-以下の作業時に自動で参照する：
+以下のいずれかに該当する作業時に自動で参照する：
 
+- 次のパターンに一致するファイルの作成・修正
+  - `*.ts`
 - ロジック層のコード作成時
 - データ変換・加工ロジックの実装
 - 状態管理に関わるビジネスロジックの設計
