@@ -55,7 +55,7 @@ export const Posts = async ({
         headings={headings.filter((heading) => heading.level === 2)}
       />
       <div className="grid gap-y-16">
-        <div className="markdown-body">{children}</div>1
+        <div className="markdown-body">{children}</div>
         {relativePosts.length > 0 && (
           <aside className="grid gap-y-4">
             <h2 className="text-2xl font-semibold">次に読む</h2>
