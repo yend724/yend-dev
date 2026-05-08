@@ -8,5 +8,5 @@
     "start": "pnpm --filter v1 start",
     "lint": "pnpm --filter v1 lint"
   },
-  "packageManager": "pnpm@10.33.2"
+  "packageManager": "pnpm@10.33.4"
 }
