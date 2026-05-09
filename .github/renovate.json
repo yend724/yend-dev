@@ -5,6 +5,7 @@
   "ignoreTests": true,
   "schedule": ["every weekend"],
   "assignees": ["@yend724"],
+  "minimumReleaseAge": "3 days",
   "packageRules": [
     {
       "matchUpdateTypes": ["patch"],
