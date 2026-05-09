@@ -22,7 +22,9 @@ export const getPost = async (fileName: string) => {
 };
 
 export const getPosts = async () => {
-  const fileNames = fs.readdirSync(postsDir);
+  const fileNames = fs
+    .readdirSync(postsDir)
+    .filter((fileName) => fileName.endsWith(EXTENSION.mdx));
   const files = await Promise.all(
     fileNames.map(async (fileName) => getPost(fileName))
   );
