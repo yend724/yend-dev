@@ -1,0 +1,166 @@
+---
+title: text-overflowのellipsisは選択時にclipになる（Chrome 149以降）
+date: 2026-06-25T23:00:00
+description: Chrome 149から、text-overflow ellipsis が設定された要素を選択・編集している間は、一時的に clip に切り替わって隠れたテキストを操作できるようになる。
+tags:
+  - CSS
+draft: false
+---
+
+`text-overflow: ellipsis`が設定された要素のテキストを選択すると、省略記号(`...`)が解除されて隠れていたテキストが見えるようになる挙動に遭遇した。
+
+始めはバグかと思ったのだが、これは[Clip Text overflow on user interaction](https://chromestatus.com/feature/5146265241387008)としてChrome 149の安定版からサポートされた正しい挙動の様子。[Chrome 149のリリースノート](https://developer.chrome.com/release-notes/149?hl=ja#clip_text_overflow_on_user_interaction)にも「ユーザー インタラクション時にテキストのオーバーフローをクリップする」として掲載されていた。
+
+## 遭遇した挙動
+
+`text-overflow: ellipsis`で省略しているテキストを選択（クリックやドラッグなど）したとき、選択中だけ末尾の`...`が消えて省略が解除され、選択をやめると`...`に戻った。
+
+整理するとこういう挙動。
+
+- ユーザー操作中（編集・選択・キャレット移動など）だけ、表示が一時的に`ellipsis` → `clip`に切り替わる
+- 操作が終わると`ellipsis`に戻る
+
+下のマークアップで再現できる。Chrome 149以降で省略部分を選択すると`...`が解除される。
+
+```jsx
+<p
+  style={{
+    width: "300px",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+  }}
+>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</p>
+```
+
+たとえば、Chrome 149以降で次のテキストを選択すると挙動を確認できると思う。
+
+{/* prettier-ignore */}
+<p
+  style={{
+    width: "300px",
+    maxWidth: "100%",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    marginBlock: "24px",
+    border: "2px solid #4b5563",
+    borderRadius: "6px",
+    paddingBlock: 0,
+    paddingInline: "12px",
+    fontSize: "1.25rem",
+    lineHeight: 3,
+  }}
+>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+この挙動自体は従来から`<input>` / `<textarea>`では対応していたものだが、Chrome 149からは`contenteditable`のことも考慮して全ての要素に拡大された。ChromeStatusの説明を読んだ限りでは、ellipsis（省略表示）はあくまで見た目上の表現であって、テキストの実体やユーザーの操作を妨げるべきではない、という背景っぽい。
+
+## 仕様での記述
+
+この挙動は[CSS Overflow Module Level 3](https://www.w3.org/TR/css-overflow-3/#ellipsis-interaction)にも言及があった。
+
+> When the user is interacting with content (e.g. editing, selecting, scrolling), the user agent may treat text-overflow: ellipsis as text-overflow: clip.
+
+日本語訳（筆者による意訳）：
+
+> ユーザーがコンテンツを操作している間（例：編集、選択、スクロール）、ユーザーエージェントは text-overflow: ellipsis を text-overflow: clip として扱ってよい。
+
+ここで使われているのは`must`ではなく`may`なので、あくまでUA（ユーザーエージェント）の裁量であるという理解。なので、他のブラウザが追従するかどうかは不明。
+
+## 回避策
+
+選択中に省略表示（`...`）を解除したくない場合の回避策として、今のところ思いつくのは以下。
+
+### line-clamp を使う
+
+`text-overflow: ellipsis`ではなく`line-clamp`（`-webkit-line-clamp`）で省略すると、選択しても`...`のまま維持される。1行で省略したい場合は`line-clamp: 1`を指定すればよい。
+
+```jsx
+<p
+  style={{
+    width: "300px",
+    display: "-webkit-box",
+    WebkitBoxOrient: "vertical",
+    WebkitLineClamp: 1,
+    lineClamp: 1,
+    overflow: "hidden",
+  }}
+>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</p>
+```
+
+複数行の省略にも対応できるので、こちらのほうが用途は広い。下のテキストは選択しても`...`のまま維持される。
+
+{/* prettier-ignore */}
+<p
+  style={{
+    width: "300px",
+    maxWidth: "100%",
+    display: "-webkit-box",
+    WebkitBoxOrient: "vertical",
+    WebkitLineClamp: 1,
+    lineClamp: 1,
+    overflow: "hidden",
+    marginBlock: "24px",
+    border: "2px solid #4b5563",
+    borderRadius: "6px",
+    paddingBlock: 0,
+    paddingInline: "12px",
+    fontSize: "1.25rem",
+    lineHeight: 3,
+  }}
+>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+### user-select: none を使う
+
+`user-select: none`で選択そのものを禁止すれば、選択による`clip`への切り替えも発生しなくなる。
+
+```jsx
+<p
+  style={{
+    width: "300px",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    userSelect: "none",
+  }}
+>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</p>
+```
+
+下のテキストはそもそも選択できないため、`...`のまま維持される。
+
+{/* prettier-ignore */}
+<p
+  style={{
+    width: "300px",
+    maxWidth: "100%",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    userSelect: "none",
+    marginBlock: "24px",
+    border: "2px solid #4b5563",
+    borderRadius: "6px",
+    paddingBlock: 0,
+    paddingInline: "12px",
+    fontSize: "1.25rem",
+    lineHeight: 3,
+  }}
+>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+ただし`user-select: none`はテキストの選択・コピーまで一律に奪ってしまい、アクセシビリティやユーザビリティを損なうため、なるべく避けたい。基本的には`line-clamp`を使うほうが無難。
+
+## 参照
+
+- [Clip Text overflow on user interaction - Chrome Platform Status](https://chromestatus.com/feature/5146265241387008)
+- [CSS Overflow Module Level 3 - Interaction of "text-overflow"](https://www.w3.org/TR/css-overflow-3/#ellipsis-interaction)
+- [Chrome 149リリースノート](https://developer.chrome.com/release-notes/149?hl=ja#clip_text_overflow_on_user_interaction)
+
+## おわりに
+
+バグだと思っていたくらいなので、正直、挙動が変更されたことに全く気づいていなかった。リリースノートは定期的に見るべきだと反省。
