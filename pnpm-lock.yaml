@@ -17,25 +17,25 @@ importers:
         version: 3.0.0
       '@react-aria/utils':
         specifier: 3.29.0
-        version: 3.29.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+        version: 3.29.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@yend.dev/resources':
         specifier: workspace:*
         version: link:../resources
       agentation:
         specifier: 3.0.2
-        version: 3.0.2(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+        version: 3.0.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       lucide-react:
         specifier: 1.26.0
-        version: 1.26.0(react@19.2.7)
+        version: 1.26.0(react@19.2.8)
       next:
         specifier: 16.1.1
-        version: 16.1.1(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+        version: 16.1.1(@babel/core@7.29.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react:
-        specifier: 19.2.7
-        version: 19.2.7
+        specifier: 19.2.8
+        version: 19.2.8
       react-dom:
-        specifier: 19.2.7
-        version: 19.2.7(react@19.2.7)
+        specifier: 19.2.8
+        version: 19.2.8(react@19.2.8)
       rehype-katex:
         specifier: 7.0.1
         version: 7.0.1
@@ -75,10 +75,10 @@ importers:
         version: 3.1.1
       '@mdx-js/react':
         specifier: 3.1.1
-        version: 3.1.1(@types/react@19.0.1)(react@19.2.7)
+        version: 3.1.1(@types/react@19.0.1)(react@19.2.8)
       '@next/mdx':
         specifier: 16.1.1
-        version: 16.1.1(@mdx-js/loader@3.1.1)(@mdx-js/react@3.1.1(@types/react@19.0.1)(react@19.2.7))
+        version: 16.1.1(@mdx-js/loader@3.1.1)(@mdx-js/react@3.1.1(@types/react@19.0.1)(react@19.2.8))
       '@tailwindcss/postcss':
         specifier: 4.3.3
         version: 4.3.3
@@ -2052,18 +2052,18 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  react-dom@19.2.7:
-    resolution: {integrity: sha512-t0BRVXvbiE/o20Hfw669rLbMCDWtYZLvmJigy2f0MxsXF+71pxhR3xOkspmsO8h3ZlNzyibAmtCa3l4lYKk6gQ==}
+  react-dom@19.2.8:
+    resolution: {integrity: sha512-rVprimfGBG3DR+Tq0IQG2DT5PxKth1WIGDmj5yPmlzr4YBe7uyE+Du4oVqTDXZSHGGGXRtTJEGSSePyQCMBglQ==}
     peerDependencies:
-      react: ^19.2.7
+      react: ^19.2.8
 
   react-stately@3.46.0:
     resolution: {integrity: sha512-OdxhWvHgs2L4OJGIs7hnuTr5WjjMM6enhNEAMRqiekhF8+ITvA2LRwNftOZwcogaoCslGYq5S2VQTQwnm0GbCA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  react@19.2.7:
-    resolution: {integrity: sha512-HNe9WslTbXmFK8o8cmwgAeJFSBvt1bPdHCVKtaaV+WlAN36mpT4hcRpwbf3fY56ar2oIXzsBpOAiIRHAdY0OlQ==}
+  react@19.2.8:
+    resolution: {integrity: sha512-PWaYA1L/q9u2u7xYQi+Y3L3Yfnie7XyLeaJICV1MGD6LprsBxcAqGjYyr0eY3p+QdsA+x/Irkt4Qif8D63+Sbw==}
     engines: {node: '>=0.10.0'}
 
   read-package-json-fast@4.0.0:
@@ -2792,11 +2792,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@mdx-js/react@3.1.1(@types/react@19.0.1)(react@19.2.7)':
+  '@mdx-js/react@3.1.1(@types/react@19.0.1)(react@19.2.8)':
     dependencies:
       '@types/mdx': 2.0.14
       '@types/react': 19.0.1
-      react: 19.2.7
+      react: 19.2.8
 
   '@napi-rs/wasm-runtime@0.2.12':
     dependencies:
@@ -2807,12 +2807,12 @@ snapshots:
 
   '@next/env@16.1.1': {}
 
-  '@next/mdx@16.1.1(@mdx-js/loader@3.1.1)(@mdx-js/react@3.1.1(@types/react@19.0.1)(react@19.2.7))':
+  '@next/mdx@16.1.1(@mdx-js/loader@3.1.1)(@mdx-js/react@3.1.1(@types/react@19.0.1)(react@19.2.8))':
     dependencies:
       source-map: 0.7.6
     optionalDependencies:
       '@mdx-js/loader': 3.1.1
-      '@mdx-js/react': 3.1.1(@types/react@19.0.1)(react@19.2.7)
+      '@mdx-js/react': 3.1.1(@types/react@19.0.1)(react@19.2.8)
 
   '@next/swc-darwin-arm64@16.1.1':
     optional: true
@@ -2840,41 +2840,41 @@ snapshots:
 
   '@radix-ui/colors@3.0.0': {}
 
-  '@react-aria/ssr@3.10.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
+  '@react-aria/ssr@3.10.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
       '@swc/helpers': 0.5.21
-      react: 19.2.7
-      react-aria: 3.48.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
-      react-dom: 19.2.7(react@19.2.7)
+      react: 19.2.8
+      react-aria: 3.48.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react-dom: 19.2.8(react@19.2.8)
 
-  '@react-aria/utils@3.29.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
+  '@react-aria/utils@3.29.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@react-aria/ssr': 3.10.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
-      '@react-stately/flags': 3.2.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
-      '@react-stately/utils': 3.12.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
-      '@react-types/shared': 3.34.0(react@19.2.7)
+      '@react-aria/ssr': 3.10.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@react-stately/flags': 3.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@react-stately/utils': 3.12.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@react-types/shared': 3.34.0(react@19.2.8)
       '@swc/helpers': 0.5.21
       clsx: 2.1.1
-      react: 19.2.7
-      react-dom: 19.2.7(react@19.2.7)
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
 
-  '@react-stately/flags@3.2.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
+  '@react-stately/flags@3.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
       '@swc/helpers': 0.5.21
-      react: 19.2.7
-      react-dom: 19.2.7(react@19.2.7)
-      react-stately: 3.46.0(react@19.2.7)
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
+      react-stately: 3.46.0(react@19.2.8)
 
-  '@react-stately/utils@3.12.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
+  '@react-stately/utils@3.12.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
       '@swc/helpers': 0.5.21
-      react: 19.2.7
-      react-dom: 19.2.7(react@19.2.7)
-      react-stately: 3.46.0(react@19.2.7)
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
+      react-stately: 3.46.0(react@19.2.8)
 
-  '@react-types/shared@3.34.0(react@19.2.7)':
+  '@react-types/shared@3.34.0(react@19.2.8)':
     dependencies:
-      react: 19.2.7
+      react: 19.2.8
 
   '@shikijs/core@4.3.1':
     dependencies:
@@ -3207,10 +3207,10 @@ snapshots:
 
   acorn@8.16.0: {}
 
-  agentation@3.0.2(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
+  agentation@3.0.2(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
     optionalDependencies:
-      react: 19.2.7
-      react-dom: 19.2.7(react@19.2.7)
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
 
   ajv@6.15.0:
     dependencies:
@@ -3933,9 +3933,9 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucide-react@1.26.0(react@19.2.7):
+  lucide-react@1.26.0(react@19.2.8):
     dependencies:
-      react: 19.2.7
+      react: 19.2.8
 
   magic-string@0.30.21:
     dependencies:
@@ -4450,16 +4450,16 @@ snapshots:
 
   negotiator@0.6.4: {}
 
-  next@16.1.1(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
+  next@16.1.1(@babel/core@7.29.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
     dependencies:
       '@next/env': 16.1.1
       '@swc/helpers': 0.5.15
       baseline-browser-mapping: 2.10.27
       caniuse-lite: 1.0.30001791
       postcss: 8.4.31
-      react: 19.2.7
-      react-dom: 19.2.7(react@19.2.7)
-      styled-jsx: 5.1.6(@babel/core@7.29.0)(react@19.2.7)
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
+      styled-jsx: 5.1.6(@babel/core@7.29.0)(react@19.2.8)
     optionalDependencies:
       '@next/swc-darwin-arm64': 16.1.1
       '@next/swc-darwin-x64': 16.1.1
@@ -4596,36 +4596,36 @@ snapshots:
       minimist: 1.2.8
       strip-json-comments: 2.0.1
 
-  react-aria@3.48.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
+  react-aria@3.48.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
     dependencies:
       '@internationalized/date': 3.12.1
       '@internationalized/number': 3.6.6
       '@internationalized/string': 3.2.8
-      '@react-types/shared': 3.34.0(react@19.2.7)
+      '@react-types/shared': 3.34.0(react@19.2.8)
       '@swc/helpers': 0.5.21
       aria-hidden: 1.2.6
       clsx: 2.1.1
-      react: 19.2.7
-      react-dom: 19.2.7(react@19.2.7)
-      react-stately: 3.46.0(react@19.2.7)
-      use-sync-external-store: 1.6.0(react@19.2.7)
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
+      react-stately: 3.46.0(react@19.2.8)
+      use-sync-external-store: 1.6.0(react@19.2.8)
 
-  react-dom@19.2.7(react@19.2.7):
+  react-dom@19.2.8(react@19.2.8):
     dependencies:
-      react: 19.2.7
+      react: 19.2.8
       scheduler: 0.27.0
 
-  react-stately@3.46.0(react@19.2.7):
+  react-stately@3.46.0(react@19.2.8):
     dependencies:
       '@internationalized/date': 3.12.1
       '@internationalized/number': 3.6.6
       '@internationalized/string': 3.2.8
-      '@react-types/shared': 3.34.0(react@19.2.7)
+      '@react-types/shared': 3.34.0(react@19.2.8)
       '@swc/helpers': 0.5.21
-      react: 19.2.7
-      use-sync-external-store: 1.6.0(react@19.2.7)
+      react: 19.2.8
+      use-sync-external-store: 1.6.0(react@19.2.8)
 
-  react@19.2.7: {}
+  react@19.2.8: {}
 
   read-package-json-fast@4.0.0:
     dependencies:
@@ -4926,10 +4926,10 @@ snapshots:
     dependencies:
       inline-style-parser: 0.2.7
 
-  styled-jsx@5.1.6(@babel/core@7.29.0)(react@19.2.7):
+  styled-jsx@5.1.6(@babel/core@7.29.0)(react@19.2.8):
     dependencies:
       client-only: 0.0.1
-      react: 19.2.7
+      react: 19.2.8
     optionalDependencies:
       '@babel/core': 7.29.0
 
@@ -5074,9 +5074,9 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  use-sync-external-store@1.6.0(react@19.2.7):
+  use-sync-external-store@1.6.0(react@19.2.8):
     dependencies:
-      react: 19.2.7
+      react: 19.2.8
 
   valibot@1.0.0-beta.11(typescript@5.7.2):
     optionalDependencies:
