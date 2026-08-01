@@ -50,7 +50,7 @@
     "eslint-plugin-react-hooks": "7.1.1",
     "feed": "5.2.1",
     "npm-run-all2": "8.0.4",
-    "postcss": "8.4.49",
+    "postcss": "8.5.25",
     "prettier": "3.6.2",
     "satori": "0.26.0",
     "schema-dts": "1.1.5",
