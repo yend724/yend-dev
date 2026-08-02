@@ -19,7 +19,7 @@
     "@react-aria/utils": "3.29.0",
     "@yend.dev/resources": "workspace:*",
     "agentation": "3.0.2",
-    "lucide-react": "1.26.0",
+    "lucide-react": "1.28.0",
     "next": "16.1.1",
     "react": "19.2.8",
     "react-dom": "19.2.8",
