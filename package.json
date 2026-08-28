@@ -3,10 +3,17 @@
   "private": true,
   "description": "YEND's Experimental Ground - Personal portfolio and blog site",
   "scripts": {
-    "dev": "pnpm --filter v1 dev",
-    "build": "pnpm --filter v1 build",
-    "start": "pnpm --filter v1 start",
-    "lint": "pnpm --filter v1 lint"
+    "dev": "pnpm dev:v1",
+    "build": "pnpm build:v1",
+    "start": "pnpm start:v1",
+    "lint": "pnpm lint:v1",
+    "dev:v1": "pnpm --filter v1 dev",
+    "build:v1": "pnpm --filter v1 build",
+    "start:v1": "pnpm --filter v1 start",
+    "lint:v1": "pnpm --filter v1 lint",
+    "dev:v2": "pnpm --filter v2 dev",
+    "build:v2": "pnpm --filter v2 build",
+    "preview:v2": "pnpm --filter v2 preview"
   },
   "packageManager": "pnpm@10.33.4"
 }
