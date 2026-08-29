@@ -25,7 +25,7 @@ export const AppCard: React.FC<Props> = ({
               src={thumbnail}
               alt={title}
               fill
-              className="object-cover opacity-85"
+              className="object-contain opacity-85"
             />
           )}
           {!thumbnail && <p className="italic opacity-85">No Image</p>}
@@ -45,7 +45,7 @@ export const AppCard: React.FC<Props> = ({
               ),
               label: "GitHub",
             },
-          ]}
+          ].flatMap(({ href, ...rest }) => (href ? [{ href, ...rest }] : []))}
         />
       </div>
     </Card>

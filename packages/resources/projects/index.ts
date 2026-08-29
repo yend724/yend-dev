@@ -12,12 +12,12 @@ export type Library = Projects & {
 };
 export type WebApp = Projects & {
   app: string;
-  github: string;
+  github?: string;
   thumbnail?: string;
 };
 export type Playground = Projects & {
   url: string;
-  github: string;
+  github?: string;
   thumbnail?: string;
 };
 
@@ -75,6 +75,12 @@ export const WEB_APPS: WebApp[] = [
 ];
 
 export const PLAYGROUNDS: Playground[] = [
+  {
+    title: "YEND'S SKETCHES",
+    description: "フロントエンド表現のスケッチ集",
+    url: "https://sketches.yend.dev/",
+    thumbnail: "https://sketches.yend.dev/ogp.jpg",
+  },
   {
     title: "Boids Simulation",
     description: "Boidsアルゴリズムを用いた簡易シミュレーション",
