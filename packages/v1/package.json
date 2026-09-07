@@ -8,7 +8,7 @@
     "build": "next build --webpack",
     "start": "serve dist",
     "preview": "wrangler dev",
-    "deploy": "wrangler deploy",
+    "release": "wrangler deploy",
     "lint": "run-p lint:eslint lint:prettier",
     "lint:fix": "run-s lint:prettier:fix lint:eslint:fix",
     "lint:eslint": "eslint .",
