@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Cloudflare Workers (Static Assets) の設定
+  // `next build` の静的エクスポート結果 (dist/) をそのまま配信する
+  "name": "yend-dev",
+  "compatibility_date": "2026-09-07",
+  "assets": {
+    "directory": "./dist",
+    // Next.js の trailingSlash: true と合わせる (/posts/foo → /posts/foo/ にリダイレクト)
+    "html_handling": "auto-trailing-slash",
+    // 存在しないパスは dist/404.html を返す (Pages と同じ挙動)
+    "not_found_handling": "404-page",
+  },
+}

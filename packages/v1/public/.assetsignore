@@ -1,0 +1,4 @@
+# wrangler がアップロードしない対象 (.gitignore と同じ書式)
+# `next dev` の生成物 (Next.js 16 は distDir/dev に出力する)
+/dev
+.DS_Store
