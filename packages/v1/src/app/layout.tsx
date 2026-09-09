@@ -1,6 +1,5 @@
 import { generateSharedMeta } from "@/entities/ogp";
 import { SITE_METADATA } from "@/shared/config/site";
-import { WithAgetation } from "@/shared/ui/with-agetation";
 
 import "@/assets/styles/globals.css";
 
@@ -18,7 +17,7 @@ const RootLayout = ({
         <link rel="icon" href={`${SITE_METADATA.favicon}`} sizes="any" />
       </head>
       <body className="bg-gray-1 text-gray-12 font-sans antialiased">
-        <WithAgetation>{children}</WithAgetation>
+        {children}
       </body>
     </html>
   );
