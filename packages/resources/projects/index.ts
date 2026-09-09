@@ -38,6 +38,12 @@ export const LIBRARIES: Library[] = [
 
 export const WEB_APPS: WebApp[] = [
   {
+    title: "YEND WRITING",
+    description: "書いたもの置き場",
+    app: "https://writing.yend.dev/",
+    thumbnail: "https://writing.yend.dev/og.png",
+  },
+  {
     title: "CSV 2 Markdown Table",
     description: "CSVをMarkdownの表形式に変換するウェブアプリ",
     app: "https://csv-2-markdown-table.yend.dev",

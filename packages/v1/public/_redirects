@@ -1,0 +1,6 @@
+# ブログは https://writing.yend.dev/ に移転した (2026-09-09)
+# 静的リダイレクトを先に、動的リダイレクト (splat) を後に書く
+/posts https://writing.yend.dev/ 301
+/posts/ https://writing.yend.dev/ 301
+/rss.xml https://writing.yend.dev/rss.xml 301
+/posts/* https://writing.yend.dev/writing/:splat 301

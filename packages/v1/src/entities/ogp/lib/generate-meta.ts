@@ -24,9 +24,6 @@ export const generateSharedMeta = (metadata: SharedMeta = {}): Metadata => {
     ],
     alternates: {
       canonical: alternates?.canonical ?? SITE_METADATA.url,
-      types: {
-        "application/rss+xml": SITE_METADATA.rss,
-      },
     },
     openGraph: {
       locale: SITE_METADATA.locale,

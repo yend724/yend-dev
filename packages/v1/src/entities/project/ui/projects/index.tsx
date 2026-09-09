@@ -23,7 +23,7 @@ export const Projects = () => {
       />
       <Section
         icon="💻"
-        title="Webアプリ"
+        title="Webアプリ・サイト"
         items={WEB_APPS}
         renderItems={(item) => (
           <AppCard

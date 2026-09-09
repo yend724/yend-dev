@@ -7,7 +7,6 @@ export const SITE_METADATA = {
   creator: "YEND",
   mentionId: "@yend724",
   author: "YEND",
-  rss: "https://yend.dev/rss.xml",
   domain: "yend.dev",
   favicon: "https://yend.dev/favicon.ico",
 };
@@ -20,5 +19,3 @@ export const OGP_IMAGE = {
 export const OGP_X = {
   card: "summary_large_image",
 } as const;
-export const OGP_ASSETS_DIR = "_assets/images/posts";
-export const OGP_DIR = `public/${OGP_ASSETS_DIR}`;

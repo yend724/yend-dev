@@ -1,22 +1,8 @@
 import type { MetadataRoute } from "next";
 
-import { getPosts } from "@/entities/post";
-import { isProd } from "@/shared/config/env";
 import { SITE_METADATA } from "@/shared/config/site";
 
-const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
-  const isFiltering = isProd;
-  const posts = await getPosts();
-
-  const postEntries: MetadataRoute.Sitemap = posts
-    .filter((post) => (isFiltering ? !post.frontmatter.draft : true))
-    .map((post) => ({
-      url: `${SITE_METADATA.url}/posts/${post.slug}/`,
-      lastModified: new Date(post.frontmatter.date),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    }));
-
+const sitemap = (): MetadataRoute.Sitemap => {
   return [
     {
       url: SITE_METADATA.url,
@@ -24,13 +10,6 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
       changeFrequency: "weekly",
       priority: 1.0,
     },
-    {
-      url: `${SITE_METADATA.url}/posts/`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    ...postEntries,
   ];
 };
 

@@ -1,4 +1,3 @@
-import { RssButton } from "@/entities/rss";
 import { Footer } from "@/shared/ui/footer";
 import { Header } from "@/shared/ui/header";
 
@@ -11,10 +10,7 @@ const RootLayout = ({
 }>) => {
   return (
     <div className="grid min-h-svh grid-rows-[auto_1fr_auto] gap-8">
-      <Header
-        renderTitle={(title) => <h1>{title}</h1>}
-        actions={<RssButton />}
-      />
+      <Header renderTitle={(title) => <h1>{title}</h1>} />
       <main className="mx-auto w-full max-w-5xl overflow-hidden px-4 pb-12">
         {children}
       </main>

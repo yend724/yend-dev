@@ -1,7 +1,7 @@
 {
   "name": "yend.dev",
   "private": true,
-  "description": "YEND's Experimental Ground - Personal portfolio and blog site",
+  "description": "YEND's Experimental Ground - Personal portfolio site",
   "scripts": {
     "dev": "pnpm dev:v1",
     "build": "pnpm build:v1",
