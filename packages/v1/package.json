@@ -36,7 +36,7 @@
     "eslint-plugin-import-x": "4.17.1",
     "eslint-plugin-react-hooks": "7.1.1",
     "npm-run-all2": "8.0.4",
-    "postcss": "8.4.49",
+    "postcss": "8.5.28",
     "prettier": "3.6.2",
     "schema-dts": "1.1.5",
     "serve": "14.2.6",
