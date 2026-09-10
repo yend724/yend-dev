@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { SITE_METADATA } from "@/shared/config/site";
 import { generateSharedMeta } from "@/shared/lib/generate-meta";
-import "./globals.css";
 
 export const metadata: Metadata = {
   ...generateSharedMeta({

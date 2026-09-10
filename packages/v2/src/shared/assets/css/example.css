@@ -1,4 +1,4 @@
-@import "../shared/components/ui/ui.css";
+@import "../../components/ui/ui.css";
 
 /* Explicit base styles keep browser defaults consistent across native controls. */
 *,
@@ -7,11 +7,14 @@
   box-sizing: border-box;
 }
 html {
+  width: 100%;
+  height: 100%;
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
-  tab-size: 4;
 }
 body {
+  width: 100%;
+  height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

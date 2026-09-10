@@ -4,7 +4,7 @@ Three.js r180と独自GLSLで構成した海中ポートフォリオ。画像を
 
 Next.js (App Router) の静的エクスポート構成。`pnpm build` で `out/` に通常の静的ファイル（HTML / JS / CSS / アセット）を出力する。
 
-UIはHTML標準要素と通常のCSSで構成する。ダイアログは `<dialog>`、カタログの切り替えには標準のボタンとチェックボックスを使用する。共通UIのスタイルは `src/shared/components/ui/ui.css`、全体のリセットと海中画面のスタイルは `src/app/globals.css` に置く。
+UIはHTML標準要素と通常のCSSで構成する。ダイアログは `<dialog>`、カタログの切り替えには標準のボタンとチェックボックスを使用する。共通UIのスタイルは `src/shared/components/ui/ui.css`、全体のリセットと海中画面のスタイルは `src/shared/assets/css/example.css` に置く。
 
 ## 起動
 
