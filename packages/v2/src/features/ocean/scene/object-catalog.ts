@@ -104,6 +104,8 @@ export const startObjectCatalog = async (
     oceanUniforms.uTime.value = 0;
     oceanUniforms.uSwim.value = 0;
     oceanUniforms.uGoldPosition.value.set(2, 4, 2);
+    // Every work uses the same light column geometry and materials; list it once.
+    const lightColumn = world.targets.find((target) => target.kind === "works");
     const entries: {
       id: string;
       name: string;
@@ -116,17 +118,24 @@ export const startObjectCatalog = async (
         category: "生き物",
         object: world.porpoise,
       },
-      ...world.targets.map((target) => ({
-        id: `${target.kind}-${target.id}`,
-        name: target.label,
-        category:
-          target.kind === "works"
-            ? "光柱"
-            : target.kind === "playground"
-              ? "彫刻"
-              : "ランドマーク",
-        object: target.object,
-      })),
+      ...(lightColumn
+        ? [
+            {
+              id: "light-column",
+              name: "光柱",
+              category: "光柱",
+              object: lightColumn.object,
+            },
+          ]
+        : []),
+      ...world.targets
+        .filter((target) => target.kind !== "works")
+        .map((target) => ({
+          id: `${target.kind}-${target.id}`,
+          name: target.label,
+          category: target.kind === "playground" ? "彫刻" : "ランドマーク",
+          object: target.object,
+        })),
     ];
     let rocks = 0,
       plants = 0;
