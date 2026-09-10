@@ -1,6 +1,6 @@
+import ProfileIconImage from "@resources/images/profile/profile-icon.png";
 import Image from "next/image";
 
-import ProfileIconImage from "@/assets/images/common/profile-icon.png";
 import { SITE_METADATA } from "@/shared/config/site";
 
 export const Person: React.FC = () => {

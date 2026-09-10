@@ -1,0 +1,219 @@
+.object-catalog {
+  min-height: 100dvh;
+  color: #e6ece5;
+  background: #112830;
+  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+}
+.catalog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 32px 40px;
+  border-bottom: 1px solid #ffffff1f;
+}
+.catalog-eyebrow,
+.catalog-count,
+.catalog-preview-heading,
+.catalog-id {
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #a1b7b7;
+}
+.catalog-header h1 {
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+.catalog-header a {
+  font-size: 13px;
+  white-space: nowrap;
+}
+.catalog-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 42%);
+}
+.catalog-library {
+  padding: 28px 32px 48px;
+}
+.catalog-search {
+  display: grid;
+  gap: 8px;
+  font-size: 12px;
+}
+.catalog-search input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #547075;
+  border-radius: 4px;
+  background: #0b2229;
+}
+.catalog-search input::placeholder {
+  color: #8fa8ac;
+}
+.catalog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 18px 0;
+}
+.catalog-filters button,
+.catalog-view-controls button {
+  border: 1px solid #446067;
+  padding: 7px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.catalog-filters button[aria-pressed="true"] {
+  background: #d9e2b8;
+  border-color: #d9e2b8;
+  color: #142d31;
+}
+.catalog-count {
+  margin-bottom: 18px;
+}
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+}
+.catalog-card {
+  overflow: hidden;
+  border: 1px solid #ffffff24;
+  border-radius: 5px;
+  background: #102e38;
+  text-align: left;
+  padding-bottom: 14px;
+}
+.catalog-card[aria-pressed="true"] {
+  border-color: #d9e2b8;
+  box-shadow: 0 0 0 1px #d9e2b8;
+}
+.catalog-card img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+.catalog-card-category {
+  display: block;
+  padding: 8px 12px 3px;
+  color: #a4bbba;
+  font-size: 10px;
+}
+.catalog-card strong {
+  display: block;
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.catalog-inspector {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  border-left: 1px solid #ffffff1f;
+  background: #0d242c;
+}
+.catalog-preview-heading {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #ffffff1f;
+}
+.catalog-viewport {
+  height: clamp(250px, 42vh, 520px);
+  touch-action: none;
+}
+.catalog-viewport canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.catalog-detail {
+  padding: 24px;
+}
+.catalog-detail h2 {
+  font-size: 22px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.catalog-id {
+  margin-top: 6px;
+  overflow-wrap: anywhere;
+}
+.catalog-hint {
+  margin: 18px 0;
+  font-size: 11px;
+  color: #a4bbba;
+}
+.catalog-view-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.catalog-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 22px;
+  font-size: 12px;
+}
+.catalog-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.catalog-options input {
+  appearance: auto;
+  accent-color: #d9e2b8;
+  width: 15px;
+  height: 15px;
+}
+.catalog-metrics {
+  display: flex;
+  gap: 32px;
+  padding-top: 24px;
+  margin-top: 24px;
+  border-top: 1px solid #ffffff1f;
+}
+.catalog-metrics dt {
+  font-size: 11px;
+  color: #a4bbba;
+}
+.catalog-metrics dd {
+  font-family: monospace;
+  font-size: 20px;
+  margin-top: 5px;
+}
+.object-catalog input:focus-visible {
+  outline: 2px solid #d9e2b8;
+  outline-offset: 3px;
+}
+@media (max-width: 760px) {
+  .catalog-header {
+    padding: 24px 20px;
+  }
+  .catalog-header h1 {
+    font-size: 20px;
+  }
+  .catalog-layout {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .catalog-inspector {
+    position: static;
+    border-left: 0;
+    width: 100%;
+  }
+  .catalog-viewport {
+    height: 280px;
+  }
+  .catalog-library {
+    padding: 24px 20px;
+  }
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

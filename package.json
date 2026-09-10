@@ -15,7 +15,9 @@
     "release:v1": "pnpm --filter v1 release",
     "dev:v2": "pnpm --filter v2 dev",
     "build:v2": "pnpm --filter v2 build",
-    "preview:v2": "pnpm --filter v2 preview"
+    "start:v2": "pnpm --filter v2 start",
+    "lint:v2": "pnpm --filter v2 lint",
+    "typecheck:v2": "pnpm --filter v2 typecheck"
   },
-  "packageManager": "pnpm@10.33.4"
+  "packageManager": "pnpm@12.3.4"
 }
