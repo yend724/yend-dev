@@ -20,7 +20,7 @@ pnpm dev:v2
 
 ## 参考画面
 
-開発サーバーの `/example` に、海中画面の実装をそのまま表示する参考ページを置いている。トップページを作り直す際の見本として使い、検索エンジンには登録しない。
+開発サーバーの `/example` に、海中画面の実装をそのまま表示する参考ページを置いている。トップページを作り直す際の見本として使い、検索エンジンには登録しない。作り直しは `src/features/ocean2` で React Three Fiber を使って進め、`/` はそれを表示する。
 
 ## オブジェクト一覧
 
@@ -32,14 +32,14 @@ pnpm dev:v2
 
 リポジトリルートからは `:v2` 付き、`packages/v2` 内では `:v2` なしで実行する。
 
-| ルート              | packages/v2 内   | 内容                                                   |
-| ------------------- | ---------------- | ------------------------------------------------------ |
-| `pnpm dev:v2`       | `pnpm dev`       | 開発サーバー                                           |
-| `pnpm build:v2`     | `pnpm build`     | 静的ファイルを `out/` に出力                           |
-| `pnpm start:v2`     | `pnpm start`     | `out/` を静的サーバーで配信して確認                    |
-| `pnpm lint:v2`      | `pnpm lint`      | ESLint（import境界ルールを含む）と Prettier のチェック |
-| —                   | `pnpm lint:fix`  | Prettier で整形してから ESLint の自動修正              |
-| `pnpm typecheck:v2` | `pnpm typecheck` | TypeScriptの型検査                                     |
+| ルート              | packages/v2 内   | 内容                                      |
+| ------------------- | ---------------- | ----------------------------------------- |
+| `pnpm dev:v2`       | `pnpm dev`       | 開発サーバー                              |
+| `pnpm build:v2`     | `pnpm build`     | 静的ファイルを `out/` に出力              |
+| `pnpm start:v2`     | `pnpm start`     | `out/` を静的サーバーで配信して確認       |
+| `pnpm lint:v2`      | `pnpm lint`      | ESLint と Prettier のチェック             |
+| —                   | `pnpm lint:fix`  | Prettier で整形してから ESLint の自動修正 |
+| `pnpm typecheck:v2` | `pnpm typecheck` | TypeScriptの型検査                        |
 
 ## ディレクトリ構成
 
@@ -59,13 +59,13 @@ src/
     └── utils/          # 共通ユーティリティ（cn など）
 ```
 
-依存の向きは `app → features → shared` の一方向のみ。ESLintの `import/no-restricted-paths` で次を禁止している。
+依存の向きは `app → features → shared` の一方向のみ。次は行わない。
 
 - `features/*` から `app/` を import する
 - `shared/` から `features/` や `app/` を import する
 - ある feature から別の feature を import する（機能同士の組み合わせは `app/` で行う）
 
-feature を追加したら `eslint.config.mjs` の zones に、その feature 用のエントリを1つ追加する。
+ESLint による強制は今は外している（`import/no-restricted-paths` を使っていた）。必要になったら再度追加する。
 
 ## 作品・プロフィールのデータ
 
