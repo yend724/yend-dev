@@ -1,11 +1,14 @@
-import { Pane } from "tweakpane";
+import { createPaneFolder } from "@/shared/utils/tweakpane";
 
 import { DEFAULT_FLOOR_WAVES, type FloorWaves } from "./constants";
 
 export const createSeaFloorPane = (onChange: (waves: FloorWaves) => void) => {
   const waves = { ...DEFAULT_FLOOR_WAVES };
-  const pane = new Pane({ title: "Ocean" });
-  const folder = pane.addFolder({ title: "SeaFloor" });
+  const pane = createPaneFolder("SeaFloor", () => {
+    Object.assign(waves, DEFAULT_FLOOR_WAVES);
+    onChange(waves);
+  });
+  const { folder } = pane;
 
   folder.addBinding(waves, "waveLength", {
     label: "波の長さの基準",
@@ -14,7 +17,7 @@ export const createSeaFloorPane = (onChange: (waves: FloorWaves) => void) => {
     step: 1,
   });
 
-  const waveA = folder.addFolder({ title: "波 A（X方向）" });
+  const waveA = folder.addFolder({ title: "波 A（X方向）", expanded: true });
   waveA.addBinding(waves, "waveAAmplitude", {
     label: "高さ",
     min: 0,
@@ -28,7 +31,7 @@ export const createSeaFloorPane = (onChange: (waves: FloorWaves) => void) => {
     step: 0.1,
   });
 
-  const waveB = folder.addFolder({ title: "波 B（Z方向）" });
+  const waveB = folder.addFolder({ title: "波 B（Z方向）", expanded: true });
   waveB.addBinding(waves, "waveBAmplitude", {
     label: "高さ",
     min: 0,
@@ -42,12 +45,7 @@ export const createSeaFloorPane = (onChange: (waves: FloorWaves) => void) => {
     step: 0.1,
   });
 
-  pane.on("change", () => onChange(waves));
-  folder.addButton({ title: "初期値に戻す" }).on("click", () => {
-    Object.assign(waves, DEFAULT_FLOOR_WAVES);
-    pane.refresh();
-    onChange(waves);
-  });
+  folder.on("change", () => onChange(waves));
 
   return pane;
 };

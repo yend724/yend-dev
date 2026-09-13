@@ -1,15 +1,17 @@
 import * as THREE from "three";
 import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
-import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
-import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
-import { ShaderPass } from "three/addons/postprocessing/ShaderPass.js";
 import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
-import { createWorld, floorHeight, Target } from "./geometry";
-import { defaultTuning, oceanUniforms, waterPost, Tuning } from "./shaders";
+import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
+import { ShaderPass } from "three/addons/postprocessing/ShaderPass.js";
+import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
+
 import { areas } from "@/features/ocean/data";
+
 import { fogColor, fogUniforms } from "./fog";
+import { createWorld, floorHeight, Target } from "./geometry";
 import { oceanWrapOffset, oceanEdgeVeil } from "./loop";
 import { destinations, navigationBounds, planRoute } from "./navigation";
+import { defaultTuning, oceanUniforms, waterPost, Tuning } from "./shaders";
 /** Manual swimming, world units per second at 1×; the UI multiplier goes up to 2×. */
 const SWIM_SPEED = 7.5;
 /** Auto-travel between areas is a little quicker than manual swimming. */

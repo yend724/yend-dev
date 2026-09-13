@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import OceanExperience from "@/features/ocean/components/ocean-experience";
 import "@/shared/assets/css/example.css";
 

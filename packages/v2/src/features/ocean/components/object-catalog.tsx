@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+
 import type { CatalogItem, ObjectCatalog } from "../scene/object-catalog";
 import "./object-catalog.css";
 

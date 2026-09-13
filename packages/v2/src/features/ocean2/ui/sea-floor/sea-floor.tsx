@@ -5,7 +5,6 @@ import {
   createSeaFloorGeometry,
   updateSeaFloorGeometry,
 } from "./sea-floor-geometry";
-import { createSeaFloorPane } from "./sea-floor-pane";
 
 export const SeaFloor: React.FC = () => {
   const geometry = useMemo(() => {
@@ -13,11 +12,21 @@ export const SeaFloor: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const pane = createSeaFloorPane((waves) => {
-      updateSeaFloorGeometry(geometry, waves);
-    });
+    let cancelled = false;
+    let disposePane: (() => void) | undefined;
+    if (process.env.NODE_ENV === "development") {
+      void import("./sea-floor-pane").then(({ createSeaFloorPane }) => {
+        if (cancelled) return;
+        const pane = createSeaFloorPane((waves) => {
+          updateSeaFloorGeometry(geometry, waves);
+        });
+        disposePane = pane.dispose;
+      });
+    }
+
     return () => {
-      pane.dispose();
+      cancelled = true;
+      disposePane?.();
       geometry.dispose();
     };
   }, [geometry]);

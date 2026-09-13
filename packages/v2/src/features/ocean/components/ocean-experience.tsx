@@ -1,4 +1,5 @@
 "use client";
+import { ArrowUpRight, ArrowUp, ArrowDown, HelpCircle } from "lucide-react";
 import Image from "next/image";
 import {
   useCallback,
@@ -7,13 +8,13 @@ import {
   useState,
   type PointerEvent,
 } from "react";
-import { ArrowUpRight, ArrowUp, ArrowDown, HelpCircle } from "lucide-react";
-import { Dialog } from "@/shared/components/ui/dialog";
+
+import { areas, works, playgrounds, profile } from "@/features/ocean/data";
+import type { OceanEngine, SceneStats } from "@/features/ocean/scene/engine";
+import { defaultTuning } from "@/features/ocean/scene/shaders";
 import { GitHubIcon } from "@/shared/components/icons/github-icon";
 import { SocialIcon } from "@/shared/components/icons/social-icon";
-import { areas, works, playgrounds, profile } from "@/features/ocean/data";
-import { defaultTuning } from "@/features/ocean/scene/shaders";
-import type { OceanEngine, SceneStats } from "@/features/ocean/scene/engine";
+import { Dialog } from "@/shared/components/ui/dialog";
 type Label = {
   id: string;
   x: number;

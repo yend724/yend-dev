@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, type ComponentProps } from "react";
 import { X } from "lucide-react";
+import { useEffect, useRef, type ComponentProps } from "react";
+
 import { cn } from "@/shared/utils/cn";
 
 type DialogProps = Omit<

@@ -10,6 +10,28 @@ const eslintConfig = defineConfig([
   {
     files: ["src/**/*.{ts,tsx}"],
     rules: {
+      "import/order": [
+        "error",
+        {
+          // Order by scope; type imports stay with their source module.
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index",
+          ],
+          pathGroups: [
+            { pattern: "@resources/**", group: "internal", position: "before" },
+            { pattern: "@/**", group: "internal" },
+          ],
+          pathGroupsExcludedImportTypes: ["builtin"],
+          distinctGroup: false,
+          "newlines-between": "always",
+          alphabetize: { order: "asc", caseInsensitive: true },
+        },
+      ],
       "func-style": ["error", "expression"],
       "react/function-component-definition": [
         "error",

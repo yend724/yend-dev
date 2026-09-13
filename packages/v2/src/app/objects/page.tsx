@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import { ObjectCatalogPage } from "@/features/ocean/components/object-catalog";
 
 export const metadata: Metadata = {

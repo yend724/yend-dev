@@ -1,5 +1,6 @@
-import type { ReactNode } from "react";
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
+
 import { SITE_METADATA } from "@/shared/config/site";
 import { generateSharedMeta } from "@/shared/lib/generate-meta";
 

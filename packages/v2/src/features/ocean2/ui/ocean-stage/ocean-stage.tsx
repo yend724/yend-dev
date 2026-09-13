@@ -1,7 +1,12 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import styles from "./ocean-stage.module.css";
+
+import { OceanLights } from "../ocean-lights";
+import { OceanStageFallback } from "../ocean-stage-fallback";
+import { OrbitCamera } from "../orbit-camera";
+import { SceneHelpers } from "../scene-helpers";
+import { SeaFloor } from "../sea-floor";
 
 import {
   CAMERA_PARAMS,
@@ -9,12 +14,7 @@ import {
   RENDERER_PARAMS,
   CANVAS_BACKGROUND_COLOR,
 } from "./constants";
-
-import { OrbitCamera } from "../orbit-camera";
-import { SceneHelpers } from "../scene-helpers";
-import { OceanLights } from "../ocean-lights";
-import { OceanStageFallback } from "../ocean-stage-fallback";
-import { SeaFloor } from "../sea-floor";
+import styles from "./ocean-stage.module.css";
 
 export const OceanStage: React.FC = () => {
   return (

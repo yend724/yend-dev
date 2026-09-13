@@ -1,8 +1,9 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+import { fogUniforms } from "./fog";
 import { createWorld } from "./geometry";
 import { oceanUniforms } from "./shaders";
-import { fogUniforms } from "./fog";
 
 export type CatalogItem = {
   id: string;

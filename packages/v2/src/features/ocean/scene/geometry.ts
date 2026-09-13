@@ -1,9 +1,14 @@
 import * as THREE from "three";
-import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { FontLoader } from "three/addons/loaders/FontLoader.js";
 import { TextGeometry } from "three/addons/geometries/TextGeometry.js";
+import { FontLoader } from "three/addons/loaders/FontLoader.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
 import fontData from "three/examples/fonts/helvetiker_bold.typeface.json";
+
+import { works, playgrounds } from "@/features/ocean/data";
+
+import avatarDetails from "./avatar-details.json";
+import { applyWaterFog } from "./fog";
 import {
   makeRock,
   makeSand,
@@ -11,9 +16,6 @@ import {
   makeSkinDepth,
   makeLightColumn,
 } from "./shaders";
-import { works, playgrounds } from "@/features/ocean/data";
-import { applyWaterFog } from "./fog";
-import avatarDetails from "./avatar-details.json";
 export type Target = {
   id: string;
   kind: "profile" | "works" | "playground";
