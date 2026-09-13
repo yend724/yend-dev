@@ -7,6 +7,14 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   // Static export has no image optimizer; next/image renders the source URL as-is.
   images: { unoptimized: true },
+  turbopack: {
+    rules: {
+      "*.glsl": {
+        loaders: ["./loaders/glsl-loader.cjs"],
+        as: "*.js",
+      },
+    },
+  },
 };
 
 export default nextConfig;
