@@ -38,7 +38,7 @@
     "npm-run-all2": "8.0.4",
     "postcss": "8.4.49",
     "prettier": "3.6.2",
-    "schema-dts": "1.1.5",
+    "schema-dts": "2.0.0",
     "serve": "14.2.6",
     "tailwindcss": "4.3.3",
     "typescript": "5.7.2",
