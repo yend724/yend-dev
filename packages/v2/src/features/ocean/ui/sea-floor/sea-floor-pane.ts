@@ -13,7 +13,7 @@ export const createSeaFloorPane = (
 ) => {
   const surface = structuredClone(DEFAULT_FLOOR_SURFACE);
   const waves = { ...DEFAULT_FLOOR_WAVES };
-  const pane = createPaneFolder("SeaFloor", () => {
+  const pane = createPaneFolder("海底", () => {
     Object.assign(waves, DEFAULT_FLOOR_WAVES);
     Object.assign(surface, structuredClone(DEFAULT_FLOOR_SURFACE));
     onChange(waves);

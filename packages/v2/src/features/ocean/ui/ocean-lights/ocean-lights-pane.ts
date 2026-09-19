@@ -20,7 +20,7 @@ export const createOceanLightsPane = (
     ground: `#${hemisphere.groundColor.getHexString()}`,
     sun: `#${directional.color.getHexString()}`,
   };
-  const pane = createPaneFolder("OceanLights", () => {
+  const pane = createPaneFolder("光", () => {
     colors.sky = HEMISPHERE_SKY_COLOR;
     colors.ground = HEMISPHERE_GROUND_COLOR;
     colors.sun = DIRECTIONAL_COLOR;

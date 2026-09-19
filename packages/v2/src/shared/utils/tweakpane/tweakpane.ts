@@ -5,7 +5,7 @@ let folderCount = 0;
 
 /** Share one panel between features; call after mounting in development only. */
 export const createPaneFolder = (title: string, onReset: () => void) => {
-  pane ??= new Pane({ title: "Parameters" });
+  pane ??= new Pane({ title: "調整" });
   const folder = pane.addFolder({ title, expanded: false });
   folder.addButton({ title: "初期値に戻す" }).on("click", () => {
     onReset();

@@ -21,6 +21,7 @@ export const PIXEL_RATIO_RANGE: [number, number] = [
 ];
 
 export const RENDERER_PARAMS = {
+  // アンチエイリアスは OceanEffects の MSAA で掛ける。
   antialias: false,
   powerPreference: "high-performance",
 } satisfies WebGLRendererParameters;

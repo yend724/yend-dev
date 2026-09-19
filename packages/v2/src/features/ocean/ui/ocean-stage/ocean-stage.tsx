@@ -2,6 +2,7 @@
 
 import { Canvas } from "@react-three/fiber";
 
+import { OceanEffects } from "../ocean-effects";
 import { OceanLights } from "../ocean-lights";
 import { OceanStageFallback } from "../ocean-stage-fallback";
 import { OrbitCamera } from "../orbit-camera";
@@ -20,6 +21,7 @@ export const OceanStage: React.FC = () => {
   return (
     <div className={styles.stage}>
       <Canvas
+        flat
         camera={CAMERA_PARAMS}
         gl={RENDERER_PARAMS}
         dpr={PIXEL_RATIO_RANGE}
@@ -30,6 +32,7 @@ export const OceanStage: React.FC = () => {
         <OceanLights />
         <SeaFloor />
         <SceneHelpers />
+        <OceanEffects />
       </Canvas>
     </div>
   );
