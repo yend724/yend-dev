@@ -43,4 +43,4 @@ export const createSeaFloorShader = () => {
 };
 
 export const seaFloorShaderCacheKey = () =>
-  `ocean2-sea-floor-bump-v2:${vertexShader}:${fragmentShader}`;
+  `ocean-sea-floor-bump-v2:${vertexShader}:${fragmentShader}`;

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
-import OceanExperience from "@/features/ocean/components/ocean-experience";
-import "@/shared/assets/css/example.css";
+import OceanExperience from "@/features/ocean-demo/components/ocean-experience";
+import "@/shared/assets/css/demo.css";
 
 export const metadata: Metadata = {
-  title: "Example | YEND.DEV",
+  title: "DEMO",
   robots: { index: false, follow: false },
 };
 

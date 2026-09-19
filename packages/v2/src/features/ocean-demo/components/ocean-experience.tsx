@@ -9,9 +9,12 @@ import {
   type PointerEvent,
 } from "react";
 
-import { areas, works, playgrounds, profile } from "@/features/ocean/data";
-import type { OceanEngine, SceneStats } from "@/features/ocean/scene/engine";
-import { defaultTuning } from "@/features/ocean/scene/shaders";
+import { areas, works, playgrounds, profile } from "@/features/ocean-demo/data";
+import type {
+  OceanEngine,
+  SceneStats,
+} from "@/features/ocean-demo/scene/engine";
+import { defaultTuning } from "@/features/ocean-demo/scene/shaders";
 import { GitHubIcon } from "@/shared/components/icons/github-icon";
 import { SocialIcon } from "@/shared/components/icons/social-icon";
 import { Dialog } from "@/shared/components/ui/dialog";
@@ -89,7 +92,7 @@ const OceanExperience = () => {
   }, []);
   useEffect(() => {
     let canceled = false;
-    import("@/features/ocean/scene/engine")
+    import("@/features/ocean-demo/scene/engine")
       .then(async ({ startOcean }) => {
         if (!host.current || canceled) return;
         const e = await startOcean(host.current, {

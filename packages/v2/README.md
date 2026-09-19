@@ -4,7 +4,7 @@ Three.js r180と独自GLSLで構成した海中ポートフォリオ。画像を
 
 Next.js (App Router) の静的エクスポート構成。`pnpm build` で `out/` に通常の静的ファイル（HTML / JS / CSS / アセット）を出力する。
 
-UIはHTML標準要素と通常のCSSで構成する。ダイアログは `<dialog>`、カタログの切り替えには標準のボタンとチェックボックスを使用する。共通UIのスタイルは `src/shared/components/ui/ui.css`、全体のリセットと海中画面のスタイルは `src/shared/assets/css/example.css` に置く。
+UIはHTML標準要素と通常のCSSで構成する。ダイアログは `<dialog>`、カタログの切り替えには標準のボタンとチェックボックスを使用する。共通UIのスタイルは `src/shared/components/ui/ui.css`、全体のリセットと海中画面のスタイルは `src/shared/assets/css/demo.css` に置く。
 
 ## 起動
 
@@ -20,7 +20,7 @@ pnpm dev:v2
 
 ## 参考画面
 
-開発サーバーの `/example` に、海中画面の実装をそのまま表示する参考ページを置いている。トップページを作り直す際の見本として使い、検索エンジンには登録しない。作り直しは `src/features/ocean2` で React Three Fiber を使って進め、`/` はそれを表示する。
+開発サーバーの `/demo` に、海中画面の実装をそのまま表示する参考ページを置いている。トップページを作り直す際の見本として使い、検索エンジンには登録しない。作り直しは `src/features/ocean` で React Three Fiber を使って進め、`/` はそれを表示する。
 
 ## オブジェクト一覧
 
@@ -49,7 +49,10 @@ pnpm dev:v2
 src/
 ├── app/                # Next.js のルート（ページ・レイアウト・グローバルCSS）。features を組み合わせるだけの層
 ├── features/           # 機能単位のモジュール。機能に閉じたコード以外は置かない
-│   └── ocean/
+│   ├── ocean/          # 作り直し中の海中画面（React Three Fiber）。`/` が表示する
+│   │   ├── index.ts    # 公開API（OceanStage）
+│   │   └── ui/         # OceanStage と、その中で使う部品（sea-floor / ocean-lights / orbit-camera / scene-helpers）
+│   └── ocean-demo/     # 見本の海中画面。`/demo` が表示する
 │       ├── components/ # 海中体験のUI（ocean-experience.tsx）
 │       ├── scene/      # Three.js の世界（engine / geometry / shaders / fog / loop / navigation）
 │       └── data.ts     # resources の作品・プロフィールを海中用の形に変換。エリアも
@@ -90,23 +93,23 @@ WASDまたは矢印キーでカメラ基準の水平移動、Spaceで上昇、Sh
 
 ## 編集箇所
 
-| ファイル                                             | 内容                                                         |
-| ---------------------------------------------------- | ------------------------------------------------------------ |
-| `../resources/projects/index.ts`                     | 作品データ（v1 と共有）                                      |
-| `../resources/profile/index.ts`                      | アイコン・資格・SNS（v1 と共有）                             |
-| `src/features/ocean/data.ts`                         | resources → 海中の Project / Profile への変換、エリア        |
-| `src/features/ocean/scene/geometry.ts`               | 地形・岩・岩文字・各エリア・GLB読込・描画バッチ              |
-| `src/features/ocean/scene/fog.ts`                    | 遠景・上方の霧。発光と粒子を含む全素材に適用                 |
-| `src/features/ocean/scene/shaders.ts`                | 岩・肌・遊泳変形・法線・柱・画面効果・調整値                 |
-| `src/features/ocean/scene/loop.ts`                   | 海の水平ループ                                               |
-| `src/features/ocean/scene/navigation.ts`             | エリア到着位置、岩を避ける3D経路探索                         |
-| `src/features/ocean/scene/engine.ts`                 | 追従カメラ、衝突判定、操作、接近判定、描画品質制御           |
-| `src/features/ocean/components/ocean-experience.tsx` | HTML UI、作品カード、プロフィール                            |
-| `src/shared/components/ui/`                          | HTML標準要素 + 通常のCSSのコンポーネント（dialog）           |
-| `public/models/sunameri.glb`                         | スナメリのモデル                                             |
-| `public/favicon.ico`                                 | v1から引き継いだfavicon                                      |
-| `src/shared/config/site.ts`                          | サイトのメタ情報（title / description / OGP）。v1 からコピー |
-| `public/assets/images/ogp.png`                       | OGP画像（v1 と同じ URL）                                     |
+| ファイル                                                  | 内容                                                         |
+| --------------------------------------------------------- | ------------------------------------------------------------ |
+| `../resources/projects/index.ts`                          | 作品データ（v1 と共有）                                      |
+| `../resources/profile/index.ts`                           | アイコン・資格・SNS（v1 と共有）                             |
+| `src/features/ocean-demo/data.ts`                         | resources → 海中の Project / Profile への変換、エリア        |
+| `src/features/ocean-demo/scene/geometry.ts`               | 地形・岩・岩文字・各エリア・GLB読込・描画バッチ              |
+| `src/features/ocean-demo/scene/fog.ts`                    | 遠景・上方の霧。発光と粒子を含む全素材に適用                 |
+| `src/features/ocean-demo/scene/shaders.ts`                | 岩・肌・遊泳変形・法線・柱・画面効果・調整値                 |
+| `src/features/ocean-demo/scene/loop.ts`                   | 海の水平ループ                                               |
+| `src/features/ocean-demo/scene/navigation.ts`             | エリア到着位置、岩を避ける3D経路探索                         |
+| `src/features/ocean-demo/scene/engine.ts`                 | 追従カメラ、衝突判定、操作、接近判定、描画品質制御           |
+| `src/features/ocean-demo/components/ocean-experience.tsx` | HTML UI、作品カード、プロフィール                            |
+| `src/shared/components/ui/`                               | HTML標準要素 + 通常のCSSのコンポーネント（dialog）           |
+| `public/models/sunameri.glb`                              | スナメリのモデル                                             |
+| `public/favicon.ico`                                      | v1から引き継いだfavicon                                      |
+| `src/shared/config/site.ts`                               | サイトのメタ情報（title / description / OGP）。v1 からコピー |
+| `public/assets/images/ogp.png`                            | OGP画像（v1 と同じ URL）                                     |
 
 モデルは一体化した独自の陰関数サーフェスを三角形化したGLB。尾へ連続する曲げと胸ビレ付け根の変形に対してヤコビアンの余因子行列で法線を補正。影の深度パスにも同じ変形を使用。岩のシルエットは非均一の実ジオメトリ、表面はワールド座標の多段階ノイズと層状変化。文字はフォント輪郭からベベル付きで押し出し、頂点に微小な欠けを追加。
 

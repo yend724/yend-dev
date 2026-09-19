@@ -5,7 +5,7 @@ import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 import { ShaderPass } from "three/addons/postprocessing/ShaderPass.js";
 import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
 
-import { areas } from "@/features/ocean/data";
+import { areas } from "@/features/ocean-demo/data";
 
 import { fogColor, fogUniforms } from "./fog";
 import { createWorld, floorHeight, Target } from "./geometry";

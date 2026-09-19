@@ -5,7 +5,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
 import fontData from "three/examples/fonts/helvetiker_bold.typeface.json";
 
-import { works, playgrounds } from "@/features/ocean/data";
+import { works, playgrounds } from "@/features/ocean-demo/data";
 
 import avatarDetails from "./avatar-details.json";
 import { applyWaterFog } from "./fog";
