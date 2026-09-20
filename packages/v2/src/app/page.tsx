@@ -1,9 +1,9 @@
 import "@/shared/assets/css/normalize.css";
 
-import { OceanStage } from "@/features/ocean";
+import { OceanEnvironment } from "@/features/ocean-environment";
 
 const Page: React.FC = () => {
-  return <OceanStage />;
+  return <OceanEnvironment />;
 };
 
 export default Page;

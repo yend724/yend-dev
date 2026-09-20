@@ -20,7 +20,7 @@ pnpm dev:v2
 
 ## 参考画面
 
-開発サーバーの `/demo` に、海中画面の実装をそのまま表示する参考ページを置いている。トップページを作り直す際の見本として使い、検索エンジンには登録しない。作り直しは `src/features/ocean` で React Three Fiber を使って進め、`/` はそれを表示する。
+開発サーバーの `/demo` に、海中画面の実装をそのまま表示する参考ページを置いている。トップページを作り直す際の見本として使い、検索エンジンには登録しない。作り直しは `src/features/ocean-environment` で React Three Fiber を使って進め、`/` はそれを表示する。
 
 ## オブジェクト一覧
 
@@ -47,19 +47,19 @@ pnpm dev:v2
 
 ```
 src/
-├── app/                # Next.js のルート（ページ・レイアウト・グローバルCSS）。features を組み合わせるだけの層
-├── features/           # 機能単位のモジュール。機能に閉じたコード以外は置かない
-│   ├── ocean/          # 作り直し中の海中画面（React Three Fiber）。`/` が表示する
-│   │   ├── index.ts    # 公開API（OceanStage）
-│   │   └── ui/         # OceanStage と、その中で使う部品（sea-floor / ocean-lights / orbit-camera / scene-helpers）
-│   └── ocean-demo/     # 見本の海中画面。`/demo` が表示する
-│       ├── components/ # 海中体験のUI（ocean-experience.tsx）
-│       ├── scene/      # Three.js の世界（engine / geometry / shaders / fog / loop / navigation）
-│       └── data.ts     # resources の作品・プロフィールを海中用の形に変換。エリアも
-└── shared/             # 複数の機能から使う共通部品
-    ├── components/ui/  # HTML標準要素 + 通常のCSSのコンポーネント
-    ├── config/         # @yend.dev/resources の再エクスポート（v1 と同じ @resources/* エイリアス）
-    └── utils/          # 共通ユーティリティ（cn など）
+├── app/                    # Next.js のルート（ページ・レイアウト・グローバルCSS）。features を組み合わせるだけの層
+├── features/               # 機能単位のモジュール。機能に閉じたコード以外は置かない
+│   ├── ocean-environment/  # 作り直し中の海中画面（React Three Fiber）。`/` が表示する
+│   │   ├── index.ts        # 公開API（OceanEnvironment）
+│   │   └── ui/             # OceanEnvironment と、その中で使う部品（ocean-environment-fallback / sea-floor / ocean-lights / orbit-camera / scene-helpers）
+│   └── ocean-demo/         # 見本の海中画面。`/demo` が表示する
+│       ├── components/     # 海中体験のUI（ocean-experience.tsx）
+│       ├── scene/          # Three.js の世界（engine / geometry / shaders / fog / loop / navigation）
+│       └── data.ts         # resources の作品・プロフィールを海中用の形に変換。エリアも
+└── shared/                 # 複数の機能から使う共通部品
+    ├── components/ui/      # HTML標準要素 + 通常のCSSのコンポーネント
+    ├── config/             # @yend.dev/resources の再エクスポート（v1 と同じ @resources/* エイリアス）
+    └── utils/              # 共通ユーティリティ（cn など）
 ```
 
 依存の向きは `app → features → shared` の一方向のみ。次は行わない。

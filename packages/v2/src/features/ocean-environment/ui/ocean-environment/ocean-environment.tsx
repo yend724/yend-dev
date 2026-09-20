@@ -2,8 +2,8 @@
 
 import { Canvas } from "@react-three/fiber";
 
+import { OceanEnvironmentFallback } from "../ocean-environment-fallback";
 import { OceanLights } from "../ocean-lights";
-import { OceanStageFallback } from "../ocean-stage-fallback";
 import { OrbitCamera } from "../orbit-camera";
 import { SceneHelpers } from "../scene-helpers";
 import { SeaFloor } from "../sea-floor";
@@ -14,16 +14,16 @@ import {
   RENDERER_PARAMS,
   CANVAS_BACKGROUND_COLOR,
 } from "./constants";
-import styles from "./ocean-stage.module.css";
+import styles from "./ocean-environment.module.css";
 
-export const OceanStage: React.FC = () => {
+export const OceanEnvironment: React.FC = () => {
   return (
-    <div className={styles.stage}>
+    <div className={styles.environment}>
       <Canvas
         camera={CAMERA_PARAMS}
         gl={RENDERER_PARAMS}
         dpr={PIXEL_RATIO_RANGE}
-        fallback={<OceanStageFallback />}
+        fallback={<OceanEnvironmentFallback />}
       >
         <color attach="background" args={[CANVAS_BACKGROUND_COLOR]} />
         <OrbitCamera />
