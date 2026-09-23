@@ -82,6 +82,12 @@ export const WEB_APPS: WebApp[] = [
 
 export const PLAYGROUNDS: Playground[] = [
   {
+    title: "水面のシミュレーション",
+    description: "ブラウザで動く水面シミュレーションのプレイグラウンド",
+    url: "https://water-surface-simulation-playground.yend.dev/",
+    thumbnail: "https://water-surface-simulation-playground.yend.dev/ogp.png",
+  },
+  {
     title: "YEND'S SKETCHES",
     description: "フロントエンド表現のスケッチ集",
     url: "https://sketches.yend.dev/",
