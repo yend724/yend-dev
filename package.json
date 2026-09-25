@@ -19,5 +19,5 @@
     "lint:v2": "pnpm --filter v2 lint",
     "typecheck:v2": "pnpm --filter v2 typecheck"
   },
-  "packageManager": "pnpm@12.3.4"
+  "packageManager": "pnpm@12.6.0"
 }
