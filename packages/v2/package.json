@@ -23,7 +23,7 @@
     "@react-three/fiber": "9.8.1",
     "@yend.dev/resources": "workspace:*",
     "clsx": "2.1.1",
-    "lucide-react": "1.47.0",
+    "lucide-react": "1.52.0",
     "next": "16.3.6",
     "react": "19.3.0",
     "react-dom": "19.3.0",
