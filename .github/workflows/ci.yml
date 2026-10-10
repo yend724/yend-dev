@@ -31,3 +31,12 @@ jobs:
 
       - name: Run build
         run: pnpm run build
+
+      - name: Run v2 lint
+        run: pnpm --filter @yend.dev/v2 lint
+
+      - name: Run v2 build
+        run: pnpm --filter @yend.dev/v2 build
+
+      - name: Run v2 typecheck
+        run: pnpm --filter @yend.dev/v2 typecheck
