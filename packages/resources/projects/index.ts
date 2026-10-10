@@ -1,5 +1,4 @@
 import GitHubActionsCronExpressionBuilder from "../images/projects/cron-expression-builder-thumbnail.png";
-import CSV2MarkdownTable from "../images/projects/csv-2-markdown-table-thumbnail.png";
 import BoidsSimulation from "../images/projects/playground-boids-simulation-thumbnail.png";
 
 type Projects = {
@@ -48,7 +47,7 @@ export const WEB_APPS: WebApp[] = [
     description: "CSVをMarkdownの表形式に変換するウェブアプリ",
     app: "https://csv-2-markdown-table.yend.dev",
     github: "https://github.com/yend724/csv-2-markdown-table",
-    thumbnail: CSV2MarkdownTable.src,
+    thumbnail: "https://csv-2-markdown-table.yend.dev/og-image.png",
   },
   {
     title: "Shake Snap",

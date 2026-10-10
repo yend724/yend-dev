@@ -12,13 +12,13 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: "lts/*"
           cache: "pnpm"
@@ -31,3 +31,12 @@ jobs:
 
       - name: Run build
         run: pnpm run build
+
+      - name: Run v2 lint
+        run: pnpm --filter @yend.dev/v2 lint
+
+      - name: Run v2 build
+        run: pnpm --filter @yend.dev/v2 build
+
+      - name: Run v2 typecheck
+        run: pnpm --filter @yend.dev/v2 typecheck
