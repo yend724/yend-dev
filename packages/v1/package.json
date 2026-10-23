@@ -37,13 +37,13 @@
     "eslint-plugin-import-x": "4.17.1",
     "eslint-plugin-react-hooks": "7.1.1",
     "npm-run-all2": "9.0.3",
-    "postcss": "8.5.30",
+    "postcss": "8.5.31",
     "prettier": "3.9.10",
     "schema-dts": "2.1.0",
     "serve": "14.2.6",
     "tailwindcss": "4.3.3",
     "typescript": "npm:@typescript/typescript6@6.0.2",
     "typescript-eslint": "8.71.2",
-    "wrangler": "4.151.1"
+    "wrangler": "4.151.3"
   }
 }
