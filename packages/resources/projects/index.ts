@@ -37,6 +37,13 @@ export const LIBRARIES: Library[] = [
 
 export const WEB_APPS: WebApp[] = [
   {
+    title: "おやこピット",
+    description:
+      "東京23区の授乳室・おむつ替えの場所を地図で探し、設備や利用条件を確認できるサービス",
+    app: "https://oyakopit.yend.dev/",
+    thumbnail: "https://oyakopit.yend.dev/ogp.png",
+  },
+  {
     title: "YEND WRITING",
     description: "書いたもの置き場",
     app: "https://writing.yend.dev/",
